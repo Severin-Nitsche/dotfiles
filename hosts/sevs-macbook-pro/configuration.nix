@@ -11,6 +11,7 @@
   homebrew.enable = true;
   homebrew.onActivation.autoUpdate = true; # slow but i might as well
   homebrew.onActivation.upgrade = true;
+  homebrew.onActivation.cleanup = "zap"; # kills everything unmanaged
   homebrew.casks = [
     "discord" # Didn't even knew this existed
     "ukelele"
