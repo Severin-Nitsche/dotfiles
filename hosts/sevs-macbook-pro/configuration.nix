@@ -3,8 +3,7 @@
   # Enable nix daemon
   services.nix-daemon.enable = true;
   # Never more '--experimental-features'
-  services.nix-daemon.package = pkgs.nixFlakes;
-
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Apparently needed for some sourcing magic
   programs.zsh.enable = true;
 
