@@ -61,7 +61,6 @@
 
   programs.zsh.enable = true;
   programs.zsh.autosuggestion.enable = true;
-  programs.zsh.autosuggestion.highlight = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
