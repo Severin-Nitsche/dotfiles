@@ -31,10 +31,10 @@
     "geogebra"
     "spotify"
     "whatsapp"
-    "signal"
-    "postman"
-    "obs"
-    "anki"
+    # "signal"
+    # "postman"
+    # "obs"
+    # "anki"
   ];
 
   # System Packages
