@@ -24,6 +24,9 @@
     eza
     hexyl
     tlrc
+    signal-desktop
+    obs-studio
+    anki
     obsidian
   ];
 
