@@ -13,6 +13,28 @@
   homebrew.onActivation.upgrade = true;
   homebrew.casks = [
     "discord" # Didn't even knew this existed
+    "ukelele"
+    "makemkv"
+    "minecraft"
+    "curseforge"
+    "steam"
+    "firefox"
+    "tor-browser"
+    "sf-symbols"
+    "intellij-idea"
+    "webstorm"
+    "visual-studio-code"
+    "bitwarden"
+    "logi-options+"
+    "iterm2"
+    "rustdesk"
+    "geogebra"
+    "spotify"
+    "whatsapp"
+    "signal"
+    "postman"
+    "obs"
+    "anki"
   ];
 
   # System Packages
