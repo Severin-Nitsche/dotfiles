@@ -9,7 +9,8 @@
 
   # Homebrew -- needs to be installed separately
   homebrew.enable = true;
-  homebrew.autoUpdate = true; # slow but i might as well
+  homebrew.onActivation.autoUpdate = true; # slow but i might as well
+  homebrew.onActivation.upgrade = true;
   homebrew.casks = [
     "discord" # Didn't even knew this existed
   ];
