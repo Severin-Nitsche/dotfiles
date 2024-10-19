@@ -25,6 +25,7 @@
     hexyl
     tlrc
     signal-desktop
+    postman
     # obs-studio # Not supported / wrog os
     anki-bin
     obsidian

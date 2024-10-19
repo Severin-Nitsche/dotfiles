@@ -34,7 +34,7 @@
     "whatsapp"
     # "signal"
     # "postman"
-    # "obs"
+    "obs"
     # "anki"
   ];
 
