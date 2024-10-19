@@ -18,4 +18,6 @@
   environment.systemPackages = with pkgs; [
     home-manager
   ];
+
+  stateVersion = 24.11;
 }
