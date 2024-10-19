@@ -26,7 +26,7 @@
     tlrc
     signal-desktop
     # obs-studio # Not supported / wrog os
-    anki
+    anki-bin
     obsidian
   ];
 
