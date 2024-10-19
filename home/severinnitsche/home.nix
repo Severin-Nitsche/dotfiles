@@ -25,7 +25,7 @@
     hexyl
     tlrc
     signal-desktop
-    obs-studio
+    # obs-studio # Not supported / wrog os
     anki
     obsidian
   ];
