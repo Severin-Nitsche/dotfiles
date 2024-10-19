@@ -10,7 +10,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, darwin }: {
+  outputs = { self, nixpkgs, darwin, home-manager }: {
     darwinConfigurations."sevs-macbook-pro" = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
       modules = [ ./hosts/sevs-macbook-pro/configuration.nix ];
