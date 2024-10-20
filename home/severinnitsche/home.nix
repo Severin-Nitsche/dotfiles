@@ -24,6 +24,15 @@
     eza
     hexyl
     tlrc
+    discord
+    steam
+    jetprains.idea-ultimate
+    jetbrains.webstorm
+    vscode
+    iterm2
+    rustdesk
+    geogebra6
+    spotify
     signal-desktop
     postman
     # obs-studio # Not supported / wrog os

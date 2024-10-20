@@ -13,24 +13,24 @@
   homebrew.onActivation.upgrade = true;
   homebrew.onActivation.cleanup = "zap"; # kills everything unmanaged
   homebrew.casks = [
-    "discord" # Didn't even knew this existed
+    # "discord" # Didn't even knew this existed
     "ukelele"
     "makemkv"
     "minecraft"
     "curseforge"
-    "steam"
+    # "steam"
     "firefox"
     "tor-browser"
     "sf-symbols"
-    "intellij-idea"
-    "webstorm"
-    "visual-studio-code"
+    # "intellij-idea"
+    # "webstorm"
+    # "visual-studio-code"
     "bitwarden"
     "logi-options+"
-    "iterm2"
-    "rustdesk"
-    "geogebra"
-    "spotify"
+    # "iterm2"
+    # "rustdesk"
+    # "geogebra"
+    # "spotify"
     "whatsapp"
     # "signal"
     # "postman"
