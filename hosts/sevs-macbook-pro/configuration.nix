@@ -25,7 +25,7 @@
     # "intellij-idea"
     # "webstorm"
     # "visual-studio-code"
-    "bitwarden"
+    # "bitwarden"
     "logi-options+"
     # "iterm2"
     "rustdesk"
@@ -37,6 +37,10 @@
     "obs"
     # "anki"
   ];
+
+  homebrew.masApps = {
+    Bitwarden = 1352778147; # Even less control >:
+  };
 
   # System Packages
   environment.systemPackages = with pkgs; [
