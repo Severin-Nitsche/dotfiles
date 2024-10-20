@@ -26,7 +26,7 @@
     tlrc
     discord
     steam
-    jetprains.idea-ultimate
+    jetbrains.idea-ultimate
     jetbrains.webstorm
     vscode
     iterm2
