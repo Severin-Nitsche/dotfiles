@@ -30,7 +30,7 @@
     jetbrains.webstorm
     vscode
     iterm2
-    rustdesk
+    # rustdesk
     geogebra6
     spotify
     signal-desktop
