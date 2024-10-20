@@ -25,7 +25,7 @@
     hexyl
     tlrc
     discord
-    steam
+    # steam
     jetbrains.idea-ultimate
     jetbrains.webstorm
     vscode
