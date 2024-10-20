@@ -52,7 +52,7 @@
   system.defaults.CustomUserPreferences = {
     "com.apple.Safari" = {
       "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" = true;
-    }
+    };
   };
   system.defaults.LaunchServices.LSQuarantine = false;
   system.defaults.NSGlobalDomain.AppleInterfaceStyleSwitchesAutomatically = true;
