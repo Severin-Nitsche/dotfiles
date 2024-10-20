@@ -57,10 +57,12 @@
   system.defaults.LaunchServices.LSQuarantine = false;
   system.defaults.NSGlobalDomain.AppleInterfaceStyleSwitchesAutomatically = true;
   system.defaults.NSGlobalDomain.AppleShowAllExtensions = true;
+  system.defaults.finder.AppleShowAllExtensions = true;
+  system.defaults.finder.FXEnableExtensionChangeWarning = false;
   system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
   system.defaults.NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
   system.defaults.NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
-  system.defaults.NSGlobalDomain."com.apple.trackpad.forceClick" = false;
+  # system.defaults.NSGlobalDomain."com.apple.trackpad.forceClick" = false;
 
   system.stateVersion = 5;
 }
