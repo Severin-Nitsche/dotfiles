@@ -40,6 +40,7 @@
 
   homebrew.masApps = {
     Bitwarden = 1352778147; # Even less control >:
+    Flow = 1423210932;
   };
 
   # System Packages
