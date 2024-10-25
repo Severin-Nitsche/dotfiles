@@ -48,11 +48,11 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+    ".ssh/config".text = ''
+      Host github.com
+        AddKeysToAgent yes
+        IdentityFile ~/.ssh/github
+    ''
   };
 
   # Home Manager can also manage your environment variables through
