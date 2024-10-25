@@ -19,7 +19,7 @@
   boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.postDeviceCommands = lib.mkAfter ''
-    mkfs.ext4 -L nixos /dev/disk/by-label/nixos
+    mkfs.ext4 -F -L nixos /dev/disk/by-label/nixos
   '';
 
   nixpkgs.config.allowUnfree = true;
