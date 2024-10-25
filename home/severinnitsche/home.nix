@@ -75,6 +75,10 @@
     EDITOR = "vim";
   };
 
+  programs.git.enable = true;
+  programs.git.userEmail = "severinnitsche@gmail.com";
+  programs.git.userName = "Severin Nitsche";
+
   programs.zsh.enable = true;
   programs.zsh.autosuggestion.enable = true;
 
