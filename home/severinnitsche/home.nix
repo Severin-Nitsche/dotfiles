@@ -52,7 +52,7 @@
       Host github.com
         AddKeysToAgent yes
         IdentityFile ~/.ssh/github
-    ''
+    '';
   };
 
   # Home Manager can also manage your environment variables through
