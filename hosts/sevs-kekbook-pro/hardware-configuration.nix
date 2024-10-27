@@ -13,15 +13,24 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/78bf187d-8a45-4960-8e07-0b9f6dc7cc86";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "size=4G" "mode=755" ];
+  };
+  #  { device = "/dev/disk/by-uuid/78bf187d-8a45-4960-8e07-0b9f6dc7cc86";
+  #    fsType = "ext4";
+  #  };
 
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/da13c119-cf32-401c-a6cd-c39962c14b85";
       fsType = "ext4";
     };
+
+  fileSystems."/home/shared" = {
+    device = "/dev/disk/by-label/shared";
+    fsType = "ntfs";
+  };
 
   fileSystems."/nix" =
     { device = "/dev/disk/by-uuid/0f408d33-3982-46d9-8451-bafddecd707d";

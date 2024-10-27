@@ -18,9 +18,9 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.postDeviceCommands = lib.mkAfter ''
-    mkfs.ext4 -F -L nixos /dev/disk/by-label/nixos
-  '';
+  # boot.initrd.postDeviceCommands = lib.mkAfter ''
+  #   mkfs.ext4 -F -L nixos /dev/disk/by-label/nixos
+  # ''; # Does not work because mkfs is not found
 
   nixpkgs.config.allowUnfree = true;
 
@@ -43,7 +43,8 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
+  console.keyMap = "de";
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
@@ -75,6 +76,12 @@
   # services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.mutableUsers = false;
+
+  users.users.root = {
+    isSystemUser = true;
+    initialPassword = "";
+  };
   # users.users.alice = {
   #   isNormalUser = true;
   #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
@@ -86,10 +93,10 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  # environment.systemPackages = with pkgs; [
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
-  # ];
+  environment.systemPackages = with pkgs; [
+    vim
+    git
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
