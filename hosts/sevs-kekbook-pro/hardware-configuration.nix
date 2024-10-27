@@ -41,6 +41,7 @@
 
   fileSystems."/persist" = { 
     device = "/dev/disk/by-label/persist";
+    neededForBoot = true;
     fsType = "ext4";
   };
 
