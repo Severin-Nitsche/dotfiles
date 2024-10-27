@@ -16,35 +16,37 @@
   fileSystems."/" = {
     device = "none";
     fsType = "tmpfs";
-    options = [ "size=4G" "mode=755" ];
+    options = [ "size=8G" "mode=755" ];
   };
-  #  { device = "/dev/disk/by-uuid/78bf187d-8a45-4960-8e07-0b9f6dc7cc86";
-  #    fsType = "ext4";
-  #  };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/da13c119-cf32-401c-a6cd-c39962c14b85";
-      fsType = "ext4";
-    };
+  fileSystems."/home" = { 
+    device = "/dev/disk/by-label/home";
+    fsType = "ext4";
+  };
 
   fileSystems."/home/shared" = {
     device = "/dev/disk/by-label/shared";
     fsType = "ntfs";
   };
 
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/0f408d33-3982-46d9-8451-bafddecd707d";
-      fsType = "xfs";
-    };
+  fileSystems."/nix" = { 
+    device = "/dev/disk/by-label/nix";
+    fsType = "xfs";
+  };
 
-  fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/73142b64-bd75-42df-87ea-bea67627c90a";
-      fsType = "ext4";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/EFI";
+    fsType = "vfat"; 
+  };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/c923cb0c-b681-4ddb-9dbb-adbc2c496a2a"; }
-    ];
+  fileSystems."/persist" = { 
+    device = "/dev/disk/by-label/persist";
+    fsType = "ext4";
+  };
+
+  swapDevices = [ 
+    { device = "/dev/disk/by-label/swap"; }
+  ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
