@@ -26,7 +26,7 @@
 
   fileSystems."/home/shared" = {
     device = "/dev/disk/by-label/shared";
-    fsType = "ntfs";
+    fsType = "vfat";
   };
 
   fileSystems."/nix" = { 
