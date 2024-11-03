@@ -42,6 +42,7 @@
     Bitwarden = 1352778147; # Even less control >:
     Flow = 1423210932;
     Pages = 409201541;
+    Excel = 462058435;
   };
 
   # System Packages
