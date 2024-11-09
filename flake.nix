@@ -17,6 +17,7 @@
         nixos-hardware.nixosModules.apple-t2
         ./derivs/brcm/brcm.nix
         ./derivs/impermanence/impermanence.nix
+        ./derivs/persistShadowHack/persistShadowHack.nix
       ];
     };
 
