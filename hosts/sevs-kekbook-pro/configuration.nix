@@ -82,6 +82,16 @@
     isSystemUser = true;
     initialPassword = "";
   };
+  # security.sudo.enable = true;
+  users.users.severin = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+    initialPassword = "";
+    packages = with pkgs; [
+      home-manager
+    ];
+  };
+
   # users.users.alice = {
   #   isNormalUser = true;
   #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
