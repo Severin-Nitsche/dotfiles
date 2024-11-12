@@ -110,6 +110,10 @@
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
+  
+  # Enable HYPRLAND
+  programs.hyprland.enable = true;
+
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;
