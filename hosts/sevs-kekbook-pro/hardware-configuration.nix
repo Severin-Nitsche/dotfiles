@@ -27,6 +27,7 @@
   fileSystems."/home/shared" = {
     device = "/dev/disk/by-label/shared";
     fsType = "vfat";
+    options = [ "umask=700" "gid=users" "uid=nobody" ];
   };
 
   fileSystems."/nix" = { 
