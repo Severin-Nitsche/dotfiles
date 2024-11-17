@@ -101,6 +101,8 @@
   programs.git.userEmail = "severinnitsche@gmail.com";
   programs.git.userName = "Severin Nitsche";
 
+  programs.ssh.enable = true;
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
