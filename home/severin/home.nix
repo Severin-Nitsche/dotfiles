@@ -25,6 +25,9 @@
     bind = [
       "$mod, Q, exec, uwsm app -- kitty"
     ];
+    input = {
+       kb_layout = "de";
+    };
   };
   wayland.windowManager.hyprland.systemd.variables = [ "--all" ];
   wayland.windowManager.hyprland.systemd.enable = false; # uwsm compatibility
