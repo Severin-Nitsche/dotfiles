@@ -28,6 +28,9 @@
     input = {
        kb_layout = "de";
     };
+    env = [
+      "EDITOR, vim"
+    ];
   };
   wayland.windowManager.hyprland.systemd.variables = [ "--all" ];
   wayland.windowManager.hyprland.systemd.enable = false; # uwsm compatibility
@@ -90,7 +93,7 @@
   #
   #  /etc/profiles/per-user/severin/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
+  home.sessionVariables = { # These will only be picked up by the login shell
     EDITOR = "vim";
   };
 
