@@ -17,6 +17,13 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  # Manage Hyprland
+  wayland.windowManager.hyprland.enable = true;
+  programs.kitty.enable = true;
+  # wayland.windowManager.hyprland.settings = ...
+  # wayland.windowManager.hyprland.systemd.variables = [ "--all" ];
+  wayland.windowManager.hyprland.systemd.enable = false; # uwsm compatibility
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [

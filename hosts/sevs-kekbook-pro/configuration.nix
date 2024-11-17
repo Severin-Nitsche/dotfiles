@@ -54,7 +54,9 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-
+  # Enable sddm as display/login manager
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
   
 
   # Configure keymap in X11
@@ -113,6 +115,14 @@
   
   # Enable HYPRLAND
   programs.hyprland.enable = true;
+  programs.uwsm = {
+    enable = true;
+    waylandCompositors.hyprland = {
+      binPath = "/run/current-system/sw/bin/Hyprland";
+      comment = "Hyprland session managed by uwsm";
+      prettyName = "Hyprland";
+    };
+  };
 
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
