@@ -20,8 +20,13 @@
   # Manage Hyprland
   wayland.windowManager.hyprland.enable = true;
   programs.kitty.enable = true;
-  # wayland.windowManager.hyprland.settings = ...
-  # wayland.windowManager.hyprland.systemd.variables = [ "--all" ];
+  wayland.windowManager.hyprland.settings = {
+    "$mod" = "SUPER";
+    bind = [
+      "$mod, Q, exec, uwsm app -- kitty"
+    ];
+  };
+  wayland.windowManager.hyprland.systemd.variables = [ "--all" ];
   wayland.windowManager.hyprland.systemd.enable = false; # uwsm compatibility
 
   # The home.packages option allows you to install Nix packages into your
@@ -47,6 +52,8 @@
     obs-studio
     anki-bin
     obsidian
+
+    dunst
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
