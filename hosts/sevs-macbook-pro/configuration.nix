@@ -36,6 +36,7 @@
     # "postman"
     "obs"
     # "anki"
+    "duckduckgo"
   ];
 
   homebrew.masApps = {
@@ -44,7 +45,7 @@
     Pages = 409201541;
     Excel = 462058435;
     "DuckDuckGo Privacy for Safari" = 1482920575;
-    DuckDuckGo = 663592361;
+    # DuckDuckGo = 663592361;
   };
 
   # System Packages
