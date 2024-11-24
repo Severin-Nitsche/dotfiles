@@ -55,6 +55,7 @@
     alacritty
     geogebra6
     postman
+    firefox
     obs-studio
     anki-bin
     obsidian
@@ -101,7 +102,7 @@
   programs.git.userEmail = "severinnitsche@gmail.com";
   programs.git.userName = "Severin Nitsche";
 
-  programs.ssh.enable = true;
+  # programs.ssh.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
