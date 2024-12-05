@@ -44,6 +44,7 @@
     Flow = 1423210932;
     Pages = 409201541;
     Excel = 462058435;
+    Powerpoint = 462062816;
     "DuckDuckGo Privacy for Safari" = 1482920575;
     # DuckDuckGo = 663592361;
   };
