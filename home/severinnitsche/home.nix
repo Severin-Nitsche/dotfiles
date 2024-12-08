@@ -38,6 +38,7 @@
     # obs-studio # Not supported / wrog os
     anki-bin
     obsidian
+    inkscape
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
