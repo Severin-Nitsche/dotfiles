@@ -41,6 +41,7 @@
 
   homebrew.masApps = {
     Bitwarden = 1352778147; # Even less control >:
+    GoodNotes = 1444383602;
     Flow = 1423210932;
     Pages = 409201541;
     Excel = 462058435;
