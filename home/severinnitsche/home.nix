@@ -72,9 +72,12 @@
   #
   #  /etc/profiles/per-user/severinnitsche/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
+  programs.vim.enable = true;
+  programs.vim.defaultEditor = true;
+  programs.vim.settings.expandtab = true;
+  programs.vim.settings.mouse = "a";
+  programs.vim.settings.number = true;
+  programs.vim.settings.shiftwidth = 2;
 
   programs.git.enable = true;
   programs.git.userEmail = "severinnitsche@gmail.com";
@@ -82,6 +85,11 @@
 
   programs.zsh.enable = true;
   programs.zsh.autosuggestion.enable = true;
+  programs.zsh.completionInit = ''
+    autoload -U compinit && compinit
+    bindkey '^I' forward-word
+    bindkey '^[[Z' autosuggest-accept
+  '';
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
