@@ -40,6 +40,7 @@
   ];
 
   homebrew.masApps = {
+    XCode = 497799835;
     Bitwarden = 1352778147; # Even less control >:
     GoodNotes = 1444383602;
     Flow = 1423210932;
