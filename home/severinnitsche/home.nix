@@ -20,8 +20,8 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    nerdfonts
     bat
-    eza
     hexyl
     tlrc
     discord
@@ -82,6 +82,11 @@
   programs.git.enable = true;
   programs.git.userEmail = "severinnitsche@gmail.com";
   programs.git.userName = "Severin Nitsche";
+
+  programs.eza.enable = true;
+  programs.eza.enableBashIntegration = true;
+  programs.eza.enableZshIntegration = true;
+  # programs.eza.icons = "auto";
 
   programs.zsh.enable = true;
   programs.zsh.autosuggestion.enable = true;
