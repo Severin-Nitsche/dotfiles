@@ -85,6 +85,10 @@
 
   programs.zsh.enable = true;
   programs.zsh.autosuggestion.enable = true;
+  programs.zsh.autosuggestion.strategy = [
+    "history"
+    "completion"
+  ];
   programs.zsh.completionInit = ''
     autoload -U compinit && compinit
     bindkey '^I' forward-word
