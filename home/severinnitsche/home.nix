@@ -28,6 +28,7 @@
     # steam
     jetbrains.idea-ultimate
     jetbrains.webstorm
+    jetbrains.pycharm-professional
     vscode
     iterm2
     # rustdesk
