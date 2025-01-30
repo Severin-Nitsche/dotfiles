@@ -67,6 +67,7 @@
     "com.apple.Safari" = {
       "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" = true;
     };
+    "com.apple.TextEdit".RichText = false;
   };
   system.defaults.LaunchServices.LSQuarantine = false;
   system.defaults.NSGlobalDomain.AppleInterfaceStyleSwitchesAutomatically = true;
