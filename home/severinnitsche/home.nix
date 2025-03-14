@@ -24,6 +24,7 @@
     bat
     hexyl
     tlrc
+    openconnect
     discord
     # steam
     jetbrains.idea-ultimate
@@ -55,6 +56,13 @@
         AddKeysToAgent yes
         IdentityFile ~/.ssh/github
     '';
+  };
+
+  home.shellAliases = {
+    sudo = "sudo ";
+    nordvpn = "openconnect --protocol=anyconnect https://vpn.rwth-aachen.de --useragent=AnyConnect -b";
+    killvpn = "killall openconnect";
+    vpn = "nordvpn -u ll464721 --authgroup=\"RWTH-VPN (Full Tunnel)\"";
   };
 
   # Home Manager can also manage your environment variables through
