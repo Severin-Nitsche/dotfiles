@@ -55,6 +55,9 @@
       Host github.com
         AddKeysToAgent yes
         IdentityFile ~/.ssh/github
+      Host *.hpc.itc.rwth-aachen.de
+        AddKeysToAgent yes
+        IdentityFile ~/.ssh/claix
     '';
   };
 
