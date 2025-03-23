@@ -1,7 +1,5 @@
 { pkgs, ... }: {
 
-  # Enable nix daemon
-  services.nix-daemon.enable = true;
   # Never more '--experimental-features'
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Apparently needed for some sourcing magic
@@ -37,6 +35,7 @@
     "obs"
     # "anki"
     "duckduckgo"
+    "microsoft-word"
   ];
 
   homebrew.masApps = {

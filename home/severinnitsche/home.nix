@@ -1,4 +1,4 @@
-{ config, pkgs, nixpkgs, ... }:
+{ config, pkgs, nixpkgs, lib, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -20,7 +20,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    nerdfonts
     bat
     hexyl
     tlrc
@@ -41,7 +40,7 @@
     anki-bin
     obsidian
     inkscape
-  ];
+  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
