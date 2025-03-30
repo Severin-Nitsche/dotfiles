@@ -78,5 +78,7 @@
   system.defaults.NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
   # system.defaults.NSGlobalDomain."com.apple.trackpad.forceClick" = false;
 
+  security.pam.services.sudo_local.touchIdAuth = true;
+
   system.stateVersion = 5;
 }
