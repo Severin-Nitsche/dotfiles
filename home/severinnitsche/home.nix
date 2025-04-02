@@ -1,4 +1,4 @@
-{ config, pkgs, nixpkgs, lib, ... }:
+{ config, pkgs, nixpkgs, lib, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -17,6 +17,27 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  imports = [
+    inputs.spicetify-nix.homeManagerModules.default
+  ];
+
+  programs.spicetify = let
+    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
+  in {
+    enable = true;
+    enabledExtensions = with spicePkgs.extensions; [
+      adblockify
+      trashbin
+      history
+      playNext
+    ];
+    enabledCustomApps = with spicePkgs.apps; [
+      marketplace
+    ];
+    theme = spicePkgs.themes.catppuccin;
+    colorScheme = "latte";
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -33,7 +54,7 @@
     iterm2
     # rustdesk
     geogebra6
-    spotify
+    # spotify
     signal-desktop
     postman
     # obs-studio # Not supported / wrog os

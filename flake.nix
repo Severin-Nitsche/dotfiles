@@ -6,11 +6,13 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager }: {
+  outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs: {
     darwinConfigurations."sevs-macbook-pro" = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
       modules = [ ./hosts/sevs-macbook-pro/configuration.nix ];
@@ -19,6 +21,7 @@
     homeConfigurations."severinnitsche" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages."x86_64-darwin";
       modules = [ ./home/severinnitsche/home.nix ];
+      extraSpecialArgs = { inherit inputs; };
     };
   };
 }
