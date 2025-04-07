@@ -50,7 +50,8 @@
     jetbrains.idea-ultimate
     jetbrains.webstorm
     jetbrains.pycharm-professional
-    vscode
+    # vscode
+    zed-editor
     iterm2
     # rustdesk
     geogebra6
