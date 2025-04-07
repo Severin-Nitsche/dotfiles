@@ -33,8 +33,9 @@
     homeConfigurations."severinnitsche" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages."x86_64-darwin";
       modules = [ 
-        mac-app-util.homeManagerModules.default
+        # mac-app-util.homeManagerModules.default
         ./home/severinnitsche/home.nix 
+        ./derivs/fixLaunchpad/fixLaunchpad.nix
       ];
       extraSpecialArgs = { inherit inputs; };
     };
