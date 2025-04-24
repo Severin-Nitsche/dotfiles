@@ -62,6 +62,7 @@
     anki-bin
     obsidian
     inkscape
+    aldente
   ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
