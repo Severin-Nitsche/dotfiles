@@ -79,6 +79,9 @@
       Host *.hpc.itc.rwth-aachen.de
         AddKeysToAgent yes
         IdentityFile ~/.ssh/claix
+      Host git-ce.rwth-aachen.de
+        AddKeysToAgent yes
+        IdentityFile ~/.ssh/git-ce
     '';
   };
 
