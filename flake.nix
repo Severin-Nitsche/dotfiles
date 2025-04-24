@@ -36,6 +36,7 @@
         mac-app-util.homeManagerModules.default
         ./home/severinnitsche/home.nix 
         ./derivs/fixLaunchpad/fixLaunchpad.nix
+        ./derivs/vpn-rbw/vpn-rbw.nix
       ];
       extraSpecialArgs = { inherit inputs; };
     };

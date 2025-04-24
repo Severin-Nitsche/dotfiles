@@ -87,10 +87,8 @@
   };
 
   home.shellAliases = {
-    sudo = "sudo ";
-    eastvpn = "openconnect --protocol=anyconnect https://vpn.rwth-aachen.de --useragent=AnyConnect -b";
-    killvpn = "killall openconnect";
-    vpn = "eastvpn -u ll464721 --authgroup=\"RWTH-VPN (Full Tunnel)\"";
+    vpn = "vpn ll464721 VPN -- --protocol=anyconnect --useragent=AnyConnect --authgroup=\"RWTH-VPN (Full Tunnel)\" -b https://vpn.rwth-aachen.de";
+    killvpn = "sudo killall openconnect";
   };
 
   # Home Manager can also manage your environment variables through
@@ -119,6 +117,11 @@
   programs.git.enable = true;
   programs.git.userEmail = "severinnitsche@gmail.com";
   programs.git.userName = "Severin Nitsche";
+
+  programs.rbw.enable = true;
+  programs.rbw.settings.base_url = "https://bitwarden.keki-nas.synology.me";
+  programs.rbw.settings.email = "severinnitsche@gmail.com";
+  programs.rbw.settings.pinentry = pkgs.pinentry-tty;
 
   programs.eza.enable = true;
   programs.eza.enableBashIntegration = true;
