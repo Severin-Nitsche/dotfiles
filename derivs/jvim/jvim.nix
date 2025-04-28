@@ -1,4 +1,6 @@
-repo: { pkgs, ... }: {
+repo: { pkgs, lib, programs, ... }: {
+
+  programs.neovim.vimAlias = true;
   programs.neovim.enable = true;
   programs.neovim.defaultEditor = true;
   home.file.".config/nvim" = {

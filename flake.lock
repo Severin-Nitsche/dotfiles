@@ -38,11 +38,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1745675870,
-        "narHash": "sha256-FgEpuqfW9NjlUkee9NsZavQNv0fB9CG+pXJtLnvvi9E=",
+        "lastModified": 1745821684,
+        "narHash": "sha256-6gjNkiIB9JitwWi1Ax1HlVEw8EWOCoi5myVsn+1GvqQ=",
         "ref": "refs/heads/main",
-        "rev": "84349b3fd803d198a6bd8925b32fb4c2aed88d5f",
-        "revCount": 2,
+        "rev": "dfb765e311ee7bffbc78395f81c9f65498c9c901",
+        "revCount": 3,
         "type": "git",
         "url": "ssh://git@github.com/TheodosiusVelco/Dotfiles.git"
       },
@@ -114,7 +114,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-yXCmMGaQhd/RfWi5IUVx6GoJOJrsj79zNjRoirIS7NI=",
+        "narHash": "sha256-ovOLI0s8o23nR4QCKpXtEBLA+8pFqyPKda/S2a5g4k0=",
         "path": "./derivs/jvim",
         "type": "path"
       },
