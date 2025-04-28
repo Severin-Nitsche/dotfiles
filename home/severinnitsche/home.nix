@@ -17,10 +17,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  imports = [
-    inputs.spicetify-nix.homeManagerModules.default
-  ];
-
   programs.spicetify = let
     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
   in {
@@ -56,7 +52,7 @@
     # rustdesk
     geogebra6
     # spotify
-    signal-desktop
+    signal-desktop-bin # signal-desktop was not available for macos on unstable but that might change
     postman
     # obs-studio # Not supported / wrog os
     anki-bin
@@ -129,16 +125,18 @@
   # programs.eza.icons = "auto";
 
   programs.zsh.enable = true;
+  programs.zsh.enableCompletion = false;
   programs.zsh.autosuggestion.enable = true;
-  programs.zsh.autosuggestion.strategy = [
-    "history"
-    "completion"
-  ];
-  programs.zsh.completionInit = ''
-    autoload -U compinit && compinit
-    bindkey '^I' forward-word
-    bindkey '^[[Z' autosuggest-accept
-  '';
+  # programs.zsh.autosuggestion.strategy = [
+  #   "history"
+  #   "completion"
+  # ];
+  # programs.zsh.completionInit = ''
+  #   autoload -U compinit && compinit
+  #   bindkey '^I' forward-word
+  #   bindkey '^[[Z' autosuggest-accept
+  #   bindkey '\e' autosuggest-toggle
+  # '';
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

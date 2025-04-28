@@ -3,7 +3,7 @@
   # Never more '--experimental-features'
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Apparently needed for some sourcing magic
-  programs.zsh.enable = true;
+  # programs.zsh.enable = true;
 
   # Homebrew -- needs to be installed separately
   homebrew.enable = true;

@@ -22,6 +22,7 @@
     darwin, 
     home-manager, 
     mac-app-util, 
+    spicetify-nix,
     jvim,
     ... 
   }@inputs: {
@@ -37,6 +38,7 @@
       pkgs = nixpkgs.legacyPackages."x86_64-darwin";
       modules = [ 
         mac-app-util.homeManagerModules.default
+        spicetify-nix.homeManagerModules.default
         jvim.homeManagerModules.default
         ./home/severinnitsche/home.nix 
         ./derivs/fixLaunchpad/fixLaunchpad.nix
