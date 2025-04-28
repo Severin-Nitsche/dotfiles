@@ -8,7 +8,7 @@ repo: { pkgs, lib, programs, ... }: {
     source = "${repo}/.config/nvim";
   };
 
-  # home.packages = [
-  #   pkgs.skimpdf
-  # ];
+  home.packages = [
+    pkgs.skimpdf
+  ];
 }
