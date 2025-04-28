@@ -10,6 +10,8 @@
 
     mac-app-util.url = "github:hraban/mac-app-util";
 
+    jvim.url = "path:./derivs/jvim";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -20,6 +22,7 @@
     darwin, 
     home-manager, 
     mac-app-util, 
+    jvim,
     ... 
   }@inputs: {
     darwinConfigurations."sevs-macbook-pro" = darwin.lib.darwinSystem {
@@ -34,6 +37,7 @@
       pkgs = nixpkgs.legacyPackages."x86_64-darwin";
       modules = [ 
         mac-app-util.homeManagerModules.default
+        jvim.homeManagerModules.default
         ./home/severinnitsche/home.nix 
         ./derivs/fixLaunchpad/fixLaunchpad.nix
         ./derivs/vpn-rbw/vpn-rbw.nix

@@ -108,7 +108,7 @@
   #  /etc/profiles/per-user/severinnitsche/etc/profile.d/hm-session-vars.sh
   #
   programs.vim.enable = true;
-  programs.vim.defaultEditor = true;
+  # programs.vim.defaultEditor = true;
   programs.vim.settings.expandtab = true;
   programs.vim.settings.mouse = "a";
   programs.vim.settings.number = true;
