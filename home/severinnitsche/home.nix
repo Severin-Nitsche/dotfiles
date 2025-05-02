@@ -88,6 +88,7 @@
   home.shellAliases = {
     vpn = "vpn ll464721 VPN -- --protocol=anyconnect --useragent=AnyConnect --authgroup=\"RWTH-VPN (Full Tunnel)\" -b https://vpn.rwth-aachen.de";
     killvpn = "sudo killall openconnect";
+    dev = "nix develop -i -c bash --norc";
   };
 
   # Home Manager can also manage your environment variables through
