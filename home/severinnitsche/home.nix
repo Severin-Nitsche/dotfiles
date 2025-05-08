@@ -52,11 +52,6 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    "Library/Application Support/discord/settings.json".text = ''
-      {
-        "SKIP_HOST_UPDATE": true
-      }
-    '';
     ".ssh/config".text = ''
       Host github.com
         AddKeysToAgent yes
