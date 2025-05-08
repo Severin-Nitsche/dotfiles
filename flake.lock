@@ -38,11 +38,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1745994268,
-        "narHash": "sha256-BcEpE9gg7bQyx7Zjl1VDmHsyvEq899gwU8LWJqYPGYo=",
+        "lastModified": 1746600714,
+        "narHash": "sha256-stuP6+w5JRwGvrVctqZpfs6co3DYsFTEoM1g8zc52+Y=",
         "ref": "refs/heads/main",
-        "rev": "440dc99e3c5f4a1cb2785373fbabf26d02775dd4",
-        "revCount": 8,
+        "rev": "0ea904efa2ace8f33118783d6d1a22667629d678",
+        "revCount": 12,
         "type": "git",
         "url": "ssh://git@github.com/TheodosiusVelco/Dotfiles.git"
       },
