@@ -44,6 +44,7 @@
         ./home/severinnitsche/home.nix 
         ./derivs/fixLaunchpad/fixLaunchpad.nix
         ./derivs/vpn-rbw/vpn-rbw.nix
+        ./derivs/discord/discord.nix
       ];
       extraSpecialArgs = { inherit inputs; };
     };

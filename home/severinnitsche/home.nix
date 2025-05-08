@@ -24,7 +24,8 @@
     hexyl
     tlrc
     openconnect
-    discord
+    # vesktop
+    # discord
     # steam
     jetbrains.idea-ultimate
     jetbrains.webstorm
