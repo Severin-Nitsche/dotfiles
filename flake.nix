@@ -40,6 +40,7 @@
         mac-app-util.homeManagerModules.default
         spicetify-nix.homeManagerModules.default
         jvim.homeManagerModules.default
+        ./derivs/spicetify/spicetify.nix
         ./home/severinnitsche/home.nix 
         ./derivs/fixLaunchpad/fixLaunchpad.nix
         ./derivs/vpn-rbw/vpn-rbw.nix
