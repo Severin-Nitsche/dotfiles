@@ -15,7 +15,7 @@
     useQuickCss = true;
     plugins = {
       AlwaysTrust.enabled = true;
-      AnonymizeFileNames.enabled = true;
+      # AnonymiseFileNames.enabled = true;
       BiggerStreamPreview.enabled = true;
       ClearURLs.enabled = true;
       CopyFileContents.enabled = true;
