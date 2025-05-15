@@ -5,14 +5,16 @@
     discordBranch = "stable";
     minimizeToTray = true;
     arRPC = false;
-    splashColor = "rgb(239, 239, 240)";
-    splashBackground = "rgb(32, 32, 36)";
+    splashColor = "rgb(59, 45, 44)";
+    splashBackground = "rgb(252, 247, 236)";
+    appBadge = false;
   };
   programs.vesktop.vencord.settings = {
     autoUpdate = false;
     autoUpdateNotification = false;
     notifyAboutUpdates = false;
     useQuickCss = true;
+    transparent = true;
     plugins = {
       AlwaysTrust.enabled = true;
       # AnonymiseFileNames.enabled = true;
