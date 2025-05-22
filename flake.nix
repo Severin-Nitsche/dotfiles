@@ -11,6 +11,7 @@
     mac-app-util.url = "github:hraban/mac-app-util";
 
     jvim.url = "path:./derivs/jvim";
+    # lfc.url = "path:./derivs/latex-fast-compile";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -24,6 +25,7 @@
     mac-app-util, 
     spicetify-nix,
     jvim,
+    # lfc,
     ... 
   }@inputs: {
     darwinConfigurations."sevs-macbook-pro" = darwin.lib.darwinSystem {
@@ -40,6 +42,7 @@
         mac-app-util.homeManagerModules.default
         spicetify-nix.homeManagerModules.default
         jvim.homeManagerModules.default
+        # lfc.homeManagerModules.default
         ./derivs/spicetify/spicetify.nix
         ./home/severinnitsche/home.nix 
         ./derivs/fixLaunchpad/fixLaunchpad.nix
