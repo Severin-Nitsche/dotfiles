@@ -10,6 +10,6 @@ repo: { pkgs, lib, programs, ... }: {
 
   home.packages = [
     pkgs.ripgrep
-    pkgs.skimpdf
+    pkgs.sioyek
   ];
 }
