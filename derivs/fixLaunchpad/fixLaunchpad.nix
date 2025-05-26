@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [
-    (writeShellScriptBin "fix-Launchpad" (builtins.readFile ./fixup.sh))
-  ];
+{ writeShellApplication }:
+writeShellApplication {
+  name = "fix-Launchpad";
+  text = builtins.readFile ./fixup.sh;
 }

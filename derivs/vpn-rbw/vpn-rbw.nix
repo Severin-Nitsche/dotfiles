@@ -1,5 +1,6 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [
-    (writeShellScriptBin "vpn" (builtins.readFile ./vpn.sh))
-  ];
+{ writeShellApplication, rbw, openconnect }:
+writeShellApplication {
+  name = "vpn";
+  runtimeInputs = [ rbw openconnect ];
+  text = (builtins.readFile ./vpn.sh);
 }

@@ -113,11 +113,11 @@
         "dotfiles": "dotfiles"
       },
       "locked": {
-        "path": "./derivs/jvim",
+        "path": "./modules/jvim",
         "type": "path"
       },
       "original": {
-        "path": "./derivs/jvim",
+        "path": "./modules/jvim",
         "type": "path"
       },
       "parent": []

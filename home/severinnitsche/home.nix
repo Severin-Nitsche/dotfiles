@@ -1,134 +1,65 @@
-{ config, pkgs, nixpkgs, lib, inputs, ... }:
+{ config, pkgs, nixpkgs, lib, inputs, ... }: {
 
-{
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-  home.username = "severinnitsche";
-  home.homeDirectory = "/Users/severinnitsche";
+  imports = [
+    ../common/direnv.nix
+    ../common/eza.nix
+    ../common/git.nix
+    ../common/rbw.nix
+    ../common/ssh.nix
+    ../common/vim.nix
+    ../common/jvim.nix
+    ../common/zsh.nix
 
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
-  home.stateVersion = "24.05"; # Please read the comment before changing.
+    ../common/discord.nix
+    ../common/spicetify.nix # needs the spicetify input
+  ];
 
-  nixpkgs.config.allowUnfree = true;
+  options = {};
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  home.packages = with pkgs; [
-    bat
-    hexyl
-    tlrc
-    openconnect
-    # vesktop
-    # discord
-    # steam
-    jetbrains.idea-ultimate
-    jetbrains.webstorm
-    jetbrains.pycharm-professional
-    # vscode
-    zed-editor
-    iterm2
-    # rustdesk
-    geogebra6
-    # spotify
-    signal-desktop-bin # signal-desktop was not available for macos on unstable but that might change
-    postman
-    # obs-studio # Not supported / wrog os
-    anki-bin
-    obsidian
-    inkscape
-    aldente
-  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  config = {
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-    ".ssh/config".text = ''
-      Host github.com
-        AddKeysToAgent yes
-        IdentityFile ~/.ssh/github
-      Host *.hpc.itc.rwth-aachen.de
-        AddKeysToAgent yes
-        IdentityFile ~/.ssh/claix
-      Host git-ce.rwth-aachen.de
-        AddKeysToAgent yes
-        IdentityFile ~/.ssh/git-ce
-      Host git.rwth-aachen.de
-        AddKeysToAgent yes
-        IdentityFile ~/.ssh/gitlab
-    '';
+    home.username = "severinnitsche";
+    home.homeDirectory = "/Users/severinnitsche";
+  
+    home.stateVersion = "24.05"; 
+    programs.home-manager.enable = true;
+
+    nixpkgs.config.allowUnfree = true;
+    nixpkgs.overlays = with (import ../../overlays); [
+      additions
+      # modifications
+    ];
+  
+    home.packages = with pkgs; [
+      # Overrides
+      vpn-rbw
+      fixLaunchpad
+      # Shell
+      tmux
+      bat
+      hexyl
+      tlrc
+      # Utility
+      mos
+      aldente
+      iterm2
+      # Development
+      jetbrains.idea-ultimate
+      jetbrains.webstorm
+      jetbrains.pycharm-professional
+      postman
+      # Desktop
+      geogebra6
+      signal-desktop-bin # signal-desktop was not available for macos on unstable
+      anki-bin
+      obsidian
+      inkscape
+    ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  
+    home.shellAliases = {
+      vpn = "vpn ll464721 VPN -- --protocol=anyconnect --useragent=AnyConnect --authgroup=\"RWTH-VPN (Full Tunnel)\" -b https://vpn.rwth-aachen.de";
+      killvpn = "sudo killall openconnect";
+      dev = "nix develop -i -c bash --norc";
+    };
   };
-
-  home.shellAliases = {
-    vpn = "vpn ll464721 VPN -- --protocol=anyconnect --useragent=AnyConnect --authgroup=\"RWTH-VPN (Full Tunnel)\" -b https://vpn.rwth-aachen.de";
-    killvpn = "sudo killall openconnect";
-    dev = "nix develop -i -c bash --norc";
-  };
-
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/severinnitsche/etc/profile.d/hm-session-vars.sh
-  #
-  programs.vim.enable = true;
-  # programs.vim.defaultEditor = true;
-  programs.vim.settings.expandtab = true;
-  programs.vim.settings.mouse = "a";
-  programs.vim.settings.number = true;
-  programs.vim.settings.shiftwidth = 2;
-
-  programs.git.enable = true;
-  programs.git.userEmail = "severinnitsche@gmail.com";
-  programs.git.userName = "Severin Nitsche";
-
-  programs.rbw.enable = true;
-  programs.rbw.settings.base_url = "https://bitwarden.keki-nas.synology.me";
-  programs.rbw.settings.email = "severinnitsche@gmail.com";
-  programs.rbw.settings.pinentry = pkgs.pinentry-tty;
-
-  programs.eza.enable = true;
-  programs.eza.enableBashIntegration = true;
-  programs.eza.enableZshIntegration = true;
-  # programs.eza.icons = "auto";
-
-  programs.zsh.enable = true;
-  programs.zsh.enableCompletion = false;
-  programs.zsh.autosuggestion.enable = true;
-  # programs.zsh.autosuggestion.strategy = [
-  #   "history"
-  #   "completion"
-  # ];
-  # programs.zsh.completionInit = ''
-  #   autoload -U compinit && compinit
-  #   bindkey '^I' forward-word
-  #   bindkey '^[[Z' autosuggest-accept
-  #   bindkey '\e' autosuggest-toggle
-  # '';
-
-  programs.direnv.enable = true;
-  programs.direnv.enableZshIntegration = true;
-  programs.direnv.nix-direnv.enable = true;
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }

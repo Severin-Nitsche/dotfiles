@@ -10,7 +10,7 @@
 
     mac-app-util.url = "github:hraban/mac-app-util";
 
-    jvim.url = "path:./derivs/jvim";
+    jvim.url = "path:./modules/jvim";
     # lfc.url = "path:./derivs/latex-fast-compile";
 
     home-manager.url = "github:nix-community/home-manager";
@@ -42,12 +42,7 @@
         mac-app-util.homeManagerModules.default
         spicetify-nix.homeManagerModules.default
         jvim.homeManagerModules.default
-        # lfc.homeManagerModules.default
-        ./derivs/spicetify/spicetify.nix
         ./home/severinnitsche/home.nix 
-        ./derivs/fixLaunchpad/fixLaunchpad.nix
-        ./derivs/vpn-rbw/vpn-rbw.nix
-        ./derivs/discord/discord.nix
       ];
       extraSpecialArgs = { inherit inputs; };
     };
