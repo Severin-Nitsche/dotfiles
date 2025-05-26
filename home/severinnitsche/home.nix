@@ -47,7 +47,7 @@
       jetbrains.idea-ultimate
       jetbrains.webstorm
       jetbrains.pycharm-professional
-      postman
+      # postman # random 404
       # Desktop
       geogebra6
       signal-desktop-bin # signal-desktop was not available for macos on unstable

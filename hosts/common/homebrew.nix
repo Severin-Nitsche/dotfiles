@@ -7,6 +7,7 @@
   config = {
   
     # Homebrew -- needs to be installed separately
+    environment.variables.HOMEBREW_NO_ANALYTICS = "1";
     homebrew.enable = true;
     homebrew.onActivation.autoUpdate = true; # slow but i might as well
     homebrew.onActivation.upgrade = true;

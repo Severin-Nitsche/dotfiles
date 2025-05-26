@@ -26,7 +26,6 @@
     mac-app-util, 
     spicetify-nix,
     jvim,
-    # lfc,
     ... 
   }@inputs: {
     darwinConfigurations."sevs-macbook-pro" = darwin.lib.darwinSystem {

@@ -9,10 +9,11 @@
 
   config = {
     # Never more '--experimental-features'
-    nix.settings.experimental-features = [ 
-      "nix-command" 
-      "flakes" 
-    ];
+    nix.enable = false;
+    # nix.settings.experimental-features = [ 
+    #   "nix-command" 
+    #   "flakes" 
+    # ];
   
     # Some stuff in nix darwin is deprecated / up to change
     # For now, I need this for compatibility
