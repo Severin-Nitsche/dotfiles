@@ -40,7 +40,6 @@
       hexyl
       tlrc
       # Utility
-      mos
       aldente
       iterm2
       # Development

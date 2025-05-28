@@ -26,6 +26,9 @@
   
     # No more password for sudo
     security.pam.services.sudo_local.touchIdAuth = true;
+
+    # A good IO driver
+    services.karabiner-elements.enable = true;
   
     system.stateVersion = 5;
   };
