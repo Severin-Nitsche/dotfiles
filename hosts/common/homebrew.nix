@@ -21,6 +21,7 @@
       "firefox"
       "tor-browser"
       "sf-symbols"
+      "spotify"
       # "logi-options+"
       "rustdesk"
       "whatsapp"

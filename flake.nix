@@ -6,8 +6,8 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
+    # spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    # spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     mac-app-util.url = "github:hraban/mac-app-util";
 
@@ -24,7 +24,7 @@
     darwin, 
     home-manager, 
     mac-app-util, 
-    spicetify-nix,
+    # spicetify-nix,
     jvim,
     ... 
   }@inputs: {
@@ -40,7 +40,7 @@
       pkgs = nixpkgs.legacyPackages."x86_64-darwin";
       modules = [ 
         mac-app-util.homeManagerModules.default
-        spicetify-nix.homeManagerModules.default
+        # spicetify-nix.homeManagerModules.default
         jvim.homeManagerModules.default
         ./home/severinnitsche/home.nix 
       ];

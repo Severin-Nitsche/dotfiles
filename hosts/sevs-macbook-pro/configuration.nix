@@ -9,11 +9,11 @@
 
   config = {
     # Never more '--experimental-features'
-    nix.enable = false;
-    # nix.settings.experimental-features = [ 
-    #   "nix-command" 
-    #   "flakes" 
-    # ];
+    # nix.enable = false;
+    nix.settings.experimental-features = [ 
+      "nix-command" 
+      "flakes" 
+    ];
   
     # Some stuff in nix darwin is deprecated / up to change
     # For now, I need this for compatibility
@@ -27,9 +27,6 @@
     # No more password for sudo
     security.pam.services.sudo_local.touchIdAuth = true;
 
-    # A good IO driver
-    services.karabiner-elements.enable = true;
-  
     system.stateVersion = 5;
   };
 }

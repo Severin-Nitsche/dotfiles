@@ -11,7 +11,7 @@
     ../common/zsh.nix
 
     ../common/discord.nix
-    ../common/spicetify.nix # needs the spicetify input
+    # ../common/spicetify.nix # needs the spicetify input
   ];
 
   options = {};
