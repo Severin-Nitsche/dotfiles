@@ -36,6 +36,7 @@
       GoodNotes = 1444383602;
       Flow = 1423210932;
       Pages = 409201541;
+      Keynote = 409183694;
       Excel = 462058435;
       Powerpoint = 462062816;
       Wireguard = 1451685025;
