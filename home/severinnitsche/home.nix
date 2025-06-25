@@ -9,6 +9,7 @@
     ../common/vim.nix
     ../common/jvim.nix
     ../common/zsh.nix
+    ../common/tmux.nix
 
     ../common/discord.nix
     # ../common/spicetify.nix # needs the spicetify input
@@ -35,7 +36,6 @@
       vpn-rbw
       fixLaunchpad
       # Shell
-      tmux
       bat
       hexyl
       tlrc
