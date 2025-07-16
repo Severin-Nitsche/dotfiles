@@ -24,7 +24,6 @@
       "spotify"
       # "logi-options+"
       "rustdesk"
-      "whatsapp"
       "obs"
       "duckduckgo"
       "microsoft-word"
