@@ -21,7 +21,7 @@
       "firefox"
       "tor-browser"
       "sf-symbols"
-      "spotify"
+      # "spotify"
       # "logi-options+"
       "rustdesk"
       "obs"
