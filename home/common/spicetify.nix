@@ -7,12 +7,13 @@ in {
     enabledExtensions = with spicePkgs.extensions; [
       adblockify
       trashbin
-      history
       playNext
     ];
     enabledCustomApps = with spicePkgs.apps; [
       marketplace
+      historyInSidebar
     ];
-    theme = spicePkgs.themes.hazy;
+    theme = spicePkgs.themes.catppuccin;
+    colorScheme = "latte";
   };
 }
