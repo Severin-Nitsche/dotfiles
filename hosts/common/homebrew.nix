@@ -39,7 +39,7 @@
       Excel = 462058435;
       Powerpoint = 462062816;
       Wireguard = 1451685025;
-      "DuckDuckGo Privacy for Safari" = 1482920575;
+      # "DuckDuckGo Privacy for Safari" = 1482920575;
     };
  
   };
