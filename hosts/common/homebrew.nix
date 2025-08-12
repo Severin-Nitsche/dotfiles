@@ -15,9 +15,11 @@
     homebrew.casks = [
       "ukelele"
       "makemkv"
-      # "minecraft"
-      # "curseforge"
-      # "steam"
+
+      "minecraft"
+      "curseforge"
+      "steam"
+
       "firefox"
       "tor-browser"
       "sf-symbols"
