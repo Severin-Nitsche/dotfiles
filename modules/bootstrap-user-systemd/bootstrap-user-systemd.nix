@@ -4,7 +4,7 @@
       enable = lib.mkOption {
         type = lib.types.bool;
         default = false;
-        description = "Whether bootstrap user systemd units.";
+        description = "Whether to bootstrap user systemd units.";
       };
       persistLocation = lib.mkOption {
         type = lib.types.path;

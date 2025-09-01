@@ -16,23 +16,20 @@
     nixosConfigurations."sevs-kekbook-pro" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        nixos-hardware.nixosModules.apple-t2
         impermanence.nixosModules.impermanence
         ./hosts/sevs-kekbook-pro/configuration.nix
-        nixos-hardware.nixosModules.apple-t2
-        ./derivs/brcm/brcm.nix
-        ./derivs/impermanence/impermanence.nix
-        ./derivs/persistShadowHack/persistShadowHack.nix
-        ./derivs/bootstrap-user-systemd/bootstrap-user-systemd.nix
+        ./modules/brcm/brcm.nix
+        ./modules/persistShadowHack/persistShadowHack.nix
+        ./modules/bootstrap-user-systemd/bootstrap-user-systemd.nix
       ];
     };
 
     homeConfigurations."severin" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
       modules = [
-        {
-          imports = [ "${impermanence}/home-manager.nix" ];
-        }
-        # impermanence.homeManagerModules.impermanence
+        ./modules/bootstrap-home-manager/bootstrap-home-manager.nix
+        "${impermanence}/home-manager.nix"
         ./home/severin/home.nix
         ./home/severin/impermanence.nix
       ];
