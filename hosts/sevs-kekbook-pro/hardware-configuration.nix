@@ -20,8 +20,10 @@
   };
 
   fileSystems."/home" = { 
-    device = "/dev/disk/by-label/home";
-    fsType = "ext4";
+    device = "none";
+    fsType = "tmpfs";
+    neededForBoot = true;
+    options = [ "size=8G" "mode=755" ];
   };
 
   fileSystems."/home/shared" = {
@@ -43,6 +45,11 @@
   fileSystems."/persist" = { 
     device = "/dev/disk/by-label/persist";
     neededForBoot = true;
+    fsType = "ext4";
+  };
+
+  fileSystems."/persist/home" = {
+    device = "/dev/disk/by-label/home";
     fsType = "ext4";
   };
 

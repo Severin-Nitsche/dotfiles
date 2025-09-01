@@ -90,6 +90,8 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     initialPassword = "";
+    createHome = true;
+    linger = true; # This is needed for impermanence so that our user services run at boot
     packages = with pkgs; [
       home-manager
     ];

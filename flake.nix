@@ -22,12 +22,20 @@
         ./derivs/brcm/brcm.nix
         ./derivs/impermanence/impermanence.nix
         ./derivs/persistShadowHack/persistShadowHack.nix
+        ./derivs/bootstrap-user-systemd/bootstrap-user-systemd.nix
       ];
     };
 
     homeConfigurations."severin" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
-      modules = [ ./home/severin/home.nix ];
+      modules = [
+        {
+          imports = [ "${impermanence}/home-manager.nix" ];
+        }
+        # impermanence.homeManagerModules.impermanence
+        ./home/severin/home.nix
+        ./home/severin/impermanence.nix
+      ];
     };
 
   };

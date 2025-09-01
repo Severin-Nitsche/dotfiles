@@ -15,4 +15,9 @@
     persist.subuid = true;
     persist.subgid = true;
   };
+  bootstrap-user-systemd = {
+    enable = true;
+    persistLocation = "/persist";
+  };
+  programs.fuse.userAllowOther = true; # Allow other users on bindMounts (impermanent /home)
 }
