@@ -76,9 +76,11 @@
       modules = [
         ./modules/bootstrap-home-manager/bootstrap-home-manager.nix
         "${impermanence}/home-manager.nix"
+        spicetify-nix.homeManagerModules.default
+        jvim.homeManagerModules.default
         ./home/severin/home.nix
-        ./home/severin/impermanence.nix
       ];
+      extraSpecialArgs = { inherit inputs; }; # required for spicetify
     };
 
   };
