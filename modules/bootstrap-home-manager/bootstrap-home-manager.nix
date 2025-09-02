@@ -31,6 +31,7 @@
         "sockets.target"
         "timers.target"
       ];
+      Unit.X-RestartIfChanged = false; # Hopefully this makes the environment variable obsolete
       Install.WantedBy = [ "paths.target" ];
       Service = {
         Type = "oneshot";
