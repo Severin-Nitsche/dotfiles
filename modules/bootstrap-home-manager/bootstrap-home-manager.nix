@@ -22,9 +22,18 @@
     systemd.user.enable = true;
     systemd.user.services.home-manager = {
       Unit.Description = "Activate home-manager";
-      Install.WantedBy = [ "default.target" ];
+      Unit.DefaultDependencies = false;
+      Unit.Before = [
+        "bluetooth.target"
+        "basic.target"
+        "default.target"
+        "paths.target"
+        "sockets.target"
+        "timers.target"
+      ];
+      Install.WantedBy = [ "paths.target" ];
       Service = {
-        Type = "simple";
+        Type = "oneshot";
         Environment="PATH=${pkgs.home-manager}/bin:${pkgs.coreutils}/bin:${pkgs.nix}/bin:${pkgs.systemd}/bin";
         ExecStart = pkgs.writeShellScript "activate-home-manager" ''
           if [ -z ''${HOME_MANAGER_ACTIVATE+x} ]; then
