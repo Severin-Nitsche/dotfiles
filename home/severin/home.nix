@@ -46,7 +46,6 @@
     discord
     signal-desktop
     rustdesk
-    steam
 
     jetbrains.idea-ultimate
     jetbrains.webstorm

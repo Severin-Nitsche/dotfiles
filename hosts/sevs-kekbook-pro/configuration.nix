@@ -113,6 +113,7 @@
     vim
     git
   ];
+  programs.steam.enable = true; # I hate that this is not working at user site
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
