@@ -3,31 +3,55 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+
+    # NixOS
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    impermanence.url = "github:nix-community/impermanence";
+
+    # Nix Darwin
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+    mac-app-util.url = "github:hraban/mac-app-util";
 
+    # Home Manager
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Miscellaneous
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    mac-app-util.url = "github:hraban/mac-app-util";
-
     jvim.url = "path:./modules/jvim";
-    # lfc.url = "path:./derivs/latex-fast-compile";
-
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { 
     self, 
     nixpkgs, 
+    # NixOs
+    nixos-hardware,
+    impermanence,
+    # Nix Darwin
     darwin, 
-    home-manager, 
     mac-app-util, 
+    # Home Manager
+    home-manager,
+    # Miscellaneos
     spicetify-nix,
     jvim,
     ... 
   }@inputs: {
+    nixosConfigurations."sevs-kekbook-pro" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        nixos-hardware.nixosModules.apple-t2
+        impermanence.nixosModules.impermanence
+        ./hosts/sevs-kekbook-pro/configuration.nix
+        ./modules/brcm/brcm.nix
+        ./modules/persistShadowHack/persistShadowHack.nix
+        ./modules/bootstrap-user-systemd/bootstrap-user-systemd.nix
+      ];
+    };
+
     darwinConfigurations."sevs-macbook-pro" = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
       modules = [
@@ -46,5 +70,16 @@
       ];
       extraSpecialArgs = { inherit inputs; };
     };
+
+    homeConfigurations."severin" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages."x86_64-linux";
+      modules = [
+        ./modules/bootstrap-home-manager/bootstrap-home-manager.nix
+        "${impermanence}/home-manager.nix"
+        ./home/severin/home.nix
+        ./home/severin/impermanence.nix
+      ];
+    };
+
   };
 }
