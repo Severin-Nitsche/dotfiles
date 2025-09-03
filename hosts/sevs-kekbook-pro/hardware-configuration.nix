@@ -9,7 +9,8 @@
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "dm-snapshot" "cryptd" ];
+  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-label/luks";
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
@@ -26,10 +27,9 @@
     options = [ "size=8G" "mode=755" ];
   };
 
-  fileSystems."/home/shared" = {
-    device = "/dev/disk/by-label/shared";
-    fsType = "vfat";
-    options = [ "umask=700" "gid=users" "uid=nobody" ];
+  fileSystems."/data" = {
+    device = "/dev/disk/by-label/data";
+    fsType = "ext4";
   };
 
   fileSystems."/nix" = { 
@@ -50,6 +50,11 @@
 
   fileSystems."/persist/home" = {
     device = "/dev/disk/by-label/home";
+    fsType = "ext4";
+  };
+
+  fileSystems."/tmp" = {
+    device = "/dev/disk/by-label/tmp";
     fsType = "ext4";
   };
 
