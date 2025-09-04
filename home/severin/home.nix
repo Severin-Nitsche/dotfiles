@@ -37,6 +37,7 @@
       "$mod" = "SUPER";
       bind = [
         "$mod, Q, exec, uwsm app -- kitty"
+        "$mod, M, exec, uwsm stop" # Do not use exit with uwsm
       ];
       input = {
          kb_layout = "de";
@@ -45,7 +46,6 @@
         "EDITOR, vim"
       ];
     };
-    wayland.windowManager.hyprland.systemd.variables = [ "--all" ];
     wayland.windowManager.hyprland.systemd.enable = false; # uwsm compatibility
   
     # The home.packages option allows you to install Nix packages into your

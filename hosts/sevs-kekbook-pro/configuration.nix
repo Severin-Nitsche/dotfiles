@@ -120,14 +120,9 @@
   
   # Enable HYPRLAND
   programs.hyprland.enable = true;
-  programs.uwsm = {
-    enable = true;
-    waylandCompositors.hyprland = {
-      binPath = "/run/current-system/sw/bin/Hyprland";
-      comment = "Hyprland session managed by uwsm";
-      prettyName = "Hyprland";
-    };
-  };
+  programs.hyprland.withUWSM = true;
+  
+  services.dbus.implementation = "broker"; # Recommended for uwsm
 
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
