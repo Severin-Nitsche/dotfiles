@@ -35,9 +35,11 @@
                 ${pkgs.coreutils}/bin/mkdir -p "${home}/.config/systemd"
                 ${pkgs.coreutils}/bin/chown ${name}:${group} "${home}"
                 ${pkgs.coreutils}/bin/chown ${name}:${group} "${home}/.config"
+                ${pkgs.coreutils}/bin/chown ${name}:${group} "${home}/.config/systemd"
                 ${pkgs.coreutils}/bin/mkdir -p "${cfg.persistLocation}/${home}/.config/systemd"
                 ${pkgs.coreutils}/bin/chown ${name}:${group} "${cfg.persistLocation}/${home}"
                 ${pkgs.coreutils}/bin/chown ${name}:${group} "${cfg.persistLocation}/${home}/.config"
+                ${pkgs.coreutils}/bin/chown ${name}:${group} "${cfg.persistLocation}/${home}/.config/systemd"
                 ${pkgs.util-linux}/bin/mount --bind "${cfg.persistLocation}/${home}/.config/systemd" "${home}/.config/systemd"
               '');
               RemainAfterExit = true;
