@@ -1,6 +1,6 @@
 {
   home.persistence."/persist/home/severin" = {
-    directories = [
+    directories = [ # Make sure to backup the directory to the persist location BEFORE `hm switch`/reboot
       ".ssh"
       "Documents"
       "dotfiles"
