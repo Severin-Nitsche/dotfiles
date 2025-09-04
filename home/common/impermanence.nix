@@ -3,6 +3,7 @@
     directories = [
       ".ssh"
       "Documents"
+      "dotfiles"
     ];
     allowOther = true; # to be used with # programs.fuse.userAllowOther = true; # in nixos config
   };
