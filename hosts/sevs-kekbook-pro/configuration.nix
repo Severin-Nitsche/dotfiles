@@ -41,7 +41,8 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "de_DE.UTF-8";
-  console.keyMap = "de";
+  # console.keyMap = "de";
+  console.useXkbConfig = true;
 
   # Enable sddm as display/login manager
   services.displayManager.sddm.enable = true;
@@ -50,6 +51,7 @@
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "de";
+  services.xserver.xkb.variant = "mac_nodeadkeys";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;

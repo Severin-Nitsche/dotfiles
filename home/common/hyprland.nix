@@ -22,9 +22,10 @@
         "$mod, space, exec, uwsm app -- rofi -show drun -run-command 'uwsm app -- {cmd}'"
       ];
       input = {
-         kb_layout = "de";
+         kb_file = "./custom.xkb";
       };
     };
+    home.file.".config/hypr/custom.xkb".source = ./custom.xkb;
     wayland.windowManager.hyprland.systemd.enable = false; # uwsm compatibility
   };
 
