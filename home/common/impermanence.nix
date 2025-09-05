@@ -2,6 +2,7 @@
   home.persistence."/persist/home/severin" = {
     directories = [ # Make sure to backup the directory to the persist location BEFORE `hm switch`/reboot
       ".ssh"
+      ".mozilla"
       "Documents"
       "dotfiles"
     ];
