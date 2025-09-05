@@ -36,6 +36,7 @@
       Service = {
         Type = "oneshot";
         Environment="PATH=${pkgs.home-manager}/bin:${pkgs.coreutils}/bin:${pkgs.nix}/bin:${pkgs.systemd}/bin";
+        RemainAfterExit = true;
         ExecStart = pkgs.writeShellScript "activate-home-manager" ''
           if [ -z ''${HOME_MANAGER_ACTIVATE+x} ]; then
             export HOME_MANAGER_ACTIVATE=1;

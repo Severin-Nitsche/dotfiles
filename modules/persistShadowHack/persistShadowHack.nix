@@ -17,11 +17,12 @@
     };
     shadowHack.persist = {
       loginDefs = mkPersistOpt "/etc/login.defs" false;
-      group = mkPersistOpt "/etc/group" false;
+      group = mkPersistOpt "/etc/group" true;
       passwd = mkPersistOpt "/etc/passwd" true;
       shadow = mkPersistOpt "/etc/shadow" true;
-      subuid = mkPersistOpt "/etc/subuid" false;
-      subgid = mkPersistOpt "/etc/subgid" false;
+      subuid = mkPersistOpt "/etc/subuid" true;
+      subgid = mkPersistOpt "/etc/subgid" true;
+      gshadow = mkPersistOpt "/etc/gshadow" true;
     };
   };
 
@@ -60,6 +61,7 @@
       ${copyCmd "/etc/shadow" cfg.persist.shadow}
       ${copyCmd "/etc/subuid" cfg.persist.subuid}
       ${copyCmd "/etc/subgid" cfg.persist.subgid}
+      ${copyCmd "/etc/gshadow" cfg.persist.gshadow}
     '';
     system.activationScripts.users.deps = [ "shadowHack" ];
 
@@ -69,6 +71,7 @@
     systemd.services.shadowHackShutdownShadow = sysd "shadowHackShutdownShadow" "/etc/shadow" cfg.persist.shadow;
     systemd.services.shadowHackShutdownSubuid = sysd "shadowHackShutdownSubuid" "/etc/subuid" cfg.persist.subuid;
     systemd.services.shadowHackShutdownSubgid = sysd "shadowHackShutdownSubgid" "/etc/subgid" cfg.persist.subgid;
+    systemd.services.shadowHackShutdownGshadow = sysd "shadowHackShutdownGshadow" "/etc/gshadow" cfg.persist.gshadow;
   };
 
 }
