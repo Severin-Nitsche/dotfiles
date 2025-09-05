@@ -7,6 +7,7 @@
   config = {
     home.packages = with pkgs; [ 
       rofi-wayland # TODO Change to rofi in the near future, when it is merged
+      dunst
      ];
 
     # Manage Hyprland

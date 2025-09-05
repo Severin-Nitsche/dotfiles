@@ -44,8 +44,6 @@
       obs-studio
       anki-bin
       obsidian
-  
-      dunst
     ];
   
     programs.bash.enable = true;
