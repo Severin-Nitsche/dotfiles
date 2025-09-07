@@ -51,7 +51,8 @@
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "de";
-  services.xserver.xkb.variant = "mac_nodeadkeys";
+  services.xserver.xkb.variant = "mac";
+  # services.xserver.xkb.options = "lv3:alt_switch"; # Switching to ttyX impossible (ctrl+lalt+FX)
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;

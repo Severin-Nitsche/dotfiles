@@ -14,7 +14,7 @@
     wayland.windowManager.hyprland.enable = true;
     programs.kitty.enable = true;
     wayland.windowManager.hyprland.settings = {
-      "$mod" = "SUPER";
+      "$mod" = "CTRL";
       bind = [
         "$mod, Q, killactive"
         "$mod, K, exec, uwsm app -- kitty"
@@ -23,10 +23,13 @@
       ];
       
       input = {
-         kb_file = "./custom.xkb";
+         kb_layout = "de";
+         kb_variant = "mac";
+         kb_options = "caps:swapescape,caps:ctrl_modifier,lv3:alt_switch,altwin:ctrl_win";
          touchpad = {
            natural_scroll = true;
            clickfinger_behavior = true;
+           scroll_factor = 0.8;
          };
       };
       gestures = {
@@ -36,7 +39,6 @@
         workspace_swipe_cancel_ratio = 0.05;
       };
     };
-    home.file.".config/hypr/custom.xkb".source = ./custom.xkb;
     wayland.windowManager.hyprland.systemd.enable = false; # uwsm compatibility
   };
 
