@@ -42,6 +42,7 @@
          kb_variant = "mac";
          kb_options = "caps:swapescape,caps:ctrl_modifier,lv3:alt_switch,altwin:ctrl_win";
          touchpad = {
+           disable_while_typing = false;
            natural_scroll = true;
            clickfinger_behavior = true;
            scroll_factor = 0.8;
