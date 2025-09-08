@@ -93,6 +93,10 @@
   # Enable HYPRLAND
   programs.hyprland.enable = true;
   programs.hyprland.withUWSM = true;
+  security.pam.services.hyprlock.enable = true;
+  systemd.sleep.extraConfig = ''
+    SuspendState=freeze
+  '';
   
   services.dbus.implementation = "broker"; # Recommended for uwsm
 
