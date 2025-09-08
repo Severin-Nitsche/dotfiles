@@ -7,11 +7,23 @@
   config = {
     home.packages = with pkgs; [ 
       rofi-wayland # TODO Change to rofi in the near future, when it is merged
+      kdePackages.qtwayland # qt6
+      libsForQt5.qt5.qtwayland # qt5
       dunst
      ];
 
+    # Manage uwsm session variables (force Wayland)
+    home.file.".config/uwsm/env".text = ''
+      export GDK_BACKEND=wayland,x11,*
+      export QT_QPA_PLATFORM=wayland;xcb
+      export SDL_VIDEODRIVER=wayland
+      export CLUTTER_BACKEND=wayland
+      export NIXOS_OZONE_WL=1
+    '';
+
     # Manage Hyprland
     wayland.windowManager.hyprland.enable = true;
+    services.hyprpolkitagent.enable = true;
     programs.kitty.enable = true;
     wayland.windowManager.hyprland.settings = {
       "$mod" = "CTRL";
@@ -40,6 +52,7 @@
       };
     };
     wayland.windowManager.hyprland.systemd.enable = false; # uwsm compatibility
+    wayland.windowManager.hyprland.systemd.variables = [ "--all" ];
   };
 
 }
