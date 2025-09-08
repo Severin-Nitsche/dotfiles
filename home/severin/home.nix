@@ -9,7 +9,6 @@
     ../common/spicetify.nix
     ../common/tmux.nix
     ../common/hyprland.nix
-    ../common/minecraft.nix
   ];
   
   config = {
@@ -43,6 +42,7 @@
       geogebra6
       postman
       firefox
+      prismlauncher
       obs-studio
       anki-bin
       obsidian

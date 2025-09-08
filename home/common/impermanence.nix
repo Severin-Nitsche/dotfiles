@@ -3,6 +3,7 @@
     directories = [ # Make sure to backup the directory to the persist location BEFORE `hm switch`/reboot
       ".ssh"
       ".mozilla"
+      ".local/share/PrismLauncher"
       "Documents"
       "dotfiles"
     ];
