@@ -9,8 +9,11 @@
       rofi-wayland # TODO Change to rofi in the near future, when it is merged
       kdePackages.qtwayland # qt6
       libsForQt5.qt5.qtwayland # qt5
+      nerd-fonts.symbols-only # Icons
       dunst
      ];
+
+    fonts.fontconfig.enable = true; # Icons
 
     # Manage uwsm session variables (force Wayland)
     home.file.".config/uwsm/env".text = ''
@@ -52,7 +55,6 @@
       };
     };
     wayland.windowManager.hyprland.systemd.enable = false; # uwsm compatibility
-    wayland.windowManager.hyprland.systemd.variables = [ "--all" ];
   };
 
 }
