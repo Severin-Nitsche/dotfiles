@@ -31,6 +31,7 @@
       tlrc
   
       signal-desktop
+      thunderbird
       rustdesk
   
       jetbrains.idea-ultimate
