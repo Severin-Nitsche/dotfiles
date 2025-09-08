@@ -52,6 +52,7 @@
       ];
     };
     programs.hyprlock.enable = true;
+    home.file.".config/hypr/hyprlock.conf".source = ./hyprlock.conf;
     programs.kitty.enable = true;
     wayland.windowManager.hyprland.settings = {
       "$mod" = "CTRL";
