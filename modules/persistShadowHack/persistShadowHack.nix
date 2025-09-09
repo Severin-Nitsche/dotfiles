@@ -43,7 +43,6 @@
       description = "Persist ${file}";
       wantedBy = [ "multi-user.target" ];
       path = [ pkgs.util-linux ];
-      unitConfig.defaultDependencies = true;
       serviceConfig = {
         Type = "oneshot";
         RemainAfterExit = true;

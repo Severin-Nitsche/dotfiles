@@ -18,7 +18,7 @@
     # Manage uwsm session variables (force Wayland)
     home.file.".config/uwsm/env".text = ''
       export GDK_BACKEND=wayland,x11,*
-      export QT_QPA_PLATFORM=wayland;xcb
+      export QT_QPA_PLATFORM="wayland;xcb"
       export SDL_VIDEODRIVER=wayland
       export CLUTTER_BACKEND=wayland
       export NIXOS_OZONE_WL=1
