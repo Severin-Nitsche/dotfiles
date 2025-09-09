@@ -61,6 +61,7 @@
         "$mod, K, exec, uwsm app -- kitty"
         "$mod, M, exec, uwsm stop" # Do not use exit with uwsm
         "$mod, space, exec, uwsm app -- rofi -show drun -run-command 'uwsm app -- {cmd}'"
+        "$mod, L, exec, hyprlock"
       ];
       
       input = {
