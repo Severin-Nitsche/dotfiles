@@ -49,6 +49,7 @@
     ];
   
     programs.bash.enable = true;
+    systemd.user.settings.Manager.DefaultLimitNOFILE="8192:524288";
     home.sessionVariables = { # These will only be picked up by shells managed through hm
       EDITOR = "vim";
     };
