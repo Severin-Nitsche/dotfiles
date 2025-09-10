@@ -1,6 +1,9 @@
 { pkgs, ... }: {
 
-  imports = [];
+  imports = [
+    ./hyprlock/hyprlock.nix # Includes hypridle
+    ./quickshell/quickshell.nix
+  ];
 
   options = {};
 
@@ -27,41 +30,19 @@
     # Manage Hyprland
     wayland.windowManager.hyprland.enable = true;
     services.hyprpolkitagent.enable = true;
-    services.hypridle.enable = true;
-    services.hypridle.settings = {
-      general = {
-        lock_cmd = "pidof hyprlock || hyprlock";
-        before_sleep_cmd = "loginctl lock-session";
-        after_sleep_cmd = "hyprctl dispatch dpms on";
-      };
-
-      listener = [
-        {
-          timeout = 300;
-          on-timeout = "loginctl lock-session";
-        }
-        {
-          timeout = 420;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
-        }
-        {
-          timeout = 600;
-          on-timeout = "systemctl suspend";
-        }
-      ];
-    };
-    programs.hyprlock.enable = true;
-    home.file.".config/hypr/hyprlock.conf".source = ./hyprlock.conf;
     programs.kitty.enable = true;
     wayland.windowManager.hyprland.settings = {
       "$mod" = "CTRL";
       bind = [
         "$mod, Q, killactive"
-        "$mod, K, exec, uwsm app -- kitty"
+        "$mod, return, exec, uwsm app -- kitty"
         "$mod, M, exec, uwsm stop" # Do not use exit with uwsm
         "$mod, space, exec, uwsm app -- rofi -show drun -run-command 'uwsm app -- {cmd}'"
         "$mod, L, exec, hyprlock"
+      ];
+
+      exec-once = [
+        "quickshell"
       ];
       
       input = {

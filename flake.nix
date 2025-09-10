@@ -21,6 +21,9 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
+    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+    quickshell.inputs.nixpkgs.follows = "nixpkgs";
+
     jvim.url = "path:./modules/jvim";
   };
 
@@ -37,6 +40,7 @@
     home-manager,
     # Miscellaneos
     spicetify-nix,
+    quickshell,
     jvim,
     ... 
   }@inputs: {
@@ -80,7 +84,10 @@
         jvim.homeManagerModules.default
         ./home/severin/home.nix
       ];
-      extraSpecialArgs = { inherit inputs; }; # required for spicetify
+      extraSpecialArgs = {
+        inherit inputs; # required for spicetify
+        quickshell = quickshell.packages."x86_64-linux".default;
+      }; 
     };
 
   };
