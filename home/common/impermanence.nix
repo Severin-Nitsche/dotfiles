@@ -5,6 +5,7 @@
       ".mozilla"
       ".thunderbird"
       ".local/share/PrismLauncher"
+      ".config/vesktop"
       "Documents"
       "dotfiles"
     ];
