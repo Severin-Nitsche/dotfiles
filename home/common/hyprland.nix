@@ -42,7 +42,7 @@
       ];
 
       exec-once = [
-        "quickshell"
+        "uwsm app -- quickshell"
       ];
       
       input = {

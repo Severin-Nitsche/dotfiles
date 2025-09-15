@@ -10,7 +10,10 @@
       quickshell
     ];
 
-    home.file.".config/quickshell/shell.qml".source = ./shell.qml;
+    home.file.".config/quickshell/" = {
+     source = ./config;
+     recursive = true;
+    };
 
   };
 
