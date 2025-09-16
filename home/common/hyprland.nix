@@ -39,6 +39,9 @@
         "$mod, M, exec, uwsm stop" # Do not use exit with uwsm
         "$mod, space, exec, uwsm app -- rofi -show drun -run-command 'uwsm app -- {cmd}'"
         "$mod, L, exec, hyprlock"
+        "$mod, 1, fullscreen, 0"
+        "$mod, 2, fullscreen, 1"
+        "$mod, 3, togglefloating, active"
       ];
 
       layerrule = [
