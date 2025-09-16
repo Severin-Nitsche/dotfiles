@@ -2,6 +2,7 @@ import Quickshell
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Widgets
+import Quickshell.Hyprland
 
 Scope {
   id: bar
@@ -9,33 +10,36 @@ Scope {
     model: Quickshell.screens
     PanelWindow {
       id: panel
+
       required property var modelData
-      property int mm: Screen.pixelDensity
       screen: modelData
+
+      property int mm: Screen.pixelDensity
       implicitHeight: GlobalState.barHeight*mm
-      color: 'red'
+
       anchors {
         top: true
 	left: true
 	right: true
       }
+
+      color: GlobalState.barBackground
+      
       RowLayout {
         id: container
-	anchors.fill: parent
-	RowLayout {
+        anchors.fill: parent
+        RowLayout {
           id: left
           Layout.fillWidth: true
-	  Layout.fillHeight: true
-	  SystemMenu {
-	    anchorWindow: panel
-	  }
+          Layout.fillHeight: true
+          SystemMenu {}
         }
         RowLayout {
           id: right
           Layout.fillWidth: true
-	  Layout.fillHeight: true
-	  layoutDirection: Qt.RightToLeft
-	}
+          Layout.fillHeight: true
+          layoutDirection: Qt.RightToLeft
+        }
       }
     }
   }

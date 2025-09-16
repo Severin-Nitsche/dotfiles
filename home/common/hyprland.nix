@@ -41,6 +41,10 @@
         "$mod, L, exec, hyprlock"
       ];
 
+      layerrule = [
+        "blur, quickshell"
+      ];
+
       exec-once = [
         "uwsm app -- quickshell"
       ];

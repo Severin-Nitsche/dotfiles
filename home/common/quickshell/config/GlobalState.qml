@@ -1,12 +1,15 @@
 import Quickshell
+import QtQuick
 pragma Singleton
 
 Singleton {
   id: root
   property int barHeight: 5 // mm
-  property bool showDebug: true
+  property bool showDebug: true // unused LOL
 
   property bool darkMode: false
+
+  property int minLogomarkDensity: 4
 
   // Format: YYYY-MM-dd
   // Year is unused
@@ -22,7 +25,14 @@ Singleton {
   property url darkLogotype: 'icons/nixos-logotype-white-regular-none.svg'
   property url lightLogotype: 'icons/nixos-logotype-black-regular-none.svg'
 
-  // Computed properties
+  // Colors
+  property color lightBarBackground: '#c0f0ffff' // 'azure'
+  property color lightBarHighlight: 'mediumseagreen'
+
+  property color darkBarBackground: 'darkslategray'
+  property color darkBarHighlight: 'royalblue'
+
+  // Computed properties -- Helpers
   property date today: new Date()
 
   function compareDates(date1, date2) {
@@ -43,6 +53,7 @@ Singleton {
   property bool isPrideSeason: compareDates(prideSeasonStart, today) <= 0 &&
     compareDates(today, prideSeasonEnd) <= 0
 
+  // Computed properties -- Real Shit
   property url logomark: isTransDayOfVisibility ?
     transLogomark :
     isPrideSeason ?
@@ -51,6 +62,13 @@ Singleton {
         darkLogomark :
 	lightLogomark
   property url logotype: darkMode ?
-    darkLogomark :
-    lightLogomark
+    darkLogotype :
+    lightLogotype
+
+  property color barBackground: darkMode ?
+    darkBarBackground :
+    lightBarBackground
+  property color barHighlight: darkMode ?
+    darkBarHighlight :
+    lightBarHighlight
 }
