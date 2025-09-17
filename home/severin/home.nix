@@ -9,6 +9,7 @@
     ../common/spicetify.nix
     ../common/tmux.nix
     ../common/hyprland.nix
+    ../common/vim.nix
   ];
   
   config = {
