@@ -6,6 +6,8 @@
       ".thunderbird"
       ".local/share/PrismLauncher"
       ".config/vesktop"
+      ".config/Signal"
+      ".config/spotify"
       "Documents"
       "dotfiles"
     ];
