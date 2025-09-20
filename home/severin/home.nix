@@ -21,6 +21,7 @@
     nixpkgs.config.allowUnfree = true;
     nixpkgs.overlays = with (import ../../overlays); [
       additions
+      modifications
     ];
   
   

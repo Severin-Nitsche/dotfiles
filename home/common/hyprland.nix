@@ -10,6 +10,7 @@
   config = {
     home.packages = with pkgs; [ 
       rofi-wayland # TODO Change to rofi in the near future, when it is merged
+      brightnessctl
       kdePackages.qtwayland # qt6
       libsForQt5.qt5.qtwayland # qt5
       nerd-fonts.symbols-only # Icons
@@ -42,6 +43,10 @@
         "$mod, 1, fullscreen, 0"
         "$mod, 2, fullscreen, 1"
         "$mod, 3, togglefloating, active"
+        ", XF86KbdBrightnessDown, exec, brightnessctl set -c leds -d :white:kbd_backlight -e 20%-"
+        ", XF86KbdBrightnessUp, exec, brightnessctl set -c leds -d :white:kbd_backlight -e +20%"
+        ", XF86MonBrightnessDown, exec, brightnessctl set -c backlight -d intel_backlight -e 10%-"
+        ", XF86MonBrightnessUp, exec, brightnessctl set -c backlight -d intel_backlight -e +10%"
       ];
 
       layerrule = [
