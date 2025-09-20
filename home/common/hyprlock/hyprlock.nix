@@ -21,8 +21,8 @@
         }
         {
           timeout = 420;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
+          on-timeout = "hyprctl dispatch dpms off && brightnessctl set --save -cleds -d:white:kbd_backlight 0";
+          on-resume = "hyprctl dispatch dpms on && brightnessctl set --restore -cleds -d:white:kbd_backlight";
         }
         {
           timeout = 600;
