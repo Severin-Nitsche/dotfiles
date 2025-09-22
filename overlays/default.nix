@@ -11,8 +11,8 @@
       src = prev.fetchFromGitHub {
         owner = "Severin-Nitsche";
         repo = "brightnessctl";
-        rev = "870b084cc441c278f369a5de86b77068e37d21cd";
-        hash = "sha256-RDCDRdyqyP0/8xWzrBTxMCvIaEFU3R8OSttzwloKKKI=";
+        rev = "8a0bb4ee10caf335e6a6108ac28b1b43b82dca83";
+        hash = "sha256-55FKtfpukTd8CbBZvdL+2yB8JFqwAEoHigMp0qnlwJY=";
       };
 
       makeFlags = [
