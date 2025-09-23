@@ -9,7 +9,7 @@
 
   config = {
     home.packages = with pkgs; [ 
-      rofi-wayland # TODO Change to rofi in the near future, when it is merged
+      rofi
       brightnessctl
       kdePackages.qtwayland # qt6
       libsForQt5.qt5.qtwayland # qt5
