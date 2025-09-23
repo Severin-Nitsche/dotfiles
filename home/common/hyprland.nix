@@ -68,9 +68,11 @@
            scroll_factor = 0.8;
          };
       };
+      gesture = [
+        "3, horizontal, workspace"
+        "4, horizontal, workspace"
+      ];
       gestures = {
-        workspace_swipe = true;
-        workspace_swipe_min_fingers = true;
         workspace_swipe_min_speed_to_force = 15;
         workspace_swipe_cancel_ratio = 0.05;
       };
