@@ -6,14 +6,13 @@ in {
     enable = true;
     enabledExtensions = with spicePkgs.extensions; [
       adblockify
-      trashbin
       playNext
     ];
     enabledCustomApps = with spicePkgs.apps; [
-      marketplace
+      # marketplace
       historyInSidebar
     ];
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "latte";
+    # theme = spicePkgs.themes.catppuccin;
+    # colorScheme = "latte";
   };
 }
