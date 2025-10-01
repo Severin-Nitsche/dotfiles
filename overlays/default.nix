@@ -11,15 +11,28 @@
       src = prev.fetchFromGitHub {
         owner = "Severin-Nitsche";
         repo = "brightnessctl";
-        rev = "8a0bb4ee10caf335e6a6108ac28b1b43b82dca83";
-        hash = "sha256-55FKtfpukTd8CbBZvdL+2yB8JFqwAEoHigMp0qnlwJY=";
+        rev = "0916a2930306407d6d48d3256fcbc649ab306205";
+        hash = "sha256-tn3Fne5TaEUflZBh847wB9lkzQjvJjRp16KCg7timsw=";
       };
 
       makeFlags = [
-        "PREFIX="
         "DESTDIR=$(out)"
-        "ENABLE_LOGIND=1"
+        "PREFIX="
       ];
+
+      postPatch = ''
+        substituteInPlace 90-brightnessctl.rules \
+          --replace-fail /bin/ ${prev.coreutils}/bin/
+
+        substituteInPlace configure \
+          --replace-fail "pkg-config" "$PKG_CONFIG"
+      '';
+
+      configureFlags = [
+        "--enable-logind"
+        "--prefix="
+      ];
+
     });
   };
 
