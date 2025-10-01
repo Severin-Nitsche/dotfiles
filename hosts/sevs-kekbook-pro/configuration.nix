@@ -105,9 +105,35 @@
   programs.hyprland.enable = true;
   programs.hyprland.withUWSM = true;
   security.pam.services.hyprlock.enable = true;
+
+  # Fix suspend
   systemd.sleep.extraConfig = ''
     SuspendState=freeze
   '';
+  systemd.services.wake-touchbar = {
+    enable = true;
+    description = "Enable touchbar after suspend";
+    before = [ "sleep.target" ];
+    unitConfig = {
+      StopWhenUnneeded = true;
+    };
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+      RemainAfterExit = true;
+      ExecStart = [
+        "/run/current-system/sw/bin/modprobe -r hid_appletb_bl"
+        "/run/current-system/sw/bin/modprobe -r hid_appletb_kbd"
+        "/run/current-system/sw/bin/modprobe -r appletbdrm"
+      ];
+      ExecStop = [
+        "/run/current-system/sw/bin/modprobe hid_appletb_bl"
+        "/run/current-system/sw/bin/modprobe hid_appletb_kbd"
+        "/run/current-system/sw/bin/modprobe appletbdrm"
+      ];
+    };
+    wantedBy = [ "sleep.target" ];
+  };
   
   services.dbus.implementation = "broker"; # Recommended for uwsm
 
