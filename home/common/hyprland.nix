@@ -70,6 +70,12 @@
            scroll_factor = 0.8;
          };
       };
+      device = [
+        {
+          name = "ergo-k860-keyboard";
+          kb_options = "altwin:ctrl_alt_win,lv3:switch,lv3:lwin_switch,caps:swapescape,caps:ctrl_modifier";
+        }
+      ];
       gesture = [
         "3, horizontal, workspace"
         "4, horizontal, workspace"
