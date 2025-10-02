@@ -35,6 +35,8 @@
     wayland.windowManager.hyprland.settings = {
       "$mod" = "CTRL";
       bind = [
+        ", mouse:276 , workspace, r+1"
+        ", mouse:275, workspace, r-1"
         "$mod, Q, killactive"
         "$mod, return, exec, uwsm app -- kitty"
         "$mod, M, exec, uwsm stop" # Do not use exit with uwsm
