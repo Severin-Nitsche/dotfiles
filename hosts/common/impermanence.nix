@@ -5,6 +5,7 @@
       "/var/lib/nixos" # Needed for stable g/uids
       "/var/lib/systemd"
       "/etc/NetworkManager/system-connections"
+      "/var/lib/bluetooth"
     ];
     files = [
       "/etc/machine-id"
@@ -20,7 +21,7 @@
     persist.shadow = true;
     persist.subuid = true;
     persist.subgid = true;
-    persist.gshadow = true;
+    persist.gshadow = false; # does not seem to exist on nixos
   };
   bootstrap-user-systemd = {
     enable = true;

@@ -23,18 +23,16 @@
 
   networking.hostName = "sevs-kekbook-pro"; # Define your hostname.
 
+  # Networking
   networking.networkmanager.enable = true;  # Easier than wpa_cli
-  security.sudo.extraRules = [
-    {
-      groups = [ "users" ];
-      commands = [
-        {
-          command = "/run/current-system/sw/bin/nmtui";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
-  ];
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.settings = {
+    General = {
+      Name = "sevs-kekbook-pro";
+    };
+  };
 
   # Printing
   services.printing.enable = true;
