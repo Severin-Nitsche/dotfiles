@@ -30,15 +30,16 @@ Scope {
         anchors.fill: parent
         RowLayout {
           id: left
-          Layout.fillWidth: true
           Layout.fillHeight: true
           SystemMenu {}
         }
+        Item { Layout.fillWidth: true }
         RowLayout {
           id: right
-          Layout.fillWidth: true
           Layout.fillHeight: true
           layoutDirection: Qt.RightToLeft
+          Item {}
+          Clock {}
         }
       }
     }
