@@ -28,6 +28,10 @@
       export NIXOS_OZONE_WL=1
     '';
 
+    # Manage Keyboard Layouts
+    home.file.".config/xkb".source = ./xkb;
+    home.file.".config/xkb".recursive = true;
+
     # Manage Hyprland
     wayland.windowManager.hyprland.enable = true;
     services.hyprpolkitagent.enable = true;
@@ -60,15 +64,16 @@
       ];
       
       input = {
-         kb_layout = "de";
-         kb_variant = "mac";
-         kb_options = "caps:swapescape,caps:ctrl_modifier,lv3:alt_switch,altwin:ctrl_win";
-         touchpad = {
-           disable_while_typing = false;
-           natural_scroll = true;
-           clickfinger_behavior = true;
-           scroll_factor = 0.8;
-         };
+        kb_layout = "de";
+        kb_variant = "mac";
+        kb_options = "power:caps,lv3:alt_switch,altwin:ctrl_win";
+        kb_rules = "evdev";
+        touchpad = {
+          disable_while_typing = false;
+          natural_scroll = true;
+          clickfinger_behavior = true;
+          scroll_factor = 0.8;
+        };
       };
       device = [
         {

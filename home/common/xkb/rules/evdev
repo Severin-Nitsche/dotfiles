@@ -1,0 +1,5 @@
+// Mandatory to extend the
+! include %S/evdev
+
+! option     = symbols
+  power:caps = +power(caps)

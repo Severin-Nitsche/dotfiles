@@ -1,0 +1,9 @@
+partial xkb_symbols "caps" {
+  key <CAPS> {
+    symbols[Group1] = [ Escape, Caps_Lock ],
+    actions[Group1] = [
+      SetMods(modifiers=Control),
+      LockMods(modifiers=Lock)
+    ]
+  };
+};
