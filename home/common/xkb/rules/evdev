@@ -1,5 +1,7 @@
 // Mandatory to extend the
 ! include %S/evdev
 
-! option     = symbols
+! option = symbols
   power:caps = +power(caps)
+! option = symbols
+  mac:k860 = +mac(k860)

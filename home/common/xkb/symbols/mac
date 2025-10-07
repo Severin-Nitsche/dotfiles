@@ -1,0 +1,12 @@
+partial xkb_symbols "k860" {
+  key <LWIN> { [ISO_Level3_Shift] };
+  key <LALT> { 
+    symbols[Group1] = [Control_L],
+    actions[Group1] = [SetMods(modifiers=Control)]
+  };
+  key <RALT> {
+    symbols[Group1] = [Control_R],
+    actions[Group1] = [SetMods(modifiers=Control)]
+  };
+  key <RCTL> { [ISO_Level3_Shift] };
+};
