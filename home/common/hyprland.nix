@@ -36,10 +36,31 @@
     wayland.windowManager.hyprland.enable = true;
     services.hyprpolkitagent.enable = true;
     programs.kitty.enable = true;
+    wayland.windowManager.hyprland.submaps = {
+      resize_and_move = {
+        settings.bind = [
+          ", escape, submap, reset"
+          ", $mmb, submap, reset"
+        ];
+
+        settings.bindr = [
+          ", $lmb, submap, reset"
+        ];
+
+        settings.bindm = [
+          ", $lmb, movewindow"
+          "SHIFT, $lmb, resizewindow"
+        ];
+      };
+    };
     wayland.windowManager.hyprland.settings = {
       "$mod" = "CTRL";
+      "$lmb" = "mouse:272";
+      "$rmb" = "mouse:273";
+      "$mmb" = "mouse:274";
       bind = [
-        ", mouse:276 , workspace, r+1"
+        ", $mmb, submap, resize_and_move"
+        ", mouse:276, workspace, r+1"
         ", mouse:275, workspace, r-1"
         "$mod, Q, killactive"
         "$mod, return, exec, uwsm app -- kitty"
