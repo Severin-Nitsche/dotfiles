@@ -108,31 +108,18 @@
   systemd.sleep.extraConfig = ''
     SuspendState=freeze
   '';
-  systemd.services.wake-touchbar = {
-    enable = true;
-    description = "Enable touchbar after suspend";
-    before = [ "sleep.target" ];
-    unitConfig = {
-      StopWhenUnneeded = true;
-    };
-    serviceConfig = {
-      Type = "oneshot";
-      User = "root";
-      RemainAfterExit = true;
-      ExecStart = [
-        "/run/current-system/sw/bin/modprobe -r hid_appletb_bl"
-        "/run/current-system/sw/bin/modprobe -r hid_appletb_kbd"
-        "/run/current-system/sw/bin/modprobe -r appletbdrm"
-      ];
-      ExecStop = [
-        "/run/current-system/sw/bin/modprobe hid_appletb_bl"
-        "/run/current-system/sw/bin/modprobe hid_appletb_kbd"
-        "/run/current-system/sw/bin/modprobe appletbdrm"
-      ];
-    };
-    wantedBy = [ "sleep.target" ];
-  };
-  
+
+  # Fix touchbar disappearing after resume
+  powerManagement.resumeCommands = ''
+    echo "Fixing touchbar by reloading kernel modules"
+    /run/current-system/sw/bin/modprobe -r hid_appletb_bl
+    /run/current-system/sw/bin/modprobe -r hid_appletb_kbd
+    /run/current-system/sw/bin/modprobe -r appletbdrm
+    /run/current-system/sw/bin/modprobe hid_appletb_bl
+    /run/current-system/sw/bin/modprobe hid_appletb_kbd
+    /run/current-system/sw/bin/modprobe appletbdrm
+  '';
+
   services.dbus.implementation = "broker"; # Recommended for uwsm
 
   # Copy the NixOS configuration file and link it from the resulting system
