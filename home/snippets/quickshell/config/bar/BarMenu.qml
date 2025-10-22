@@ -41,7 +41,7 @@ WrapperRectangle {
     leftMargin: parent.height / (clearIcon ? 3 : 2)
     rightMargin: parent.height / (clearIcon ? 3 : 2)
 
-    onClicked: root.showMenu = !root.showMenu
+    onClicked: root.showMenu = !root.showMenu && menuItems.length > 0
 
     child: visualChild
 
