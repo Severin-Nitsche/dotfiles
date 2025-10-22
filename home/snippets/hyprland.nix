@@ -3,13 +3,13 @@
   imports = [
     ./hyprlock/hyprlock.nix # Includes hypridle
     ./quickshell/quickshell.nix
+    ./rofi.nix
   ];
 
   options = {};
 
   config = {
     home.packages = with pkgs; [ 
-      rofi
       brightnessctl
       kdePackages.qtwayland # qt6
       libsForQt5.qt5.qtwayland # qt5
