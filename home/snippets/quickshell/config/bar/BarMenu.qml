@@ -36,7 +36,8 @@ WrapperRectangle {
     Layout.fillHeight: true
     Layout.fillWidth: true
 
-    margin: parent.height / (clearIcon ? 6 : 4)
+    implicitHeight: parent.height
+    //margin: parent.height / (clearIcon ? 6 : 4)
     leftMargin: parent.height / (clearIcon ? 3 : 2)
     rightMargin: parent.height / (clearIcon ? 3 : 2)
 

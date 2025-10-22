@@ -19,7 +19,7 @@ Scope {
       id: bar
 
       required property var modelData
- screen: modelData
+      screen: modelData
 
       color: GlobalState.barBackground
 
@@ -30,7 +30,7 @@ Scope {
       }
 
       readonly property real mm: screen.physicalPixelDensity
-      implicitHeight: 5*mm
+      implicitHeight: GlobalState.barHeight*mm
 
       data: delegate.createObject(bar)
     }
