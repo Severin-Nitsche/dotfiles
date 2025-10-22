@@ -1,15 +1,15 @@
 { config, pkgs, nixpkgs, ... }: {
 
   imports = [
-    ../common/impermanence.nix
-    ../common/git.nix
-    ../common/eza.nix
-    ../common/discord.nix
-    ../common/rbw.nix
-    ../common/spicetify.nix
-    ../common/tmux.nix
-    ../common/hyprland.nix
-    ../common/vim.nix
+    ../snippets/impermanence.nix
+    ../snippets/git.nix
+    ../snippets/eza.nix
+    ../snippets/discord.nix
+    ../snippets/rbw.nix
+    ../snippets/spicetify.nix
+    ../snippets/tmux.nix
+    ../snippets/hyprland.nix
+    ../snippets/vim.nix
   ];
   
   config = {

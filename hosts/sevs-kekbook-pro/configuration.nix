@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../common/impermanence.nix
+      ../snippets/impermanence.nix
     ];
 
   nix.settings.experimental-features = [

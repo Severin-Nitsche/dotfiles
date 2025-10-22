@@ -1,8 +1,8 @@
 { pkgs, ... }: {
 
   imports = [ # Refactor some parts into separate files
-    ../common/homebrew.nix
-    ../common/system_defaults.nix
+    ../snippets/homebrew.nix
+    ../snippets/system_defaults.nix
   ];
 
   options = {};

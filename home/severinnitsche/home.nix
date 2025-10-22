@@ -1,18 +1,18 @@
 { config, pkgs, nixpkgs, lib, inputs, ... }: {
 
   imports = [
-    ../common/direnv.nix
-    ../common/eza.nix
-    ../common/git.nix
-    ../common/rbw.nix
-    ../common/ssh.nix
-    ../common/vim.nix
-    ../common/jvim.nix
-    ../common/zsh.nix
-    ../common/tmux.nix
+    ../snippets/direnv.nix
+    ../snippets/eza.nix
+    ../snippets/git.nix
+    ../snippets/rbw.nix
+    ../snippets/ssh.nix
+    ../snippets/vim.nix
+    ../snippets/jvim.nix
+    ../snippets/zsh.nix
+    ../snippets/tmux.nix
 
-    ../common/discord.nix
-    ../common/spicetify.nix # needs the spicetify input
+    ../snippets/discord.nix
+    ../snippets/spicetify.nix # needs the spicetify input
   ];
 
   options = {};
