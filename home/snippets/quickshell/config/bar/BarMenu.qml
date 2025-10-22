@@ -17,7 +17,7 @@ WrapperRectangle {
     Icon
   }
 
-  property int clear: isIcon ? BarMenu.Clear.Text : BarMenu.Clear.Icon
+  property int clear: isIcon ? BarMenu.Clear.Icon : BarMenu.Clear.Text
 
   // QML is dogshit
   property var isIcon: menuIcon != ""
