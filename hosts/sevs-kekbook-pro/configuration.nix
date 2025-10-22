@@ -56,7 +56,9 @@
   # Enable sddm as display/login manager
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
-  
+
+  # Enable Upower
+  services.upower.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "de";
