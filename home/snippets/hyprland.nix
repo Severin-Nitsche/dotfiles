@@ -11,6 +11,9 @@
   config = {
     home.packages = with pkgs; [ 
       brightnessctl
+      pamixer
+      playerctl
+
       kdePackages.qtwayland # qt6
       libsForQt5.qt5.qtwayland # qt5
       nerd-fonts.symbols-only # Icons
@@ -46,6 +49,7 @@
 
         settings.bindr = [
           ", $lmb, submap, reset"
+          "SHIFT, $lmb, submap, reset"
         ];
 
         settings.bindm = [
@@ -71,10 +75,20 @@
         "$mod, 1, fullscreen, 0"
         "$mod, 2, fullscreen, 1"
         "$mod, 3, togglefloating, active"
+      ];
+      bindel = [
         ", XF86KbdBrightnessDown, exec, brightnessctl set -c leds -d :white:kbd_backlight -e 20%-"
         ", XF86KbdBrightnessUp, exec, brightnessctl set -c leds -d :white:kbd_backlight -e +20%"
-        ", XF86MonBrightnessDown, exec, brightnessctl set -c backlight -d intel_backlight -e 10%-"
-        ", XF86MonBrightnessUp, exec, brightnessctl set -c backlight -d intel_backlight -e +10%"
+        ", XF86MonBrightnessDown, exec, brightnessctl set -c backlight -d intel_backlight -e 4%-"
+        ", XF86MonBrightnessUp, exec, brightnessctl set -c backlight -d intel_backlight -e +4%"
+        ", XF86AudioLowerVolume, exec, pamixer --decrease 4"
+        ", XF86AudioRaiseVolume, exec, pamixer --increase 4"
+      ];
+      bindl = [
+        ", XF86AudioMute, exec, pamixer --toggle-mute"
+        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioNext, exec, playerctl next"
       ];
 
       layerrule = [
