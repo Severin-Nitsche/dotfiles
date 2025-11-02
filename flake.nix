@@ -21,6 +21,9 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
+    stylix.url = "github:nix-community/stylix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
+
     quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
     quickshell.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -40,6 +43,7 @@
     home-manager,
     # Miscellaneos
     spicetify-nix,
+    stylix,
     quickshell,
     jvim,
     ... 
@@ -81,6 +85,7 @@
         ./modules/bootstrap-home-manager/bootstrap-home-manager.nix
         "${impermanence}/home-manager.nix"
         spicetify-nix.homeManagerModules.default
+        stylix.homeModules.stylix
         jvim.homeManagerModules.default
         ./home/severin/home.nix
       ];

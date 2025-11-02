@@ -10,6 +10,7 @@
     ../snippets/tmux.nix
     ../snippets/hyprland.nix
     ../snippets/vim.nix
+    ../snippets/stylix/stylix.nix
   ];
   
   config = {
@@ -61,7 +62,7 @@
       killvpn = "sudo killall openconnect";
       dev = "nix develop -i -c bash --norc";
     };
-  
+
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
   };

@@ -105,7 +105,7 @@
         kb_options = "power:caps,lv3:alt_switch,altwin:ctrl_win";
         kb_rules = "evdev";
         touchpad = {
-          disable_while_typing = false;
+          disable_while_typing = true;
           natural_scroll = true;
           clickfinger_behavior = true;
           scroll_factor = 0.8;
