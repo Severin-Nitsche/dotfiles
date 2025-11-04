@@ -5,6 +5,7 @@
     ../snippets/git.nix
     ../snippets/eza.nix
     ../snippets/discord.nix
+    ../snippets/firefox.nix
     ../snippets/rbw.nix
     ../snippets/spicetify.nix
     ../snippets/tmux.nix
@@ -44,13 +45,12 @@
       alacritty
       geogebra6
       postman
-      firefox
       prismlauncher
       obs-studio
       anki-bin
       obsidian
     ];
-  
+
     programs.bash.enable = true;
     systemd.user.settings.Manager.DefaultLimitNOFILE="8192:524288";
     home.sessionVariables = { # These will only be picked up by shells managed through hm

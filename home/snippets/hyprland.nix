@@ -14,6 +14,8 @@
       pamixer
       playerctl
 
+      nautilus
+
       kdePackages.qtwayland # qt6
       libsForQt5.qt5.qtwayland # qt5
       nerd-fonts.symbols-only # Icons
@@ -35,6 +37,32 @@
     # Manage Keyboard Layouts
     home.file.".config/xkb".source = ./xkb;
     home.file.".config/xkb".recursive = true;
+
+    # Manage file explorer
+    xdg.mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "inode/directory" = ["org.gnome.Nautilus.desktop"];
+        "inode/mount-point" = ["org.gnome.Nautilus.desktop"];
+      };
+    };
+
+    xdg.portal.enable = true;
+    xdg.portal.extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+    ];
+
+    xdg.portal.config = {
+      hyprland = {
+        default = [
+          "hyprland"
+          "gtk"
+        ];
+        "org.freedesktop.impl.portal.FileChooser" = [
+          "nautilus"
+        ];
+      };
+    };
 
     # Manage Hyprland
     wayland.windowManager.hyprland.enable = true;
@@ -71,6 +99,7 @@
         "$mod, return, exec, uwsm app -- kitty"
         "$mod, M, exec, uwsm stop" # Do not use exit with uwsm
         "$mod, space, exec, uwsm app -- rofi -show drun -run-command 'uwsm app -- {cmd}'"
+        "$mod, E, exec, [float] uwsm app -- nautilus"
         "$mod, L, exec, hyprlock"
         "$mod, 1, fullscreen, 0"
         "$mod, 2, fullscreen, 1"

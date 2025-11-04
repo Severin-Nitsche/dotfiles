@@ -25,4 +25,5 @@
     light = "Vimix";
     dark = "Vimix";
   };
+  stylix.targets.librewolf.profileNames = [ "default" ];
 }
