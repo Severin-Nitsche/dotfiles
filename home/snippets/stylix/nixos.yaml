@@ -3,20 +3,20 @@ name: "NixOS"
 author: "Severin Nitsche (https://github.com/Severin-Nitsche)"
 variant: "light"
 palette:
-  base00: "#ffffff" # Default Background
-  base01: "#eeeeee" # Alternate Background
-  base02: "#a4d5f7" # Selection Background
-  base03: "#b7cefd" # Unfocused window border
-  base04: "#28633c" # Alternate Text
-  base05: "#000000" # Default Text
-  base06: "#acdcb8" # Light foreground (Not often used)
-  base07: "#aaa1f6" # Light background (Not often used)
-  base08: "#f08d94" # Error
-  base09: "#e99861" # Urgent
-  base0A: "#cbaa4b" # Warning
-  base0B: "#6fc488" # Green
-  base0C: "#5fb8f2" # Cyan
-  base0D: "#4d6fb7" # Focused window border
-  base0E: "#aaa1f6" # Item on background color
-  base0F: "#d991d2" # Brown
+  base00: "#ffffff"
+  base01: "#eeeeee"
+  base02: "#e3f1fb"
+  base03: "#a5a37b"
+  base04: "#4d6fb7"
+  base05: "#000000"
+  base06: "#baa1f6"
+  base07: "#c10100"
+  base08: "#f08d94"
+  base09: "#e99861"
+  base0A: "#cbaa4b"
+  base0B: "#378450"
+  base0C: "#5fb8f2"
+  base0D: "#d991d2"
+  base0E: "#6fc488"
+  base0F: "#a25e2c"
 
