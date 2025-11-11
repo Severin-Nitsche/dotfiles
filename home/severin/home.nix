@@ -42,7 +42,6 @@
       jetbrains.webstorm
       vscode
   
-      alacritty
       geogebra6
       postman
       prismlauncher

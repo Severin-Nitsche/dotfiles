@@ -67,7 +67,7 @@
     # Manage Hyprland
     wayland.windowManager.hyprland.enable = true;
     services.hyprpolkitagent.enable = true;
-    programs.kitty.enable = true;
+    programs.alacritty.enable = true;
     wayland.windowManager.hyprland.submaps = {
       resize_and_move = {
         settings.bind = [
@@ -96,7 +96,7 @@
         ", mouse:276, workspace, r+1"
         ", mouse:275, workspace, r-1"
         "$mod, Q, killactive"
-        "$mod, return, exec, uwsm app -- kitty"
+        "$mod, return, exec, uwsm app -- alacritty"
         "$mod, M, exec, uwsm stop" # Do not use exit with uwsm
         "$mod, space, exec, uwsm app -- rofi -show drun -run-command 'uwsm app -- {cmd}'"
         "$mod, E, exec, [float] uwsm app -- nautilus"
