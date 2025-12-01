@@ -85,8 +85,10 @@ WrapperRectangle {
       PopupWindow {
         id: popup
 
+        color: GlobalState.barBackground
+
         anchor.item: root
-        anchor.rect.y: root.height
+        anchor.rect.y: root.height*4/3
         visible: root.showMenu
 
         HyprlandFocusGrab {
@@ -96,7 +98,14 @@ WrapperRectangle {
           onCleared: root.showMenu = false
         }
 
-        data: menuItems
+        implicitHeight: column.height
+
+        implicitWidth: column.width
+
+        data: ColumnLayout {
+          id: column
+          data: menuItems
+        }
       }
     }
   }

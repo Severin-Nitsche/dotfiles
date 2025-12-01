@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 
+import Quickshell
 import Quickshell.Services.UPower
 
 import qs.bar
@@ -15,6 +16,9 @@ BarWindow {
     }
     Item { Layout.fillWidth: true }
     Left {
+      BarMenu {
+        menuIcon: UPower.displayDevice.state == UPowerDeviceState.Charging ? Quickshell.shellDir+"/icons/Charging.svg" : ""
+      }
       BarMenu {
         menuText: Math.round(UPower.displayDevice.percentage*100)+"%"
       }
