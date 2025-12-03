@@ -54,8 +54,8 @@
     fsType = "ext4";
   };
 
-  fileSystems."/tmp" = {
-    device = "/dev/disk/by-label/tmp";
+  fileSystems."/nix/var/nix/builds" = {
+    device = "/dev/disk/by-label/build";
     fsType = "ext4";
   };
 
