@@ -6,14 +6,6 @@
       default = false;
       description = "Whether to bootstrap home-manager. (This requires a bootstrapped/present systemd for the user.)";
     };
-    dotfiles.path = lib.mkOption {
-      type = lib.types.path;
-      description = "Persistent location of the configuration.";
-    };
-    dotfiles.flake = lib.mkOption {
-      type = lib.types.str;
-      description = "The flake output of the home configuration.";
-    };
   };
 
   config = let
@@ -37,15 +29,18 @@
         Type = "oneshot";
         Environment="PATH=${pkgs.home-manager}/bin:${pkgs.coreutils}/bin:${pkgs.nix}/bin:${pkgs.systemd}/bin";
         RemainAfterExit = true;
-        ExecStart = pkgs.writeShellScript "activate-home-manager" ''
-          if [ -z ''${HOME_MANAGER_ACTIVATE+x} ]; then
-            export HOME_MANAGER_ACTIVATE=1;
-          else
-            exit;
-          fi
-          exec home-manager switch --flake ${builtins.path {path=cfg.dotfiles.path; recursive=true;}}#${cfg.dotfiles.flake}
-        '';
+        ExecStart = "${config.xdg.configHome}/systemd/user/activate.sh";
       };
     };
+    xdg.configFile."systemd/user/activate.sh".force = true;
+    xdg.configFile."systemd/user/activate.sh".text = "";
+    home.activation.home-manager = lib.hm.dag.entryBetween [ "reloadSystemd" ] [ "writeBoundary" "linkGeneration" ] ''
+      run rm "$HOME/.config/systemd/user/activate.sh"
+      run cat > "$HOME/.config/systemd/user/activate.sh" <<EOF
+      #!${pkgs.bash}/bin/bash
+      exec $(readlink -f $0) --driver-version 1
+      EOF
+      run chmod +x "$HOME/.config/systemd/user/activate.sh"
+    '';
   };
 }
