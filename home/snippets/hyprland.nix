@@ -26,7 +26,7 @@
     fonts.fontconfig.enable = true; # Icons
 
     # Manage uwsm session variables (force Wayland)
-    home.file.".config/uwsm/env".text = ''
+    xdg.configFile."uwsm/env".text = ''
       export GDK_BACKEND=wayland,x11,*
       export QT_QPA_PLATFORM="wayland;xcb"
       export SDL_VIDEODRIVER=wayland
@@ -35,8 +35,8 @@
     '';
 
     # Manage Keyboard Layouts
-    home.file.".config/xkb".source = ./xkb;
-    home.file.".config/xkb".recursive = true;
+    xdg.configFile."xkb".source = ./xkb;
+    xdg.configFile."xkb".recursive = true;
 
     # Manage file explorer
     xdg.mimeApps = {
@@ -68,31 +68,15 @@
     wayland.windowManager.hyprland.enable = true;
     services.hyprpolkitagent.enable = true;
     programs.alacritty.enable = true;
-    wayland.windowManager.hyprland.submaps = {
-      resize_and_move = {
-        settings.bind = [
-          ", escape, submap, reset"
-          ", $mmb, submap, reset"
-        ];
-
-        settings.bindr = [
-          ", $lmb, submap, reset"
-          "SHIFT, $lmb, submap, reset"
-        ];
-
-        settings.bindm = [
-          ", $lmb, movewindow"
-          "SHIFT, $lmb, resizewindow"
-        ];
-      };
-    };
     wayland.windowManager.hyprland.settings = {
       "$mod" = "CTRL";
       "$lmb" = "mouse:272";
       "$rmb" = "mouse:273";
       "$mmb" = "mouse:274";
+      settings.bindm = [
+        "$mod, $lmb, movewindow"
+      ];
       bind = [
-        ", $mmb, submap, resize_and_move"
         ", mouse:276, workspace, r+1"
         ", mouse:275, workspace, r-1"
         "$mod, Q, killactive"
@@ -153,6 +137,9 @@
       gestures = {
         workspace_swipe_min_speed_to_force = 15;
         workspace_swipe_cancel_ratio = 0.05;
+      };
+      general = {
+        resize_on_border = true;
       };
     };
     wayland.windowManager.hyprland.systemd.enable = false; # uwsm compatibility
