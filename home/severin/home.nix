@@ -28,20 +28,24 @@
   
   
     home.packages = with pkgs; [
+      # Command line
       vpn-rbw
-
       bat
       hexyl
       tlrc
   
+      # Desktop
       signal-desktop
       thunderbird
       rustdesk
+      libreoffice
   
+      # Dev
       jetbrains.idea-ultimate
       jetbrains.webstorm
       vscode
   
+      # Miscellaneous
       geogebra6
       postman
       prismlauncher

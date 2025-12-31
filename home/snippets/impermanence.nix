@@ -1,19 +1,33 @@
-{
-  home.persistence."/persist/home/severin" = {
-    directories = [ # Make sure to backup the directory to the persist location BEFORE `hm switch`/reboot
-      ".ssh"
-      ".thunderbird"
-      ".local/share/PrismLauncher"
-      ".config/vesktop"
-      ".config/Signal"
-      ".config/spotify"
-      "Documents"
-      "dotfiles"
-    ];
-    allowOther = true; # to be used with # programs.fuse.userAllowOther = true; # in nixos config
+let
+  prefixAll = prefix: map (x: "${prefix}/${x}");
+in {config, lib, ...}: {
+  home.persistence."/persist${config.home.homeDirectory}" = {
+    directories = 
+    map (lib.removePrefix config.home.homeDirectory) (
+      # Make sure to backup the directory to /persist
+      prefixAll config.home.homeDirectory [
+        ".ssh"
+        ".thunderbird"
+        "Documents"
+        "dotfiles"
+      ]
+      ++ prefixAll config.xdg.configHome [
+        "vesktop"
+        "Signal"
+        "spotify"
+        "libreoffice"
+      ]
+      ++ prefixAll config.xdg.dataHome [
+        "PrismLauncher"
+      ]
+    );
+    allowOther = true; 
+    # to be used with 
+    # programs.fuse.userAllowOther = true; 
+    # in nixos config
   };
 
-  # This is probably the most important part at user site because it gets home-manager running
+  # This gets home-manager running on impermanent home
   bootstrap-home-manager = {
     enable = true;
   };
