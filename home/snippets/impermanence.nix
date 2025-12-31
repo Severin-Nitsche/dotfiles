@@ -19,6 +19,7 @@ in {config, lib, ...}: {
       ]
       ++ prefixAll config.xdg.dataHome [
         "PrismLauncher"
+        "Steam"
       ]
     );
     allowOther = true; 
