@@ -70,11 +70,12 @@
     programs.alacritty.enable = true;
     wayland.windowManager.hyprland.settings = {
       "$mod" = "CTRL";
+      "$alt" = "Mod5";
       "$lmb" = "mouse:272";
       "$rmb" = "mouse:273";
       "$mmb" = "mouse:274";
-      settings.bindm = [
-        "$mod, $lmb, movewindow"
+      bindm = [
+        "$alt, $lmb, movewindow"
       ];
       bind = [
         ", mouse:276, workspace, r+1"
@@ -88,6 +89,8 @@
         "$mod, 1, fullscreen, 0"
         "$mod, 2, fullscreen, 1"
         "$mod, 3, togglefloating, active"
+        "$mod, J, togglesplit, active"
+        "$mod, K, swapsplit, active"
       ];
       bindel = [
         ", XF86KbdBrightnessDown, exec, brightnessctl set -c leds -d :white:kbd_backlight -e 20%-"
@@ -138,8 +141,15 @@
         workspace_swipe_min_speed_to_force = 15;
         workspace_swipe_cancel_ratio = 0.05;
       };
+      decoration = {
+        rounding = 5;
+        rounding_power = 4.0;
+      };
       general = {
         resize_on_border = true;
+      };
+      dwindle = {
+        preserve_split = true;
       };
     };
     wayland.windowManager.hyprland.systemd.enable = false; # uwsm compatibility

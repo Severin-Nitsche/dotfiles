@@ -11,7 +11,7 @@
     ../snippets/tmux.nix
     ../snippets/hyprland.nix
     ../snippets/vim.nix
-    ../snippets/stylix/stylix.nix
+    # ../snippets/stylix/stylix.nix
   ];
   
   config = {
