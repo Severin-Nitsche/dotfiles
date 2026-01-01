@@ -13,6 +13,7 @@
       brightnessctl
       pamixer
       playerctl
+      grimblast # Screenshots
 
       nautilus
 
@@ -91,6 +92,7 @@
         "$mod, 3, togglefloating, active"
         "$mod, J, togglesplit, active"
         "$mod, K, swapsplit, active"
+        "$mod Shift, 4, exec, grimblast copy area"
       ];
       bindel = [
         ", XF86KbdBrightnessDown, exec, brightnessctl set -c leds -d :white:kbd_backlight -e 20%-"
