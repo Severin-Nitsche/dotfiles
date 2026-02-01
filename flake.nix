@@ -28,6 +28,8 @@
     quickshell.inputs.nixpkgs.follows = "nixpkgs";
 
     jvim.url = "path:./modules/jvim";
+
+    sleep.url = "path:./modules/sleep";
   };
 
   outputs = { 
@@ -46,6 +48,7 @@
     stylix,
     quickshell,
     jvim,
+    sleep,
     ... 
   }@inputs: {
     nixosConfigurations."sevs-kekbook-pro" = nixpkgs.lib.nixosSystem {
@@ -53,6 +56,7 @@
       modules = [
         nixos-hardware.nixosModules.apple-t2
         impermanence.nixosModules.impermanence
+        sleep.nixosModules.t2sleep
         ./hosts/sevs-kekbook-pro/configuration.nix
         ./modules/brcm/brcm.nix
         ./modules/persistShadowHack/persistShadowHack.nix
@@ -86,7 +90,6 @@
         "${impermanence}/home-manager.nix"
         spicetify-nix.homeManagerModules.default
         stylix.homeModules.stylix
-        jvim.homeManagerModules.default
         ./home/severin/home.nix
       ];
       extraSpecialArgs = {

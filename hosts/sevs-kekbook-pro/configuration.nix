@@ -20,6 +20,10 @@
   boot.loader.systemd-boot.enable = true;
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = with (import ../../overlays); [
+    additions
+    modifications
+  ];
 
   networking.hostName = "sevs-kekbook-pro"; # Define your hostname.
 
@@ -34,7 +38,11 @@
     };
   };
 
-  # Printing
+  # Printing & Scanning
+  hardware.sane.enable = true;
+  hardware.sane.extraBackends = with pkgs; [
+    sane-airscan
+  ];
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [
     gutenprint
@@ -107,19 +115,15 @@
 
   # Fix suspend
   systemd.sleep.extraConfig = ''
-    SuspendState=freeze
+    SuspendState=mem
   '';
 
-  # Fix touchbar disappearing after resume
-  powerManagement.resumeCommands = ''
-    echo "Fixing touchbar by reloading kernel modules"
-    /run/current-system/sw/bin/modprobe -r hid_appletb_bl
-    /run/current-system/sw/bin/modprobe -r hid_appletb_kbd
-    /run/current-system/sw/bin/modprobe -r appletbdrm
-    /run/current-system/sw/bin/modprobe hid_appletb_bl
-    /run/current-system/sw/bin/modprobe hid_appletb_kbd
-    /run/current-system/sw/bin/modprobe appletbdrm
-  '';
+  t2sleep.enable = true;
+  t2sleep.reloadTouchbar = true;
+  t2sleep.reloadWiFi = true;
+  t2sleep.wifi.device = "0000:e5:00.0";
+  t2sleep.wifi.hot-reset = false;
+  sleep.hot-reset.package = pkgs.hot-reset;
 
   services.dbus.implementation = "broker"; # Recommended for uwsm
 

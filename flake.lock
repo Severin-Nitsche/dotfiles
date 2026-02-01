@@ -418,9 +418,21 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
         "quickshell": "quickshell",
+        "sleep": "sleep",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix"
       }
+    },
+    "sleep": {
+      "locked": {
+        "path": "./modules/sleep",
+        "type": "path"
+      },
+      "original": {
+        "path": "./modules/sleep",
+        "type": "path"
+      },
+      "parent": []
     },
     "spicetify-nix": {
       "inputs": {

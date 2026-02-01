@@ -3,6 +3,7 @@
   additions = final: prev: { # Additional Packages
     vpn-rbw = prev.callPackage ../derivs/vpn-rbw/vpn-rbw.nix {};
     fixLaunchpad = prev.callPackage ../derivs/fixLaunchpad/fixLaunchpad.nix {};
+    hot-reset = prev.callPackage ../derivs/hot-reset/hot-reset.nix {};
   };
 
   modifications = final: prev: { # Modified Packages
@@ -16,6 +17,7 @@
         EOF
       '';
     });
+
     brightnessctl = prev.brightnessctl.overrideAttrs (old: {
       version = "0.6";
       src = prev.fetchFromGitHub {
