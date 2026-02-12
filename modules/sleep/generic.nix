@@ -10,6 +10,13 @@ user: { config, name, lib, ... }: {
         Whether to enable this generic sleep unit.
       '';
     };
+    passthru = mkOption {
+      type = types.attrs;
+      default = {};
+      description = ''
+        Passthru options for systemd unit.
+      '';
+    };
     name = mkOption {
       type = types.str;
       default = name;

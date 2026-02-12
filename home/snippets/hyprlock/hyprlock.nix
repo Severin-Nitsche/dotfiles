@@ -4,16 +4,13 @@
 
   options = {};
 
-  config = let
-    save = "brightnessctl set --save -cleds -d:white:kbd_backlight 0";
-    restore = "brightnessctl set --restore -cleds -d:white:kbd_backlight";
-  in {
+  config = {
 
     services.hypridle.enable = true;
     services.hypridle.settings = {
       general = {
         lock_cmd = "pidof hyprlock || hyprlock";
-        before_sleep_cmd = "${save}; loginctl lock-session";
+        before_sleep_cmd = "loginctl lock-session";
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
 

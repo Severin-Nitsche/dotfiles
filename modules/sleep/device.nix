@@ -50,6 +50,14 @@ pkgs: { config, name, lib, ... }: {
       '';
     };
 
+    noBarrier = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        If barriers are enabled and this option is set, the device will be reset regardless of barrier state. Default is to reset only after the userbarrier is reached.
+      '';
+    };
+
     drivers = mkOption {
       type = types.listOf
         (types.coercedTo types.str (d: {driver = d;}) (types.submodule ((import ./driver.nix) pkgs)));

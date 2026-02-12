@@ -103,6 +103,48 @@
         "type": "github"
       }
     },
+    "dbus-systemd-dispatcher": {
+      "inputs": {
+        "nixpkgs": [
+          "sleep",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770671779,
+        "narHash": "sha256-pLx5/14rrDbbzp3NHDloSeRveKefLvmn8nXP4x1WvQE=",
+        "owner": "Severin-Nitsche",
+        "repo": "dbus-systemd-dispatcher",
+        "rev": "7f361ca56761d898c5c26b9429470be09e8562c2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Severin-Nitsche",
+        "repo": "dbus-systemd-dispatcher",
+        "type": "github"
+      }
+    },
+    "dbus-wait": {
+      "inputs": {
+        "nixpkgs": [
+          "sleep",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770734705,
+        "narHash": "sha256-MZOMQms+X3rdZD0xWmt3b/KOjpesHZZs2vJFqRNhasc=",
+        "owner": "Severin-Nitsche",
+        "repo": "dbus-wait",
+        "rev": "bd3da2948d9ff10d350a6df12f370560a1de783a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Severin-Nitsche",
+        "repo": "dbus-wait",
+        "type": "github"
+      }
+    },
     "dotfiles": {
       "flake": false,
       "locked": {
@@ -424,6 +466,13 @@
       }
     },
     "sleep": {
+      "inputs": {
+        "dbus-systemd-dispatcher": "dbus-systemd-dispatcher",
+        "dbus-wait": "dbus-wait",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
         "path": "./modules/sleep",
         "type": "path"

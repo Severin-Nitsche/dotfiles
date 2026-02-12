@@ -30,6 +30,7 @@
     jvim.url = "path:./modules/jvim";
 
     sleep.url = "path:./modules/sleep";
+    sleep.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { 

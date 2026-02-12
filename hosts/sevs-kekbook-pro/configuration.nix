@@ -121,9 +121,7 @@
   t2sleep.enable = true;
   t2sleep.reloadTouchbar = true;
   t2sleep.reloadWiFi = true;
-  t2sleep.wifi.device = "0000:e5:00.0";
-  t2sleep.wifi.hot-reset = false;
-  sleep.hot-reset.package = pkgs.hot-reset;
+  t2sleep.restoreBrightness = true;
 
   services.dbus.implementation = "broker"; # Recommended for uwsm
 
