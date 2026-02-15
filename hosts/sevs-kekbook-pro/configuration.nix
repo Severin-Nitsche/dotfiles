@@ -6,9 +6,14 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ 
       ./hardware-configuration.nix
       ../snippets/impermanence.nix
+      ../snippets/printNscan.nix
+      ../snippets/bluetooth.nix
+      ../snippets/localization_de_mac.nix
+      ../snippets/hyprland.nix
+      ../snippets/suspend.nix
     ];
 
   nix.settings.experimental-features = [
@@ -20,117 +25,50 @@
   boot.loader.systemd-boot.enable = true;
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = with (import ../../overlays); [
-    additions
-    modifications
-  ];
 
-  networking.hostName = "sevs-kekbook-pro"; # Define your hostname.
-
-  # Networking
-  networking.networkmanager.enable = true;  # Easier than wpa_cli
-
-  # Bluetooth
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.settings = {
-    General = {
-      Name = "sevs-kekbook-pro";
-    };
-  };
-
-  # Printing & Scanning
-  hardware.sane.enable = true;
-  hardware.sane.extraBackends = with pkgs; [
-    sane-airscan
-  ];
-  services.printing.enable = true;
-  services.printing.drivers = with pkgs; [
-    gutenprint
-  ];
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-  };
+  # Networking (nmtui instead of wpa_cli)
+  networking.hostName = "sevs-kekbook-pro";
+  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "de_DE.UTF-8";
-  # console.keyMap = "de";
-  console.useXkbConfig = true;
-
   # Enable sddm as display/login manager
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
-
-  # Enable Upower
-  services.upower.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb.layout = "de";
-  services.xserver.xkb.variant = "mac";
-  # services.xserver.xkb.options = "lv3:alt_switch"; # Switching to ttyX impossible (ctrl+lalt+FX)
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
 
   # Enable sound.
   services.pipewire = {
     enable = true;
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account.
   users.mutableUsers = true;
 
   users.users.root = {
     isSystemUser = true;
     initialPassword = "";
   };
-  # security.sudo.enable = true;
+
   users.users.severin = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     initialPassword = "";
     createHome = true;
-    linger = true; # This is needed for impermanence so that our user services run at boot
     packages = with pkgs; [
       home-manager
     ];
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # Packages installed in system profile.
   environment.systemPackages = with pkgs; [
     vim
     git
   ];
-  programs.steam.enable = true; # I hate that this is not working at user site
+  programs.steam.enable = true;
 
-  # Enable HYPRLAND
-  programs.hyprland.enable = true;
-  programs.hyprland.withUWSM = true;
-  security.pam.services.hyprlock.enable = true;
-
-  # Fix suspend
-  systemd.sleep.extraConfig = ''
-    SuspendState=mem
-  '';
-
-  t2sleep.enable = true;
-  t2sleep.reloadTouchbar = true;
-  t2sleep.reloadWiFi = true;
-  t2sleep.restoreBrightness = true;
-
-  services.dbus.implementation = "broker"; # Recommended for uwsm
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
-
-  system.stateVersion = "24.11"; # Do not change
+  # Do not change
+  system.stateVersion = "24.11";
 
 }
 
