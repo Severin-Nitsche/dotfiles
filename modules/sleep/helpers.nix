@@ -32,7 +32,7 @@ cfg: lib: rec {
     else insert;
   in {
     enable = device.enable;
-    description = "Reset the device/drivers for ${device.device}";
+    description = "Device/Driver reset for ${device.device}";
     name = device.name;
     before = device.after;
     after = if !device.noBarrier && cfg.user.barriers && cfg.user.enable then
