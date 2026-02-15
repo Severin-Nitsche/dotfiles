@@ -51,14 +51,16 @@ let cfg = config.t2sleep; in {
     };
   };
 
-  config = lib.mkMerge [
-    (lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.enable (lib.mkMerge [
+    {
+      sleep.enable = true;
       sleep.reset.t2hardware = {
         drivers = [
           { driver = "apple_bce"; force = true; }
         ];
       };
-
+    }
+    (lib.mkIf cfg.reloadWiFi {
       sleep.reset.wifi = {
         enable = cfg.reloadWiFi;
         device = cfg.wifi.device;
@@ -67,7 +69,8 @@ let cfg = config.t2sleep; in {
         drivers = [ "brcmfmac" "brcmfmac_wcc" ];
         after = [ "t2hardware" ];
       };
-
+    })
+    (lib.mkIf cfg.reloadTinyDFR {
       sleep.reset.tinyDFR = {
         enable = cfg.reloadTinyDFR;
         drivers = [
@@ -79,20 +82,17 @@ let cfg = config.t2sleep; in {
           }
         ];
         before = [ "t2hardware" ];
-        after = [ "touchbar" ];
+        after = if cfg.relaodTouchbar then
+          [ "touchbar" ]
+        else [];
       };
-
+    })
+    (lib.mkIf cfg.reloadTouchbar {
       sleep.reset.touchbar = {
         enable = cfg.reloadTouchbar;
         drivers = [ "hid_appletb_bl" "hid_appletb_kbd" ];
         before = [ "t2hardware" ];
       };
-
-      # boot.kernelPatches = [ {
-      #   name = "force-unload";
-      #   patch = null;
-      #   extraConfig = "MODULE_FORCE_UNLOAD y";
-      # } ];
     })
     (lib.mkIf cfg.reloadWireplumber {
       sleep.user.enable = true;
@@ -119,5 +119,5 @@ let cfg = config.t2sleep; in {
         before = [ "t2hardware" ];
       };
     })
-  ];
+  ]);
 }
