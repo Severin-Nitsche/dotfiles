@@ -41,7 +41,7 @@
       libreoffice
   
       # Dev
-      jetbrains.idea-ultimate
+      jetbrains.idea
       jetbrains.webstorm
       vscode
   

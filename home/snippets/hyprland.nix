@@ -110,7 +110,7 @@
       ];
 
       layerrule = [
-        "blur, quickshell"
+        "blur on, match:namespace quickshell"
       ];
 
       exec-once = [
