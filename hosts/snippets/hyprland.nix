@@ -9,4 +9,7 @@
 
   # Recommended for uwsm
   services.dbus.implementation = "broker"; 
+
+  # Enable udisks2
+  services.udisks2.enable = true;
 }

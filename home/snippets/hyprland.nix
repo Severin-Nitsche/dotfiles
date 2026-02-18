@@ -16,6 +16,7 @@
       grimblast # Screenshots
 
       nautilus
+      udiskie
 
       kdePackages.qtwayland # qt6
       libsForQt5.qt5.qtwayland # qt5
@@ -115,6 +116,7 @@
 
       exec-once = [
         "uwsm app -- quickshell"
+        "udiskie"
       ];
       
       input = {
