@@ -7,9 +7,12 @@ Singleton {
   property int barHeight: 5 // mm
   property bool showDebug: true // unused LOL
 
-  property bool darkMode: true
+  property bool darkMode: false
 
   property int minLogomarkDensity: 4
+
+  property real audioStep: 0.04
+  property real maxAudio: 1.5
 
   // Format: YYYY-MM-dd
   // Year is unused
@@ -21,6 +24,10 @@ Singleton {
   property url prideLogomark: Quickshell.shellDir+'/icons/nixos-logomark-rainbow-gradient-none.svg'
   property url darkLogomark: Quickshell.shellDir+'/icons/nixos-logomark-white-flat-none.svg'
   property url lightLogomark: Quickshell.shellDir+'/icons/nixos-logomark-black-flat-none.svg'
+  property url darkMute: Quickshell.shellDir+'/icons/mute-white.svg'
+  property url lightMute: Quickshell.shellDir+'/icons/mute-black.svg'
+  property url darkVolume: Quickshell.shellDir+'/icons/volume-white.svg'
+  property url lightVolume: Quickshell.shellDir+'/icons/volume-black.svg'
 
   property url darkLogotype: Quickshell.shellDir+'/icons/nixos-logotype-white-regular-none.svg'
   property url lightLogotype: Quickshell.shellDir+'/icons/nixos-logotype-black-regular-none.svg'
@@ -97,10 +104,23 @@ Singleton {
       isPrideSeason ?
         palette[0] :
         palette[1]
+
+  property color transparentBarBackground: {
+    let c = barBackground
+    Qt.rgba(c.r, c.g, c.b, 0.6)
+  }
     
   property color barHighlight: highlight[2]
 
   property color barText: darkMode ?
     primary[0] :
     primary[3]
+
+  property url mute: darkMode ?
+    darkMute :
+    lightMute
+
+  property url volume: darkMode ?
+    darkVolume :
+    lightVolume
 }

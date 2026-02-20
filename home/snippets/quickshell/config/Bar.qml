@@ -3,6 +3,8 @@ import QtQuick.Layouts
 
 import Quickshell
 import Quickshell.Services.UPower
+import Quickshell.Services.Pipewire
+import Quickshell.Hyprland
 
 import qs.bar
 import qs.state
@@ -16,6 +18,7 @@ BarWindow {
     }
     Item { Layout.fillWidth: true }
     Left {
+      Audio {}
       BarMenu {
         menuIcon: UPower.displayDevice.state == UPowerDeviceState.Charging ? Quickshell.shellDir+"/icons/Charging.svg" : ""
       }

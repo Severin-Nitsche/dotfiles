@@ -100,11 +100,11 @@
         ", XF86KbdBrightnessUp, exec, brightnessctl set -c leds -d :white:kbd_backlight -e +20%"
         ", XF86MonBrightnessDown, exec, brightnessctl set -c backlight -d intel_backlight -e 4%-"
         ", XF86MonBrightnessUp, exec, brightnessctl set -c backlight -d intel_backlight -e +4%"
-        ", XF86AudioLowerVolume, exec, pamixer --decrease 4"
-        ", XF86AudioRaiseVolume, exec, pamixer --increase 4"
+        ", XF86AudioLowerVolume, global, quickshell:volumeDown"
+        ", XF86AudioRaiseVolume, global, quickshell:volumeUp"
       ];
       bindl = [
-        ", XF86AudioMute, exec, pamixer --toggle-mute"
+        ", XF86AudioMute, global, quickshell:mute"
         ", XF86AudioPrev, exec, playerctl previous"
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioNext, exec, playerctl next"
