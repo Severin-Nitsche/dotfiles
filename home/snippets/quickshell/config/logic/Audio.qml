@@ -13,11 +13,36 @@ import qs.state
 Singleton {
   id: root
 
-  readonly property bool muted: Pipewire.defaultAudioSink.audio.muted
+  readonly property bool muted: Pipewire.defaultAudioSource.audio.muted
   readonly property real volume: Pipewire.defaultAudioSink.audio.volume
+  property bool deafened: false
+
+  property url icon: deafened ?
+    GlobalState.deaf :
+    muted ?
+      GlobalState.mute :
+      GlobalState.volume
 
   PwObjectTracker {
-    objects: [Pipewire.defaultAudioSink]
+    objects: [
+      Pipewire.defaultAudioSink, 
+      Pipewire.defaultAudioSource,
+    ]
+  }
+
+  // Useful combinations:
+  // Microphone | Speaker | name
+  // -----------|---------|-------
+  //    muted   |   on    | muted
+  //    muted   |  muted  | deafened
+  //     on     |   on    | on
+
+  function toggleDeaf(input, output) {
+    if (input.audio && output.audio) {
+      input.audio.muted = !input.audio.muted
+      output.audio.muted = input.audio.muted
+      deafened = input.audio.muted
+    }
   }
 
   function toggleMute(node) {
@@ -67,9 +92,7 @@ Singleton {
 
       ColumnLayout {
         Image {
-          source: Audio.muted ?
-            GlobalState.mute :
-            GlobalState.volume
+          source: Audio.icon
           fillMode: Image.PreserveAspectFit
           cache: false
           sourceSize.width: -1
@@ -96,12 +119,25 @@ Singleton {
   }
 
   GlobalShortcut {
-    name: "mute"
-    description: "(Un)mute the audio"
+    name: "deafen"
+    description: "Toggle microphone & speaker"
 
     onPressed: {
       defaultAction()
-      toggleMute(Pipewire.defaultAudioSink)
+      toggleDeaf(
+        Pipewire.defaultAudioSource,
+        Pipewire.defaultAudioSink,
+      )
+    }
+  }
+
+  GlobalShortcut {
+    name: "mute"
+    description: "(Un)mute the microphone"
+
+    onPressed: {
+      defaultAction()
+      toggleMute(Pipewire.defaultAudioSource)
     }
   }
 

@@ -7,7 +7,7 @@ Singleton {
   property int barHeight: 5 // mm
   property bool showDebug: true // unused LOL
 
-  property bool darkMode: false
+  property bool darkMode: true
 
   property int minLogomarkDensity: 4
 
@@ -20,17 +20,24 @@ Singleton {
   property date prideSeasonStart: '1969-06-01'
   property date prideSeasonEnd: '1969-06-30'
 
-  property url transLogomark: Quickshell.shellDir+'/icons/nixos-logomark-trans-gradient-none.svg'
-  property url prideLogomark: Quickshell.shellDir+'/icons/nixos-logomark-rainbow-gradient-none.svg'
-  property url darkLogomark: Quickshell.shellDir+'/icons/nixos-logomark-white-flat-none.svg'
-  property url lightLogomark: Quickshell.shellDir+'/icons/nixos-logomark-black-flat-none.svg'
-  property url darkMute: Quickshell.shellDir+'/icons/mute-white.svg'
-  property url lightMute: Quickshell.shellDir+'/icons/mute-black.svg'
-  property url darkVolume: Quickshell.shellDir+'/icons/volume-white.svg'
-  property url lightVolume: Quickshell.shellDir+'/icons/volume-black.svg'
+  property url icons: Quickshell.shellDir+'/icons/'
 
-  property url darkLogotype: Quickshell.shellDir+'/icons/nixos-logotype-white-regular-none.svg'
-  property url lightLogotype: Quickshell.shellDir+'/icons/nixos-logotype-black-regular-none.svg'
+  property url transLogomark: icons+'nixos-logomark-trans-gradient-none.svg'
+  property url prideLogomark: icons+'nixos-logomark-rainbow-gradient-none.svg'
+  property url darkLogomark: icons+'nixos-logomark-white-flat-none.svg'
+  property url lightLogomark: icons+'nixos-logomark-black-flat-none.svg'
+  property url darkMute: icons+'mute-white.svg'
+  property url lightMute: icons+'mute-black.svg'
+  property url darkVolume: icons+'volume-white.svg'
+  property url lightVolume: icons+'volume-black.svg'
+  property url darkDeaf: icons+'deafened-white.svg'
+  property url lightDeaf: icons+'deafened-black.svg'
+  property url darkLogotype: icons+'nixos-logotype-white-regular-none.svg'
+  property url lightLogotype: icons+'nixos-logotype-black-regular-none.svg'
+  property url darkCharging: icons+'charging-white.svg'
+  property url lightCharging: icons+'charging-black.svg'
+  property url darkPower: icons+'power-white.svg'
+  property url lightPower: icons+'power-black.svg'
 
   // Palette
   property list<color> primary: [
@@ -123,4 +130,16 @@ Singleton {
   property url volume: darkMode ?
     darkVolume :
     lightVolume
+
+  property url deaf: darkMode ?
+    darkDeaf : 
+    lightDeaf
+
+  property url charging: darkMode ?
+    darkCharging : 
+    lightCharging
+
+  property url power: darkMode ?
+    darkPower : 
+    lightPower 
 }

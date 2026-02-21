@@ -20,7 +20,7 @@ BarWindow {
     Left {
       Audio {}
       BarMenu {
-        menuIcon: UPower.displayDevice.state == UPowerDeviceState.Charging ? Quickshell.shellDir+"/icons/Charging.svg" : ""
+        menuIcon: UPower.displayDevice.state == UPowerDeviceState.Charging ? GlobalState.charging : ""
       }
       BarMenu {
         menuText: Math.round(UPower.displayDevice.percentage*100)+"%"

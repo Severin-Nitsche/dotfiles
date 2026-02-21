@@ -5,7 +5,5 @@ import qs.state
 import qs.logic
 
 BarMenu {
-  menuIcon: Audio.muted ?
-    GlobalState.mute :
-    GlobalState.volume
+  menuIcon: Audio.icon
 }

@@ -104,7 +104,7 @@
         ", XF86AudioRaiseVolume, global, quickshell:volumeUp"
       ];
       bindl = [
-        ", XF86AudioMute, global, quickshell:mute"
+        ", XF86AudioMute, global, quickshell:deafen"
         ", XF86AudioPrev, exec, playerctl previous"
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioNext, exec, playerctl next"

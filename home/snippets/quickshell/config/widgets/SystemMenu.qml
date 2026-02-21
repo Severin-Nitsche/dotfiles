@@ -50,7 +50,7 @@ BarMenu {
   MenuItem {
     implicitHeight: root.height
     menuText: "Herunterfahren"
-    menuIcon: Quickshell.shellDir + "/icons/Charging.svg"
+    menuIcon: GlobalState.power
 
     Process {
       id: shutdown
