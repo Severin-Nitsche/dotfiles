@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   stylix.enable = true;
   stylix.base16Scheme = ./nixos.yaml;
+  # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-seaside-light.yaml";
   stylix.image = ./wallpaper.jpg;
   stylix.fonts = {
     serif = {
@@ -25,5 +26,6 @@
     light = "Vimix";
     dark = "Vimix";
   };
-  stylix.targets.librewolf.profileNames = [ "default" ];
+  stylix.targets.vesktop.enable = false;
+  stylix.targets.librewolf.enable = false;
 }

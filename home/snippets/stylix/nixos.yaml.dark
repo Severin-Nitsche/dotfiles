@@ -1,0 +1,22 @@
+system: "base16"
+name: "NixOS"
+author: "Severin Nitsche (https://github.com/Severin-Nitsche)"
+variant: "dark"
+palette:
+  base00: "#050b18"
+  base01: "#15213a" # bar
+  base02: "#87adfa" # vim-select
+  base03: "#b7cefd" # vim netrw dir listing
+  base04: "#e8effc"
+  base05: "#eeeeee"
+  base06: "#e3f1fb"
+  base07: "#ffffff"
+  base08: "#f08d94"
+  base09: "#e99861"
+  base0A: "#cbaa4b"
+  base0B: "#6FC488"
+  base0C: "#a4d5f7"
+  base0D: "#5fb8f2"
+  base0E: "#d991d2"
+  base0F: "#aaa1f6"
+
