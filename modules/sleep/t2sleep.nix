@@ -82,7 +82,7 @@ let cfg = config.t2sleep; in {
           }
         ];
         before = [ "t2hardware" ];
-        after = if cfg.relaodTouchbar then
+        after = if cfg.reloadTouchbar then
           [ "touchbar" ]
         else [];
       };
