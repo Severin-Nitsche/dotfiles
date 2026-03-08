@@ -25,6 +25,9 @@
       dunst
     ];
 
+    # Automagical brightness adjustment
+    services.wluma.enable = true;
+
     fonts.fontconfig.enable = true; # Icons
 
     # Manage uwsm session variables (force Wayland)
