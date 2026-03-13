@@ -12,7 +12,7 @@ Singleton {
   property int minLogomarkDensity: 4
 
   property real audioStep: 0.04
-  property real maxAudio: 1.5
+  property real maxAudio: 1
 
   // Format: YYYY-MM-dd
   // Year is unused
@@ -38,6 +38,8 @@ Singleton {
   property url lightCharging: icons+'charging-black.svg'
   property url darkPower: icons+'power-white.svg'
   property url lightPower: icons+'power-black.svg'
+  property url darkWave: icons+'wave-white.svg'
+  property url lightWave: icons+'wave-black.svg'
 
   // Palette
   property list<color> primary: [
@@ -142,4 +144,8 @@ Singleton {
   property url power: darkMode ?
     darkPower : 
     lightPower 
+
+  property url wave: darkMode ?
+    darkWave :
+    lightWave
 }

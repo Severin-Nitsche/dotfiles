@@ -105,7 +105,7 @@ Singleton {
           implicitWidth: indicator.height * 2/3 * root.volume / GlobalState.maxAudio
           implicitHeight: indicator.height / 6
           Image {
-            source: Quickshell.shellDir + '/icons/audio.png'
+            source: GlobalState.wave
             fillMode: Image.TileHorizontally
             anchors.fill: parent
             cache: false
