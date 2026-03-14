@@ -40,6 +40,10 @@ Singleton {
   property url lightPower: icons+'power-black.svg'
   property url darkWave: icons+'wave-white.svg'
   property url lightWave: icons+'wave-black.svg'
+  property url darkLogout: icons+'log-out-white.svg'
+  property url lightLogout: icons+'log-out-black.svg'
+  property url darkSleep: icons+'sleep-white.svg'
+  property url lightSleep: icons+'sleep-black.svg'
 
   // Palette
   property list<color> primary: [
@@ -148,4 +152,12 @@ Singleton {
   property url wave: darkMode ?
     darkWave :
     lightWave
+
+  property url logout: darkMode ?
+    darkLogout :
+    lightLogout
+
+  property url sleep: darkMode ?
+    darkSleep :
+    lightSleep
 }

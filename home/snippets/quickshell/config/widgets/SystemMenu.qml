@@ -20,7 +20,7 @@ BarMenu {
   MenuItem {
     implicitHeight: root.height
     menuText: "Ruhezustand"
-    menuIcon: Quickshell.shellDir + "/icons/Charging.svg"
+    menuIcon: GlobalState.sleep
 
     Process {
       id: sleep
@@ -35,7 +35,7 @@ BarMenu {
   MenuItem {
     implicitHeight: root.height
     menuText: "Abmelden"
-    menuIcon: Quickshell.shellDir + "/icons/Charging.svg"
+    menuIcon: GlobalState.logout
 
     Process {
       id: logout
