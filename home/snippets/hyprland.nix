@@ -49,6 +49,7 @@
       defaultApplications = {
         "inode/directory" = ["org.gnome.Nautilus.desktop"];
         "inode/mount-point" = ["org.gnome.Nautilus.desktop"];
+        "application/pdf" = ["librewolf.desktop"];
       };
     };
 
