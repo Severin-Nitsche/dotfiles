@@ -39,6 +39,8 @@
       thunderbird
       rustdesk
       libreoffice
+      gnome-calculator
+      simple-scan
   
       # Dev
       jetbrains.idea
