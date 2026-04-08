@@ -89,7 +89,7 @@
         ", mouse:275, workspace, r-1"
         "$mod, Q, killactive"
         "$mod, return, exec, uwsm app -- alacritty"
-        "$mod, M, exec, uwsm stop" # Do not use exit with uwsm
+        "$mod $alt, BackSpace, exec, uwsm stop" # Do not use exit with uwsm
         "$mod, space, exec, uwsm app -- rofi -show drun -run-command 'uwsm app -- {cmd}'"
         "$mod, E, exec, [float] uwsm app -- nautilus"
         "$mod, L, exec, hyprlock"
