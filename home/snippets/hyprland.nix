@@ -37,6 +37,7 @@
       export SDL_VIDEODRIVER=wayland
       export CLUTTER_BACKEND=wayland
       export NIXOS_OZONE_WL=1
+      export ANKI_WAYLAND=1
     '';
 
     # Manage Keyboard Layouts
@@ -159,6 +160,7 @@
       dwindle = {
         preserve_split = true;
       };
+      xwayland.force_zero_scaling = true;
     };
     wayland.windowManager.hyprland.systemd.enable = false; # uwsm compatibility
   };
