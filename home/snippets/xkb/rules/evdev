@@ -5,3 +5,5 @@
   power:caps = +power(caps)
 ! option = symbols
   mac:k860 = +mac(k860)
+! option = symbols
+  lvl5:math = +math(lvl5)

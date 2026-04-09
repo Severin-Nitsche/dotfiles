@@ -125,8 +125,8 @@
       ];
       
       input = {
-        kb_layout = "de";
-        kb_variant = "mac";
+        kb_layout = "de,math";
+        kb_variant = "mac,lvl5";
         kb_options = "power:caps,lv3:alt_switch,altwin:ctrl_win";
         kb_rules = "evdev";
         touchpad = {
