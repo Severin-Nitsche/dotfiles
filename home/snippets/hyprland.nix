@@ -4,6 +4,8 @@
     ./hyprlock/hyprlock.nix # Includes hypridle
     ./quickshell/quickshell.nix
     ./rofi.nix
+    ./alacritty.nix
+    ./quit.nix
   ];
 
   options = {};
