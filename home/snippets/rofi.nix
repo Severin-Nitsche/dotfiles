@@ -12,8 +12,16 @@
     };
 
     inputbar = {
-      children = map mkLiteral [ "entry" ];
+      children = map mkLiteral [
+        "entry"
+        "icon-current-entry"
+      ];
       padding = mkLiteral "0.5em";
+      border = mkLiteral "0 0 0.05em 0";
+    };
+
+    entry = {
+      placeholder = "Suchen...";
     };
 
     window = {
