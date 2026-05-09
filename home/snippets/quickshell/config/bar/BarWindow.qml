@@ -30,7 +30,10 @@ Scope {
       }
 
       readonly property real mm: screen.physicalPixelDensity
-      implicitHeight: GlobalState.barHeight*mm
+      readonly property int refSize: screen.width < screen.height ?
+        screen.width : screen.height
+
+      implicitHeight: Math.round(GlobalState.barHeight*refSize)
 
       data: delegate.createObject(bar)
     }

@@ -4,7 +4,7 @@ pragma Singleton
 
 Singleton {
   id: root
-  property int barHeight: 5 // mm
+  property real barHeight: 0.0277 // relative
   property bool showDebug: true // unused LOL
 
   property bool darkMode: true
