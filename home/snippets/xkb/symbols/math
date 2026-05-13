@@ -1,5 +1,5 @@
 partial xkb_symbols "lvl5" {
-  include "us(basic)"
+  include "de(mac)"
   name[Group1] = "Math";
   
   key <AC01> { [ "𝛼", "𝛢", "∀" ] };
@@ -16,11 +16,11 @@ partial xkb_symbols "lvl5" {
   key <AD07> { [ "𝜇", "𝛭" ] };
   key <AB04> { [ "𝜈", "𝛮" ] };
   key <AB02> { [ "𝜉", "𝛯" ] };
-  key <AD09> { [ "𝜊", "𝛰" ] };
+  key <AD09> { [ "𝜊", "𝛰", "∅" ] };
   key <AD10> { [ "𝜋", "𝛱", "𝜑", "𝛷" ] };
   key <AD04> { [ "𝜌", "ℝ" ] };
   key <AC02> { [ "𝜎", "𝛴" ] };
   key <AB03> { [ "𝜒", "ℂ" ] };
   key <AD02> { [ "𝜔", "𝛺" ] };
-  key <AC10> { [ "∊" ] };
+  key <AC10> { [ "∈", "⊆", "∋", "⊇" ] };
 };
