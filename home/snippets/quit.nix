@@ -2,9 +2,9 @@
   home.shellAliases = {
     exit = "${pkgs.quit}/bin/quit fail";
 
-    ":q" = "${pkgs.quit}/bin/quit normal";
+    ":q!" = "${pkgs.quit}/bin/quit normal";
 
-    ":q!" = "\\exit";
+    ":q" = "\\exit";
 
     ":qa" = "${pkgs.quit}/bin/quit all";
 

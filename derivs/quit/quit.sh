@@ -31,6 +31,8 @@ if [[ "$1" == "fail" ]]; then
   msg[15]="Can't delete system32. Not a windows system"
   msg[16]="Trying to restart MS-DOS"
   msg[17]="You can fix me. Don't go."
+  msg[18]="Aggressively we all defend the role we play"
+  msg[19]="We hope you enjoyed your stay"
 
   echo "${msg[$RANDOM % ${#msg[@]}]}"
   exit 1
