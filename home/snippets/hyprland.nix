@@ -93,6 +93,7 @@
         "$mod, return, exec, uwsm app -- alacritty"
         "$mod $alt, BackSpace, exec, uwsm stop" # Do not use exit with uwsm
         "$mod, space, exec, uwsm app -- rofi -show drun -run-command 'uwsm app -- {cmd}'"
+        "$mod, tab, exec, uwsm app -- rofi -show"
         "$mod, E, exec, [float] uwsm app -- nautilus"
         "$mod, L, exec, hyprlock"
         "$mod, 1, fullscreen, 0"
