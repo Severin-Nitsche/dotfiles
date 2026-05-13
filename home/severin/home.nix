@@ -1,6 +1,7 @@
 { config, pkgs, nixpkgs, ... }: {
 
   imports = [
+    ../snippets/bash.nix
     ../snippets/impermanence.nix
     ../snippets/git.nix
     ../snippets/eza.nix
