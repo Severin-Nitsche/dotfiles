@@ -58,7 +58,7 @@
         nixos-hardware.nixosModules.apple-t2
         impermanence.nixosModules.impermanence
         sleep.nixosModules.t2sleep
-        ./hosts/sevs-kekbook-pro/configuration.nix
+        ./hosts/+kekbook.configuration.nix
         ./modules/brcm/brcm.nix
         ./modules/persistShadowHack/persistShadowHack.nix
         ./modules/bootstrap-user-systemd/bootstrap-user-systemd.nix
@@ -68,9 +68,9 @@
     darwinConfigurations."sevs-macbook-pro" = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
       modules = [
-       mac-app-util.darwinModules.default
-       ./hosts/sevs-macbook-pro/configuration.nix 
-     ];
+        mac-app-util.darwinModules.default
+        ./hosts/+mac.configuration.nix
+      ];
     };
 
     homeConfigurations."severinnitsche" = home-manager.lib.homeManagerConfiguration {
@@ -79,7 +79,7 @@
         mac-app-util.homeManagerModules.default
         spicetify-nix.homeManagerModules.default
         jvim.homeManagerModules.default
-        ./home/severinnitsche/home.nix 
+        ./home/+severinnitsche.nix 
       ];
       extraSpecialArgs = { inherit inputs; };
     };
@@ -91,7 +91,7 @@
         "${impermanence}/home-manager.nix"
         spicetify-nix.homeManagerModules.default
         stylix.homeModules.stylix
-        ./home/severin/home.nix
+        ./home/+severin.nix
       ];
       extraSpecialArgs = {
         inherit inputs; # required for spicetify

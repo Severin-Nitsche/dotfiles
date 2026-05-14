@@ -7,13 +7,13 @@
 {
   imports =
     [ 
-      ./hardware-configuration.nix
-      ../snippets/impermanence.nix
-      ../snippets/printNscan.nix
-      ../snippets/bluetooth.nix
-      ../snippets/localization_de_mac.nix
-      ../snippets/hyprland.nix
-      ../snippets/suspend.nix
+      ./+kekbook.hardware.nix
+      ./impermanence.nix
+      ./printNscan.nix
+      ./bluetooth.nix
+      ./localization_de_mac.nix
+      ./hyprland.nix
+      ./suspend.nix
     ];
 
   nix.settings.experimental-features = [

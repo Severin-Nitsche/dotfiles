@@ -1,18 +1,18 @@
 { config, pkgs, nixpkgs, ... }: {
 
   imports = [
-    ../snippets/bash.nix
-    ../snippets/impermanence.nix
-    ../snippets/git.nix
-    ../snippets/eza.nix
-    ../snippets/discord.nix
-    ../snippets/firefox.nix
-    ../snippets/rbw.nix
-    ../snippets/spicetify.nix
-    ../snippets/tmux.nix
-    ../snippets/hyprland.nix
-    ../snippets/vim.nix
-    ../snippets/stylix/stylix.nix
+    ./bash.nix
+    ./impermanence.nix
+    ./git.nix
+    ./eza.nix
+    ./discord.nix
+    ./firefox.nix
+    ./rbw.nix
+    ./spicetify.nix
+    ./tmux.nix
+    ./hyprland.nix
+    ./vim.nix
+    ./stylix/stylix.nix
   ];
   
   config = {
@@ -22,7 +22,7 @@
     home.stateVersion = "24.05"; # Never Change
   
     nixpkgs.config.allowUnfree = true;
-    nixpkgs.overlays = with (import ../../overlays); [
+    nixpkgs.overlays = with (import ../overlays); [
       additions
       modifications
     ];

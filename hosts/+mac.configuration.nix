@@ -1,8 +1,8 @@
 { pkgs, ... }: {
 
   imports = [ # Refactor some parts into separate files
-    ../snippets/homebrew.nix
-    ../snippets/system_defaults.nix
+    ./homebrew.nix
+    ./system_defaults.nix
   ];
 
   options = {};
@@ -14,7 +14,7 @@
       "nix-command" 
       "flakes" 
     ];
-    nixpkgs.overlays = with (import ../../overlays); [
+    nixpkgs.overlays = with (import ../overlays); [
       additions
     ];
   

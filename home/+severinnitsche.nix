@@ -1,18 +1,18 @@
 { config, pkgs, nixpkgs, lib, inputs, ... }: {
 
   imports = [
-    ../snippets/direnv.nix
-    ../snippets/eza.nix
-    ../snippets/git.nix
-    ../snippets/rbw.nix
-    ../snippets/ssh.nix
-    ../snippets/vim.nix
-    ../snippets/jvim.nix
-    ../snippets/zsh.nix
-    ../snippets/tmux.nix
+    ./direnv.nix
+    ./eza.nix
+    ./git.nix
+    ./rbw.nix
+    ./ssh.nix
+    ./vim.nix
+    ./jvim.nix
+    ./zsh.nix
+    ./tmux.nix
 
-    ../snippets/discord.nix
-    ../snippets/spicetify.nix # needs the spicetify input
+    ./discord.nix
+    ./spicetify.nix # needs the spicetify input
   ];
 
   options = {};
@@ -26,7 +26,7 @@
     programs.home-manager.enable = true;
 
     nixpkgs.config.allowUnfree = true;
-    nixpkgs.overlays = with (import ../../overlays); [
+    nixpkgs.overlays = with (import ../overlays); [
       additions
       # modifications
     ];
