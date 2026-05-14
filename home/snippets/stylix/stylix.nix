@@ -1,8 +1,11 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   stylix.enable = true;
   stylix.base16Scheme = ./nixos.yaml;
-  # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-seaside-light.yaml";
   stylix.image = ./wallpaper-light.jpg;
+  specialisation.dark.configuration = {
+    stylix.base16Scheme = lib.mkForce ./nixos.yaml.dark;
+    stylix.image = lib.mkForce ./wallpaper.jpg;
+  };
   stylix.fonts = {
     serif = {
       package = pkgs.cinzel;
