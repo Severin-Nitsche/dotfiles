@@ -11,6 +11,8 @@
     programs.vim.settings.number = true;
     programs.vim.settings.shiftwidth = 2;
     programs.vim.extraConfig = ''
+      set textwidth=80
+
       "https://kitsugo.com/guide/netrw-improvements/
       let g:netrw_banner = 0
       let g:netrw_altv = 1
