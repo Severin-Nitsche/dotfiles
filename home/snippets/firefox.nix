@@ -7,7 +7,12 @@
       name = "default";
       isDefault = true;
       search = {
-        order = [ "noai" ];
+        order = [
+          "noai"
+          "nix-packages"
+          "context"
+          "unicode"
+        ];
         default = "noai";
         privateDefault = "noai";
         force = true;
@@ -15,7 +20,7 @@
           noai = {
             name = "DuckDuckGo no AI";
             urls = [{template = "https://noai.duckduckgo.com/?q={searchTerms}";}];
-            iconMapObj."16" = "https://no-ai-icon.com/favicon.ico";
+            icon = ./no-ai.png;
             definedAliases = [ "@noai" ];
           };
           unicode = {
