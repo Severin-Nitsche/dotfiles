@@ -34,7 +34,12 @@ if [[ "$1" == "fail" ]]; then
   msg[18]="Aggressively we all defend the role we play"
   msg[19]="We hope you enjoyed your stay"
 
-  echo "${msg[$RANDOM % ${#msg[@]}]}"
+  choice=$((RANDOM % ${#msg[@]}))
+  if [[ "$choice" == "10" ]]; then
+    hyprctl dispatch global quickshell:BOSD
+  else
+    echo "${msg[$choice]}"
+  fi
   exit 1
 fi
 

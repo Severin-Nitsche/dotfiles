@@ -7,6 +7,7 @@ import Quickshell.Widgets
 
 import qs.state
 import qs.widgets
+import qs.logic
 
 Scope {
   id: root
@@ -17,6 +18,8 @@ Scope {
 
     PanelWindow {
       id: bar
+
+      visible: !BOSD.active
 
       required property var modelData
       screen: modelData
