@@ -9,11 +9,6 @@
     impermanence.url = "github:nix-community/impermanence";
     impermanence.inputs.home-manager.follows = "home-manager";
 
-    # Nix Darwin
-    darwin.url = "github:lnl7/nix-darwin";
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
-    mac-app-util.url = "github:hraban/mac-app-util";
-
     # Home Manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -41,9 +36,6 @@
     # NixOs
     nixos-hardware,
     impermanence,
-    # Nix Darwin
-    darwin, 
-    mac-app-util, 
     # Home Manager
     home-manager,
     home-impermanence,
@@ -66,25 +58,6 @@
         ./modules/persistShadowHack/persistShadowHack.nix
         ./modules/bootstrap-user-systemd/bootstrap-user-systemd.nix
       ];
-    };
-
-    darwinConfigurations."sevs-macbook-pro" = darwin.lib.darwinSystem {
-      system = "x86_64-darwin";
-      modules = [
-        mac-app-util.darwinModules.default
-        ./hosts/+mac.configuration.nix
-      ];
-    };
-
-    homeConfigurations."severinnitsche" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages."x86_64-darwin";
-      modules = [ 
-        mac-app-util.homeManagerModules.default
-        spicetify-nix.homeManagerModules.default
-        jvim.homeManagerModules.default
-        ./home/+severinnitsche.nix 
-      ];
-      extraSpecialArgs = { inherit inputs; };
     };
 
     homeConfigurations."severin" = home-manager.lib.homeManagerConfiguration {

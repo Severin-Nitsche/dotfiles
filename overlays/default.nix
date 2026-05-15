@@ -2,7 +2,6 @@
 
   additions = final: prev: { # Additional Packages
     vpn-rbw = prev.callPackage ../derivs/vpn-rbw/vpn-rbw.nix {};
-    fixLaunchpad = prev.callPackage ../derivs/fixLaunchpad/fixLaunchpad.nix {};
     hot-reset = prev.callPackage ../derivs/hot-reset/hot-reset.nix {};
     quit = prev.callPackage ../derivs/quit/quit.nix {};
   };
