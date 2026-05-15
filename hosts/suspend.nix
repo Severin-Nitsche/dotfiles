@@ -1,8 +1,6 @@
 {
   # Fix suspend
-  systemd.sleep.extraConfig = ''
-    SuspendState=mem
-  '';
+  systemd.sleep.settings.Sleep.SuspendState = "mem";
 
   t2sleep.enable = true;
   t2sleep.reloadTouchbar = true;

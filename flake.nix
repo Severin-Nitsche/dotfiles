@@ -7,6 +7,7 @@
     # NixOS
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     impermanence.url = "github:nix-community/impermanence";
+    impermanence.inputs.home-manager.follows = "home-manager";
 
     # Nix Darwin
     darwin.url = "github:lnl7/nix-darwin";
@@ -16,6 +17,7 @@
     # Home Manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-impermanence.url = "github:nix-community/impermanence?rev=4b3e914cdf97a5b536a889e939fb2fd2b043a170";
 
     # Miscellaneous
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
@@ -44,6 +46,7 @@
     mac-app-util, 
     # Home Manager
     home-manager,
+    home-impermanence,
     # Miscellaneos
     spicetify-nix,
     stylix,
@@ -88,7 +91,7 @@
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
       modules = [
         ./modules/bootstrap-home-manager/bootstrap-home-manager.nix
-        "${impermanence}/home-manager.nix"
+        "${home-impermanence}/home-manager.nix"
         spicetify-nix.homeManagerModules.default
         stylix.homeModules.stylix
         ./home/+severin.nix
