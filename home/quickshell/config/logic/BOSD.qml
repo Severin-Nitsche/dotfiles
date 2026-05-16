@@ -60,7 +60,7 @@ Singleton {
           font.pixelSize: bosd.height / 5
         }
         Text {
-          text: "You're PC ran into a problem and needs to restart. We're\n" +
+          text: "Your PC ran into a problem and needs to restart. We're\n" +
           "just collecting some error info, and then we'll restart for\n" +
           "you."
           font.family: "FreeSans"
