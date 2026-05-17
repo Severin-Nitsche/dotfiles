@@ -31,4 +31,5 @@
   };
   stylix.targets.vesktop.enable = false;
   stylix.targets.librewolf.enable = false;
+  stylix.targets.hyprland.enable = false;
 }

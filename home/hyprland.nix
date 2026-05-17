@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
 
   imports = [
     ./hyprlock/hyprlock.nix # Includes hypridle
@@ -73,99 +73,223 @@
       };
     };
 
-    # Manage Hyprland
-    wayland.windowManager.hyprland.enable = true;
+    # Miscellaneous
     services.hyprpolkitagent.enable = true;
     programs.alacritty.enable = true;
-    wayland.windowManager.hyprland.settings = {
-      "$mod" = "CTRL";
-      "$alt" = "Mod5";
-      "$lmb" = "mouse:272";
-      "$rmb" = "mouse:273";
-      "$mmb" = "mouse:274";
-      bindm = [
-        "$alt, $lmb, movewindow"
-      ];
+
+    # Manage Hyprland
+    wayland.windowManager.hyprland.enable = true;
+    wayland.windowManager.hyprland.configType = "lua";
+    wayland.windowManager.hyprland.systemd.enable = false; # uwsm compatibility
+    wayland.windowManager.hyprland.extraConfig = let
+      mod = "CTRL";
+      alt = "MOD5";
+      lmb = "mouse:272";
+      rmb = "mouse:273";
+      mmb = "mouse:274";
+      toSettings = (import ./-hyprconf.nix) lib;
+    in toSettings {
       bind = [
-        ", mouse:276, workspace, r+1"
-        ", mouse:275, workspace, r-1"
-        "$mod, Q, killactive"
-        "$mod, return, exec, uwsm app -- alacritty"
-        "$mod $alt, BackSpace, exec, uwsm stop" # Do not use exit with uwsm
-        "$mod, space, exec, uwsm app -- rofi -show drun -run-command 'uwsm app -- {cmd}'"
-        "$mod, tab, exec, uwsm app -- rofi -show"
-        "$mod, E, exec, [float] uwsm app -- nautilus"
-        "$mod, L, exec, hyprlock"
-        "$mod, 1, fullscreen, 0"
-        "$mod, 2, fullscreen, 1"
-        "$mod, 3, togglefloating, active"
-        "$mod, J, togglesplit, active"
-        "$mod, K, swapsplit, active"
-        "$mod Shift, 4, exec, grimblast copy area"
+        {
+          keys = "${alt} + ${lmb}";
+          "window.drag" = [];
+          flags.mouse = true;
+        }
+        {
+          keys = "mouse:276";
+          focus.workspace = "r+1";
+          flags.mouse = true;
+        }
+        {
+          keys = "mouse:275";
+          focus.workspace = "r-1";
+          flags.mouse = true;
+        }
+        {
+          keys = "${mod} + Q";
+          "window.kill" = "activewindow";
+        }
+        {
+          keys = "${mod} + return";
+          exec_cmd = "uwsm app -- alacritty";
+        }
+        {
+          keys = "${mod} + ${alt} + BackSpace";
+          exec_cmd = "uwsm stop";
+        }
+        {
+          keys = "${mod} + space";
+          exec_cmd =
+            "uwsm app -- rofi -show drun -run-command 'uwsm app -- {cmd}'";
+        }
+        {
+          keys = "${mod} + tab";
+          exec_cmd = "uwsm app -- rofi -show";
+        }
+        {
+          keys = "${mod} + E";
+          exec_cmd = [
+            "uwsm app -- nautilus"
+            { float = true; }
+          ];
+        }
+        {
+          keys = "${mod} + L";
+          exec_cmd = "hyprlock";
+        }
+        {
+          keys = "${mod} + 1";
+          "window.fullscreen".mode = "maximized";
+        }
+        {
+          keys = "${mod} + 2";
+          "window.fullscreen".mode = "fullscreen";
+        }
+        {
+          keys = "${mod} + 3";
+          "window.float".action = "toggle";
+        }
+        {
+          keys = "${mod} + SHIFT + 4";
+          exec_cmd = "grimblast copy area";
+        }
+        {
+          keys = "XF86KbdBrightnessDown";
+          exec_cmd = 
+            "brightnessctl set -c leds -d :white:kbd_backlight -e 20%-";
+          flags = { repeating = true; locked = true; };
+        }
+        {
+          keys = "XF86KbdBrightnessUp";
+          exec_cmd = 
+            "brightnessctl set -c leds -d :white:kbd_backlight -e +20%";
+          flags = { repeating = true; locked = true; };
+        }
+        {
+          keys = "XF86MonBrightnessDown";
+          exec_cmd = 
+            "brightnessctl set -c backlight -d intel_backlight -e 4%-";
+          flags = { repeating = true; locked = true; };
+        }
+        {
+          keys = "XF86MonBrightnessUp";
+          exec_cmd = 
+            "brightnessctl set -c backlight -d intel_backlight -e +4%";
+          flags = { repeating = true; locked = true; };
+        }
+        {
+          keys = "XF86AudioLowerVolume";
+          global = "quickshell:volumeDown";
+          flags = { repeating = true; locked = true; };
+        }
+        {
+          keys = "XF86AudioRaiseVolume";
+          global = "quickshell:volumeUp";
+          flags = { repeating = true; locked = true; };
+        }
+        {
+          keys = "XF86AudioMute";
+          global = "quickshell:deafen";
+          flags.locked = true;
+        }
+        {
+          keys = "XF86AudioPrev";
+          exec_cmd = "playerctl play-pause";
+          flags.locked = true;
+        }
+        {
+          keys = "XF86AudioNext";
+          exec_cmd = "playerctl next";
+          flags.locked = true;
+        }
+        {
+          keys = "${mod} + ISO_Level3_Shift";
+          config.general.gaps_out = 40;
+          # stolen from https://github.com/Sijan-Bhusal/HyprShades
+          config.decoration.screen_shader = ./shader.frag;
+          submap = "layout";
+        }
       ];
-      bindel = [
-        ", XF86KbdBrightnessDown, exec, brightnessctl set -c leds -d :white:kbd_backlight -e 20%-"
-        ", XF86KbdBrightnessUp, exec, brightnessctl set -c leds -d :white:kbd_backlight -e +20%"
-        ", XF86MonBrightnessDown, exec, brightnessctl set -c backlight -d intel_backlight -e 4%-"
-        ", XF86MonBrightnessUp, exec, brightnessctl set -c backlight -d intel_backlight -e +4%"
-        ", XF86AudioLowerVolume, global, quickshell:volumeDown"
-        ", XF86AudioRaiseVolume, global, quickshell:volumeUp"
-      ];
-      bindl = [
-        ", XF86AudioMute, global, quickshell:deafen"
-        ", XF86AudioPrev, exec, playerctl previous"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioNext, exec, playerctl next"
+      submaps.layout.bind = [
+        {
+          keys = "space";
+          layout = "togglesplit";
+        }
+        {
+          keys = "S";
+          layout = "swapsplit";
+        }
+        {
+          keys = "catchall";
+          submap = "reset";
+          config.general.gaps_out = 20;
+          config.decoration.screen_shader = "";
+        }
       ];
 
-      layerrule = [
-        "blur on, match:namespace quickshell"
-      ];
-
-      exec-once = [
-        "uwsm app -- quickshell"
-        "udiskie"
-      ];
-      
-      input = {
-        kb_layout = "de,math";
-        kb_variant = "mac,lvl5";
-        kb_options = "power:caps,lv3:alt_switch,altwin:ctrl_win";
-        kb_rules = "evdev";
-        touchpad = {
-          disable_while_typing = true;
-          natural_scroll = true;
-          clickfinger_behavior = true;
-          scroll_factor = 0.8;
-        };
+      layer_rule = {
+        match.namespace = "quickshell";
+        blur = true;
       };
+
+      on = [[
+        "hyprland.start"
+        (lib.generators.mkLuaInline ''
+          function ()
+            hl.exec_cmd("uwsm app -- quickshell")
+            hl.exec_cmd("udiskie")
+          end
+        '')
+      ]];
+
       device = [
         {
           name = "ergo-k860-keyboard";
           kb_options = "power:caps,mac:k860";
         }
       ];
+
       gesture = [
-        "3, horizontal, workspace"
-        "4, horizontal, workspace"
+        {
+          fingers = 3;
+          direction = "horizontal";
+          action = "workspace";
+        }
+        {
+          fingers = 4;
+          direction = "horizontal";
+          action = "workspace";
+        }
       ];
-      gestures = {
-        workspace_swipe_min_speed_to_force = 15;
-        workspace_swipe_cancel_ratio = 0.05;
+
+      config = {
+        input = {
+          kb_layout = "de,math";
+          kb_variant = "mac,lvl5";
+          kb_options = "power:caps,lv3:alt_switch,altwin:ctrl_win";
+          kb_rules = "evdev";
+          touchpad = {
+            disable_while_typing = true;
+            natural_scroll = true;
+            clickfinger_behavior = true;
+            scroll_factor = 0.8;
+          };
+        };
+        gestures = {
+          workspace_swipe_min_speed_to_force = 15;
+          workspace_swipe_cancel_ratio = 0.05;
+        };
+        decoration = {
+          rounding = 5;
+          rounding_power = 4.0;
+        };
+        general = {
+          resize_on_border = true;
+        };
+        dwindle.preserve_split = true;
+        xwayland.force_zero_scaling = true;
       };
-      decoration = {
-        rounding = 5;
-        rounding_power = 4.0;
-      };
-      general = {
-        resize_on_border = true;
-      };
-      dwindle = {
-        preserve_split = true;
-      };
-      xwayland.force_zero_scaling = true;
     };
-    wayland.windowManager.hyprland.systemd.enable = false; # uwsm compatibility
   };
 
 }

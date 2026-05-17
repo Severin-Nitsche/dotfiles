@@ -7,7 +7,8 @@
     # NixOS
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     impermanence.url = "github:nix-community/impermanence";
-    impermanence.inputs.home-manager.follows = "home-manager";
+    impermanence.inputs.home-manager.follows = "";
+    impermanence.inputs.nixpkgs.follows = "";
 
     # Home Manager
     home-manager.url = "github:nix-community/home-manager";
