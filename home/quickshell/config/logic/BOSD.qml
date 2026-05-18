@@ -29,66 +29,73 @@ Singleton {
     }
   }
 
-  PanelWindow {
-    id: bosd
-    color: "#0475d8"
+  Variants {
+    model: Quickshell.screens
 
-    visible: active
+    PanelWindow {
+      id: bosd
+      color: "#0475d8"
 
-    anchors {
-      left: true
-      bottom: true
-      right: true
-      top: true
-    }
+      required property var modelData
+      screen: modelData
 
-    WrapperRectangle {
-      Layout.fillHeight: true
-      Layout.fillWidth: true
+      visible: active
 
-      color: "transparent"
+      anchors {
+        left: true
+        bottom: true
+        right: true
+        top: true
+      }
 
-      Column {
-        spacing: bosd.height / 30
-        topPadding: bosd.height / 5
-        leftPadding: bosd.height / 5
+      WrapperRectangle {
+        Layout.fillHeight: true
+        Layout.fillWidth: true
 
-        Text {
-          text: ":("
-          font.family: "FreeSans"
-          color: "white"
-          font.pixelSize: bosd.height / 5
-        }
-        Text {
-          text: "Your PC ran into a problem and needs to restart. We're\n" +
-          "just collecting some error info, and then we'll restart for\n" +
-          "you."
-          font.family: "FreeSans"
-          color: "white"
-          font.pixelSize: bosd.height / 30
-        }
-        Text {
-          text: "69% complete"
-          font.family: "FreeSans"
-          color: "white"
-          font.pixelSize: bosd.height / 30
-        }
-        Text {
-          text: "For more information about this issue and possible fixes, visit our website."
-          font.family: "FreeSans"
-          color: "white"
-          font.pixelSize: bosd.height / 60
-        }
-        Text {
-          text: "If you call a support person, give them this info:\n\n" +
-          "Stop code: 0x06900420"
-          font.family: "FreeSans"
-          color: "white"
-          font.pixelSize: bosd.height / 60
+        color: "transparent"
+
+        Column {
+          spacing: bosd.height / 30
+          topPadding: bosd.height / 5
+          leftPadding: bosd.height / 5
+
+          Text {
+            text: ":("
+            font.family: "FreeSans"
+            color: "white"
+            font.pixelSize: bosd.height / 5
+          }
+          Text {
+            text: "Your PC ran into a problem and needs to restart. We're\n" +
+            "just collecting some error info, and then we'll restart for\n" +
+            "you."
+            font.family: "FreeSans"
+            color: "white"
+            font.pixelSize: bosd.height / 30
+          }
+          Text {
+            text: "69% complete"
+            font.family: "FreeSans"
+            color: "white"
+            font.pixelSize: bosd.height / 30
+          }
+          Text {
+            text: "For more information about this issue and possible fixes, visit our website."
+            font.family: "FreeSans"
+            color: "white"
+            font.pixelSize: bosd.height / 60
+          }
+          Text {
+            text: "If you call a support person, give them this info:\n\n" +
+            "Stop code: 0x06900420"
+            font.family: "FreeSans"
+            color: "white"
+            font.pixelSize: bosd.height / 60
+          }
         }
       }
-    }
 
+    }
   }
 
   GlobalShortcut {

@@ -36,7 +36,7 @@ if [[ "$1" == "fail" ]]; then
 
   choice=$((RANDOM % ${#msg[@]}))
   if [[ "$choice" == "10" ]]; then
-    hyprctl dispatch global quickshell:BOSD
+    hyprctl dispatch 'hl.dsp.global("quickshell:BOSD")'
   else
     echo "${msg[$choice]}"
   fi
