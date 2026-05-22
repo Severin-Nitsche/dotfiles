@@ -18,6 +18,7 @@
       grimblast # Screenshots
 
       nautilus
+      localsend
       udiskie
 
       kdePackages.qtwayland # qt6
@@ -264,6 +265,7 @@
 
       config = {
         input = {
+          resolve_binds_by_sym = true;
           kb_layout = "de,math";
           kb_variant = "mac,lvl5";
           kb_options = "power:caps,lv3:alt_switch,altwin:ctrl_win";
