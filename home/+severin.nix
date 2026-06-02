@@ -50,11 +50,8 @@
   
       # Miscellaneous
       geogebra6
-      postman
       prismlauncher
       obs-studio
-      anki-bin
-      obsidian
     ];
 
     programs.bash.enable = true;

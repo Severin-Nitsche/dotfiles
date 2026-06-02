@@ -18,7 +18,6 @@
       grimblast # Screenshots
 
       nautilus
-      localsend
       udiskie
 
       kdePackages.qtwayland # qt6

@@ -66,6 +66,7 @@
     git
   ];
   programs.steam.enable = true;
+  programs.localsend.enable = true;
 
   # Do not change
   system.stateVersion = "24.11";
