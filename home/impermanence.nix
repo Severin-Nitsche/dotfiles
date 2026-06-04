@@ -20,7 +20,6 @@ in {config, lib, ...}: {
       ++ prefixAll config.xdg.dataHome [
         "PrismLauncher"
         "Steam"
-        "Anki2"
       ]
     );
     allowOther = true; 
