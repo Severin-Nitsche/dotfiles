@@ -1,5 +1,5 @@
 { pkgs, lib, ... }: {
-  stylix.enable = true;
+  stylix.enable = false;
   stylix.base16Scheme = ./nixos.yaml;
   stylix.image = ./wallpaper-light.jpg;
   specialisation.dark.configuration = {
