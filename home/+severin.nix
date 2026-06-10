@@ -22,6 +22,9 @@
     home.stateVersion = "24.05"; # Never Change
   
     nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.permittedInsecurePackages = [
+      "electron-39.8.10"
+    ];
     nixpkgs.overlays = with (import ../overlays); [
       additions
       modifications
@@ -36,6 +39,7 @@
       tlrc
   
       # Desktop
+      bitwarden-desktop
       signal-desktop
       thunderbird
       rustdesk

@@ -16,6 +16,7 @@ in {config, lib, ...}: {
         "Signal"
         "spotify"
         "libreoffice"
+        "Bitwarden"
       ]
       ++ prefixAll config.xdg.dataHome [
         "PrismLauncher"
