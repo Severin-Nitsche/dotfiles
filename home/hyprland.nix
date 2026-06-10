@@ -17,7 +17,7 @@
       playerctl
       grimblast # Screenshots
 
-      nautilus
+      kdePackages.dolphin
       udiskie
 
       kdePackages.qtwayland # qt6
@@ -68,7 +68,7 @@
           "gtk"
         ];
         "org.freedesktop.impl.portal.FileChooser" = [
-          "nautilus"
+          "dolphin"
         ];
       };
     };
@@ -129,8 +129,11 @@
         {
           keys = "${mod} + E";
           exec_cmd = [
-            "uwsm app -- nautilus"
-            { float = true; }
+            "uwsm app -- dolphin"
+            { 
+              float = true; 
+              size = ["monitor_w * 0.5" "monitor_h * 0.5"];
+            }
           ];
         }
         {
@@ -286,6 +289,7 @@
         };
         general = {
           resize_on_border = true;
+          hover_icon_on_border = true;
         };
         dwindle.preserve_split = true;
         xwayland.force_zero_scaling = true;
