@@ -230,10 +230,18 @@
         }
       ];
 
-      layer_rule = {
-        match.namespace = "quickshell";
-        blur = true;
-      };
+      layer_rule = [
+        {
+          match.namespace = "quickshell";
+          blur = true;
+        }
+
+        {
+          match.namespace = "rofi";
+          blur = true;
+          ignore_alpha = 0.3;
+        }
+      ];
 
       on = [[
         "hyprland.start"
