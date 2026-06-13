@@ -67,6 +67,7 @@
       modules = [
         ./modules/hyprconf/hyprconf.nix
         ./modules/bootstrap-home-manager/bootstrap-home-manager.nix
+        ./modules/colors/colors.nix
         "${home-impermanence}/home-manager.nix"
         spicetify-nix.homeManagerModules.default
         stylix.homeModules.stylix

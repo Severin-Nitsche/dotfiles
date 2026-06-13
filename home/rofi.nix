@@ -1,11 +1,11 @@
-{config, ... }: {
+{config, ... }: with config.colors; {
   programs.rofi.enable = true;
   programs.rofi.font = "Route 159 13";
   programs.rofi.theme = with config.lib.formats.rasi; {
     "*" = {
-      border-color = mkLiteral "White";
-      background-color = mkLiteral "rgba(0,0,0,0%)";
-      text-color = mkLiteral "White";
+      border-color = mkLiteral white;
+      background-color = mkLiteral (black+"00");
+      text-color = mkLiteral white;
     };
 
     element = {
@@ -28,7 +28,7 @@
     };
 
     "element selected" = {
-      background-color = mkLiteral "rgba(0,100,200,50%)";
+      background-color = mkLiteral (argentinian-blue+"90");
     };
 
     entry = {
@@ -39,7 +39,7 @@
       # border = mkLiteral "0.05em";
       border-radius = mkLiteral "0.5em";
       height = mkLiteral "50%";
-      background-color = mkLiteral "rgba(0,50,100,50%)";
+      background-color = mkLiteral (afghani-blue+"90");
     };
   };
 }
