@@ -65,6 +65,7 @@
     homeConfigurations."severin" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
       modules = [
+        ./modules/hyprconf/hyprconf.nix
         ./modules/bootstrap-home-manager/bootstrap-home-manager.nix
         "${home-impermanence}/home-manager.nix"
         spicetify-nix.homeManagerModules.default

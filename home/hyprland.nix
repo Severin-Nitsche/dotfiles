@@ -81,14 +81,13 @@
     wayland.windowManager.hyprland.enable = true;
     wayland.windowManager.hyprland.configType = "lua";
     wayland.windowManager.hyprland.systemd.enable = false; # uwsm compatibility
-    wayland.windowManager.hyprland.extraConfig = let
+    hyprconf = let
       mod = "CTRL";
       alt = "MOD5";
       lmb = "mouse:272";
       rmb = "mouse:273";
       mmb = "mouse:274";
-      toSettings = (import ./-hyprconf.nix) lib;
-    in toSettings {
+    in {
       bind = [
         {
           keys = "${alt} + ${lmb}";
