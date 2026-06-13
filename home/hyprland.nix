@@ -21,7 +21,7 @@
       udiskie
 
       kdePackages.qtwayland # qt6
-      libsForQt5.qt5.qtwayland # qt5
+      qt5.qtwayland # qt5
       nerd-fonts.symbols-only # Icons
       route159 # NixOS font
       dunst
