@@ -14,8 +14,11 @@
       spacing = mkLiteral "0.5em";
     };
 
-    element-icon = {
-      size =  mkLiteral "1em";
+    "icon-current-entry, element-icon" = {
+      size =  mkLiteral "0.8em";
+      padding = mkLiteral "0.1em";
+      background-color = mkLiteral white;
+      border-radius = mkLiteral "0.25em";
     };
 
     inputbar = {
@@ -29,6 +32,14 @@
 
     "element selected" = {
       background-color = mkLiteral (argentinian-blue+"90");
+    };
+
+    "element-icon selected" = {
+      background-color = mkLiteral black;
+    };
+
+    "element-text selected" = {
+      text-color = mkLiteral black;
     };
 
     entry = {

@@ -293,6 +293,10 @@
         decoration = {
           rounding = 5;
           rounding_power = 4.0;
+          blur = {
+            size = 16;
+            passes = 4;
+          };
         };
         general = {
           resize_on_border = true;
