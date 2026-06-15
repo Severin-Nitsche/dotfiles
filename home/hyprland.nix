@@ -294,8 +294,8 @@
           rounding = 5;
           rounding_power = 4.0;
           blur = {
-            size = 16;
-            passes = 4;
+            size = 8;
+            passes = 2;
           };
         };
         general = {

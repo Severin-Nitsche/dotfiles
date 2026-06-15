@@ -15,8 +15,9 @@
     };
 
     "icon-current-entry, element-icon" = {
-      size =  mkLiteral "0.8em";
+      size =  mkLiteral "1em";
       padding = mkLiteral "0.1em";
+      margin = mkLiteral "-0.1em";
       background-color = mkLiteral white;
       border-radius = mkLiteral "0.25em";
     };
@@ -34,9 +35,9 @@
       background-color = mkLiteral (argentinian-blue+"90");
     };
 
-    "element-icon selected" = {
-      background-color = mkLiteral black;
-    };
+    # "element-icon selected" = {
+    #   background-color = mkLiteral black;
+    # };
 
     "element-text selected" = {
       text-color = mkLiteral black;
