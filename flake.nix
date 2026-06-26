@@ -28,6 +28,8 @@
 
     jvim.url = "path:./modules/jvim";
 
+    lucide.url = "path:./modules/lucide";
+
     sleep.url = "path:./modules/sleep";
     sleep.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -46,6 +48,7 @@
     stylix,
     quickshell,
     jvim,
+    lucide,
     sleep,
     ... 
   }@inputs: {
@@ -70,6 +73,7 @@
         ./modules/colors/colors.nix
         "${home-impermanence}/home-manager.nix"
         spicetify-nix.homeManagerModules.default
+        lucide.homeManagerModules.default
         stylix.homeModules.stylix
         ./home/+severin.nix
       ];

@@ -30,7 +30,6 @@
       modifications
     ];
   
-  
     home.packages = with pkgs; [
       # Command line
       vpn-rbw

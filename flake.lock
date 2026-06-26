@@ -265,6 +265,36 @@
       },
       "parent": []
     },
+    "lucide": {
+      "inputs": {
+        "lucide": "lucide_2"
+      },
+      "locked": {
+        "path": "./modules/lucide",
+        "type": "path"
+      },
+      "original": {
+        "path": "./modules/lucide",
+        "type": "path"
+      },
+      "parent": []
+    },
+    "lucide_2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1781509344,
+        "narHash": "sha256-0ZdfUaV3acv64c9Ssz+zh8iRQVVXFytg2+jb5FspHb0=",
+        "owner": "lucide-icons",
+        "repo": "lucide",
+        "rev": "c81680e066f45b640743ca78ae36cdedda3f0318",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lucide-icons",
+        "repo": "lucide",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "inputs": {
         "nixpkgs": [
@@ -352,6 +382,7 @@
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "jvim": "jvim",
+        "lucide": "lucide",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "quickshell": "quickshell",
