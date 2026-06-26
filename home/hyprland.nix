@@ -1,7 +1,7 @@
 { pkgs, lib, ... }: {
 
   imports = [
-    ./hyprlock/hyprlock.nix # Includes hypridle
+    ./hyprlock.nix # Includes hypridle
     ./quickshell/quickshell.nix
     ./rofi.nix
     ./alacritty.nix
@@ -106,7 +106,7 @@
         }
         {
           keys = "${mod} + Q";
-          "window.kill" = "activewindow";
+          "window.close" = "activewindow";
         }
         {
           keys = "${mod} + return";
@@ -303,7 +303,6 @@
           hover_icon_on_border = true;
         };
         dwindle.preserve_split = true;
-        xwayland.force_zero_scaling = true;
       };
     };
   };
