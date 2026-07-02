@@ -27,5 +27,6 @@
     enable = true;
     persistLocation = "/persist";
   };
+  programs.fuse.enable = true;
   programs.fuse.userAllowOther = true; # Allow other users on bindMounts (impermanent /home)
 }
