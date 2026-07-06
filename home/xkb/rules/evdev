@@ -3,6 +3,8 @@
 
 ! option = symbols
   power:caps = +power(caps)
+!option = symbols
+  power:alt3 = +power(alt3)
 ! option = symbols
   mac:k860 = +mac(k860)
 ! option = symbols

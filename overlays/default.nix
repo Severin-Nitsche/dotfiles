@@ -1,4 +1,4 @@
-{
+lib: {
 
   additions = final: prev: { # Additional Packages
     vpn-rbw = prev.callPackage ../derivs/vpn-rbw/vpn-rbw.nix {};
@@ -7,6 +7,14 @@
   };
 
   modifications = final: prev: { # Modified Packages
+    hyprland = prev.hyprland.overrideAttrs (old: {
+      cmakeFlags = old.cmakeFlags ++ [
+        (lib.strings.cmakeBool "NO_UWSM" true)
+      ];
+
+      passthru.providedSessions = [ "hyprland" ];
+    });
+
     nautilus = prev.nautilus.overrideAttrs (old: {
       postInstall = (old.postInstall or "") + ''
         mkdir -p $out/share/xdg-desktop-portal/portals

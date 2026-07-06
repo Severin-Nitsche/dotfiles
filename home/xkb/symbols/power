@@ -8,3 +8,12 @@ partial xkb_symbols "caps" {
     ]
   };
 };
+
+partial xkb_symbols "alt3" {
+  key <LALT> {
+    symbols[Group1] = [ Alt_L ],
+    actions[Group1] = [
+      SetMods(modifiers=Mod5)
+    ]
+  };
+};

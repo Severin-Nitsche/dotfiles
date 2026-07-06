@@ -19,6 +19,8 @@
 
       kdePackages.dolphin
       udiskie
+      runapp
+      hyprshutdown
 
       kdePackages.qtwayland # qt6
       qt5.qtwayland # qt5
@@ -31,16 +33,6 @@
     services.wluma.enable = true;
 
     fonts.fontconfig.enable = true; # Icons
-
-    # Manage uwsm session variables (force Wayland)
-    xdg.configFile."uwsm/env".text = ''
-      export GDK_BACKEND=wayland,x11,*
-      export QT_QPA_PLATFORM="wayland;xcb"
-      export SDL_VIDEODRIVER=wayland
-      export CLUTTER_BACKEND=wayland
-      export NIXOS_OZONE_WL=1
-      export ANKI_WAYLAND=1
-    '';
 
     # Manage Keyboard Layouts
     xdg.configFile."xkb".source = ./xkb;
@@ -80,14 +72,23 @@
     # Manage Hyprland
     wayland.windowManager.hyprland.enable = true;
     wayland.windowManager.hyprland.configType = "lua";
-    wayland.windowManager.hyprland.systemd.enable = false; # uwsm compatibility
     hyprconf = let
       mod = "CTRL";
       alt = "MOD5";
       lmb = "mouse:272";
       rmb = "mouse:273";
       mmb = "mouse:274";
+      runner = "runapp";
+      logout = "hyprshutdown";
     in {
+      env = [
+        [ "GDK_BACKEND" "wayland,x11" ]
+        [ "QT_QPA_PLATFORM" "wayland;xcb" ]
+        [ "SDL_VIDEODRIVER" "wayland" ]
+        [ "CLUTTER_BACKEND" "wayland" ]
+        [ "NIXOS_OZONE_WL" "1" ]
+        [ "ANKI_WAYLAND" "1" ]
+      ];
       bind = [
         {
           keys = "${alt} + ${lmb}";
@@ -110,25 +111,25 @@
         }
         {
           keys = "${mod} + return";
-          exec_cmd = "uwsm app -- alacritty";
+          exec_cmd = "${runner} alacritty";
         }
         {
           keys = "${mod} + ${alt} + BackSpace";
-          exec_cmd = "uwsm stop";
+          exec_cmd = logout;
         }
         {
           keys = "${mod} + space";
           exec_cmd =
-            "uwsm app -- rofi -show drun -run-command 'uwsm app -- {cmd}'";
+            "rofi -show drun -run-command '${runner} {cmd}'";
         }
         {
           keys = "${mod} + tab";
-          exec_cmd = "uwsm app -- rofi -show";
+          exec_cmd = "rofi -show";
         }
         {
           keys = "${mod} + E";
           exec_cmd = [
-            "uwsm app -- dolphin"
+            "${runner} dolphin"
             { 
               float = true; 
               size = ["monitor_w * 0.5" "monitor_h * 0.5"];
@@ -208,7 +209,7 @@
           keys = "${mod} + ISO_Level3_Shift";
           config.general.gaps_out = 40;
           # stolen from https://github.com/Sijan-Bhusal/HyprShades
-          config.decoration.screen_shader = ./shader.frag;
+          # config.decoration.screen_shader = ./shader.frag;
           submap = "layout";
         }
       ];
@@ -246,7 +247,7 @@
         "hyprland.start"
         (lib.generators.mkLuaInline ''
           function ()
-            hl.exec_cmd("uwsm app -- quickshell")
+            hl.exec_cmd("${runner} quickshell")
             hl.exec_cmd("udiskie")
           end
         '')
@@ -277,7 +278,7 @@
           resolve_binds_by_sym = true;
           kb_layout = "de,math";
           kb_variant = "mac,lvl5";
-          kb_options = "power:caps,lv3:alt_switch,altwin:ctrl_win";
+          kb_options = "power:caps,power:alt3,altwin:ctrl_win";
           kb_rules = "evdev";
           touchpad = {
             disable_while_typing = true;

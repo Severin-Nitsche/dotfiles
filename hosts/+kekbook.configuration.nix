@@ -25,6 +25,9 @@
   boot.loader.systemd-boot.enable = true;
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = with ((import ../overlays) lib); [
+    modifications
+  ];
 
   # Networking (nmtui instead of wpa_cli)
   networking.hostName = "sevs-kekbook-pro";
@@ -34,8 +37,7 @@
   time.timeZone = "Europe/Berlin";
 
   # Enable sddm as display/login manager
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.gdm.enable = true;
 
   # Enable sound.
   services.pipewire = {

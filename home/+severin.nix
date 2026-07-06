@@ -1,4 +1,4 @@
-{ config, pkgs, nixpkgs, ... }: {
+{ config, pkgs, lib, nixpkgs, ... }: {
 
   imports = [
     ./bash.nix
@@ -26,7 +26,7 @@
       "electron-39.8.10"
       "pnpm-10.29.2"
     ];
-    nixpkgs.overlays = with (import ../overlays); [
+    nixpkgs.overlays = with ((import ../overlays) lib); [
       additions
       modifications
     ];
