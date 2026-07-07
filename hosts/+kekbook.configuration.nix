@@ -37,7 +37,8 @@
   time.timeZone = "Europe/Berlin";
 
   # Enable sddm as display/login manager
-  services.displayManager.gdm.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
 
   # Enable sound.
   services.pipewire = {
