@@ -197,6 +197,11 @@
         }
         {
           keys = "XF86AudioPrev";
+          exec_cmd = "playerctl previous";
+          flags.locked = true;
+        }
+        {
+          keys = "XF86AudioPlay";
           exec_cmd = "playerctl play-pause";
           flags.locked = true;
         }
