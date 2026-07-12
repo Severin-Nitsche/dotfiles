@@ -60,6 +60,7 @@
         sleep.nixosModules.t2sleep
         ./hosts/+kekbook.configuration.nix
         ./modules/brcm/brcm.nix
+        ./modules/touchpad/touchpad.nix
         ./modules/persistShadowHack/persistShadowHack.nix
         ./modules/bootstrap-user-systemd/bootstrap-user-systemd.nix
       ];

@@ -1,0 +1,8 @@
+[Touchpad pressure & size overrides]
+MatchUdevType=touchpad
+MatchName=Apple Inc. Apple Internal Keyboard / Trackpad
+MatchDMIModalias=dmi:*:svnAppleInc.:pnMacBookPro16,2:*
+AttrPressureRange=120:60
+AttrPalmPressureThreshold=64
+AttrTouchSizeRange=535:170
+AttrPalmSizeThreshold=750
