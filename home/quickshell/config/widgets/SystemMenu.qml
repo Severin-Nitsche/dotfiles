@@ -40,12 +40,12 @@ BarMenu {
     Process {
       id: logout
 
-      command: ["uwsm", "stop"]
+      command: ["hyprshutdown"]
 
       running: false
     }
 
-    onClicked: logout.running = true
+    onClicked: logout.startDetached()
   }
   MenuItem {
     implicitHeight: root.height
