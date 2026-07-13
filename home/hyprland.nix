@@ -29,9 +29,6 @@
       dunst
     ];
 
-    # Automagical brightness adjustment
-    services.wluma.enable = true;
-
     fonts.fontconfig.enable = true; # Icons
 
     # Manage Keyboard Layouts
