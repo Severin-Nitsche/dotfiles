@@ -17,12 +17,6 @@
     home-impermanence.url = "github:nix-community/impermanence?rev=4b3e914cdf97a5b536a889e939fb2fd2b043a170";
 
     # Miscellaneous
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
-
-    stylix.url = "github:nix-community/stylix";
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
-
     quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
     quickshell.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -44,8 +38,6 @@
     home-manager,
     home-impermanence,
     # Miscellaneos
-    spicetify-nix,
-    stylix,
     quickshell,
     jvim,
     lucide,
@@ -73,9 +65,7 @@
         ./modules/bootstrap-home-manager/bootstrap-home-manager.nix
         ./modules/colors/colors.nix
         "${home-impermanence}/home-manager.nix"
-        spicetify-nix.homeManagerModules.default
         lucide.homeManagerModules.default
-        stylix.homeModules.stylix
         ./home/+severin.nix
       ];
       extraSpecialArgs = {

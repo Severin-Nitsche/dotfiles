@@ -8,11 +8,9 @@
     ./discord.nix
     ./firefox.nix
     ./rbw.nix
-    ./spicetify.nix
     ./tmux.nix
     ./hyprland.nix
     ./vim.nix
-    ./stylix/stylix.nix
   ];
   
   config = {
@@ -39,6 +37,7 @@
       tlrc
   
       # Desktop
+      spotify
       bitwarden-desktop
       signal-desktop
       thunderbird
