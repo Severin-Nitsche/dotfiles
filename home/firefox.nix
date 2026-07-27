@@ -1,7 +1,14 @@
-{
+{ lib, pkgs, ... }: {
   programs.librewolf = {
     enable = true;
     languagePacks = [ "de" ];
+    policies = {
+      DefaultDownloadDirectory = "\${home}/Downloads";
+      SearchEngines = {
+        Default = "";
+        Add = [];
+      };
+    };
     profiles.default = {
       id = 0;
       name = "default";
