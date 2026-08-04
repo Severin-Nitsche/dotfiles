@@ -47,9 +47,9 @@
       simple-scan
   
       # Dev
-      jetbrains.idea
-      jetbrains.webstorm
-      vscode
+      # jetbrains.idea
+      # jetbrains.webstorm
+      # vscode
   
       # Miscellaneous
       geogebra6
