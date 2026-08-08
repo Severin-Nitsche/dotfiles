@@ -41,7 +41,6 @@
       bitwarden-desktop
       signal-desktop
       thunderbird
-      rustdesk
       libreoffice
       gnome-calculator
       simple-scan
