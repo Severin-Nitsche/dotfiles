@@ -7,13 +7,13 @@ lib: {
   };
 
   modifications = final: prev: { # Modified Packages
-    hyprland = prev.hyprland.overrideAttrs (old: {
-      cmakeFlags = old.cmakeFlags ++ [
-        (lib.strings.cmakeBool "NO_UWSM" true)
-      ];
+    # hyprland = prev.hyprland.overrideAttrs (old: {
+    #   cmakeFlags = old.cmakeFlags ++ [
+    #     (lib.strings.cmakeBool "NO_UWSM" true)
+    #   ];
 
-      passthru.providedSessions = [ "hyprland" ];
-    });
+    #   passthru.providedSessions = [ "hyprland" ];
+    # });
 
     nautilus = prev.nautilus.overrideAttrs (old: {
       postInstall = (old.postInstall or "") + ''
