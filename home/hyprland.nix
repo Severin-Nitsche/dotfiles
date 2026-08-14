@@ -17,7 +17,7 @@
       playerctl
       grimblast # Screenshots
 
-      kdePackages.dolphin
+      nautilus
       udiskie
       runapp
       hyprshutdown
@@ -57,7 +57,7 @@
           "gtk"
         ];
         "org.freedesktop.impl.portal.FileChooser" = [
-          "dolphin"
+          "nautilus"
         ];
       };
     };
@@ -126,7 +126,7 @@
         {
           keys = "${mod} + E";
           exec_cmd = [
-            "${runner} dolphin"
+            "${runner} nautilus"
             { 
               float = true; 
               size = ["monitor_w * 0.5" "monitor_h * 0.5"];
