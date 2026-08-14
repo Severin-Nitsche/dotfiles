@@ -55,6 +55,7 @@
         ./modules/touchpad/touchpad.nix
         ./modules/persistShadowHack/persistShadowHack.nix
         ./modules/bootstrap-user-systemd/bootstrap-user-systemd.nix
+        ./modules/custom-acpi/custom-acpi.nix
       ];
     };
 

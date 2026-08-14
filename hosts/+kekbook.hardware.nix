@@ -10,6 +10,10 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" "cryptd" ];
+  boot.initrd.custom-acpi = [
+    ./SSDT5.dsl
+    ./DSDT.dsl
+  ];
   boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-label/luks";
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
