@@ -31,10 +31,6 @@
 
     fonts.fontconfig.enable = true; # Icons
 
-    # Manage Keyboard Layouts
-    xdg.configFile."xkb".source = ./xkb;
-    xdg.configFile."xkb".recursive = true;
-
     # Manage file explorer
     xdg.mimeApps = {
       enable = true;

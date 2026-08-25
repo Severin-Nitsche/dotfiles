@@ -1,5 +1,13 @@
 { config, pkgs, lib, nixpkgs, ... }: {
 
+  # TODO Die hässlichen Hyprland-Dialoge des Share-Pickers ändern
+  # TODO Einfacher Wechsel zwischen hellen und dunklem Thema
+  # TODO Einfach zu wechselndes Hintergrundbild von Unsplash oder Pixabay
+  # TODO Unterstützung für Tray-Anwendungen
+  # TODO Dock bzw. Desktop-Übersicht
+  # TODO Konsistentes Verhalten zwischen Wischgeste und Maustasten zum
+  # Desktopwechseln
+
   imports = [
     ./bash.nix
     ./impermanence.nix
@@ -7,6 +15,7 @@
     ./eza.nix
     ./discord.nix
     ./firefox.nix
+    ./niri.nix
     ./rbw.nix
     ./tmux.nix
     ./hyprland.nix
@@ -55,6 +64,10 @@
       prismlauncher
       obs-studio
     ];
+
+    # Manage Keyboard Layouts
+    xdg.configFile."xkb".source = ./xkb;
+    xdg.configFile."xkb".recursive = true;
 
     programs.bash.enable = true;
     systemd.user.settings.Manager.DefaultLimitNOFILE="8192:524288";

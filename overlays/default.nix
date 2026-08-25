@@ -26,6 +26,8 @@ lib: {
       '';
     });
 
+    niri = prev.callPackage ../derivs/niri/niri.nix {};
+
     brightnessctl = prev.brightnessctl.overrideAttrs (old: {
       version = "0.6";
       src = prev.fetchFromGitHub {

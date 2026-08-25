@@ -13,6 +13,7 @@
       ./bluetooth.nix
       ./localization_de_mac.nix
       ./hyprland.nix
+      ./niri.nix
       ./suspend.nix
     ];
 

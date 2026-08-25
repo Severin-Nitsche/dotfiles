@@ -1,0 +1,56 @@
+environment {
+  GDK_BACKEND "wayland,x11"
+  QT_QPA_PLATFORM "wayland;xcb"
+  SDL_VIDEODRIVER "wayland"
+  CLUTTER_BACKEND "wayland"
+  NIXOS_OZONE_WL "1"
+}
+
+binds {
+  Mod+Space hotkey-overlay-title="App Launcher" {
+    spawn "rofi" "-show" "drun" "-run-command" "runapp {cmd}"
+  }
+
+  Mod+Tab hotkey-overlay-title="App Übersicht" {
+    spawn "rofi" "-show"
+  }
+
+  Mod+Return hotkey-overlay-title="Terminal" {
+    spawn "runapp" "alacritty"
+  }
+
+  Mod+Alt+BackSpace hotkey-overlay-title="Abmelden" {
+    quit
+  }
+}
+
+input {
+  disable-power-key-handling
+
+  keyboard {
+    xkb {
+      layout "de,math"
+      variant "mac,lvl5"
+      options "power:caps,power:alt3"
+      rules "evdev"
+    }
+  }
+
+  keyboard "ERGO K860 Keyboard" {
+    xkb {
+      layout "de,math"
+      variant "mac,lvl5"
+      options "power:caps,power:alt3,mac:k860"
+      rules "evdev"
+    }
+  }
+
+  touchpad {
+    tap
+    natural-scroll
+    scroll-factor 0.8
+    scroll-method "two-finger"
+    click-method "clickfinger"
+    dwt
+  }
+}
