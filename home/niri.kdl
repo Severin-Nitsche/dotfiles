@@ -7,6 +7,18 @@ environment {
 }
 
 binds {
+  Mod+1 {
+    maximize-column
+  }
+
+  Mod+2 {
+    fullscreen-window
+  }
+
+  Mod+3 {
+    toggle-window-floating
+  }
+
   Mod+Space hotkey-overlay-title="App Launcher" {
     spawn "rofi" "-show" "drun" "-run-command" "runapp {cmd}"
   }
