@@ -19,6 +19,22 @@ binds {
     toggle-window-floating
   }
 
+  Mod+L {
+    focus-column-right
+  }
+
+  Mod+H {
+    focus-column-left
+  }
+
+  Mod+J {
+    focus-workspace-down
+  }
+
+  Mod+K {
+    focus-workspace-up
+  }
+
   Mod+Space hotkey-overlay-title="App Launcher" {
     spawn "rofi" "-show" "drun" "-run-command" "runapp {cmd}"
   }
@@ -31,8 +47,16 @@ binds {
     spawn "runapp" "alacritty"
   }
 
-  Mod+Alt+BackSpace hotkey-overlay-title="Abmelden" {
+  Mod+Mod5+BackSpace hotkey-overlay-title="Abmelden" {
     quit
+  }
+
+  Mod+Shift+4 {
+    screenshot
+  }
+
+  Print {
+    screenshot-screen
   }
 }
 
