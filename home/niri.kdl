@@ -35,6 +35,10 @@ binds {
     focus-workspace-up
   }
 
+  Mod+Q {
+    close-window
+  }
+
   Mod+Space hotkey-overlay-title="App Launcher" {
     spawn "rofi" "-show" "drun" "-run-command" "runapp {cmd}"
   }
@@ -58,6 +62,15 @@ binds {
   Print {
     screenshot-screen
   }
+}
+
+output "eDP-1" {
+  focus-at-startup
+  position x=0 y=0
+}
+
+output "DP-5" {
+  position x=1463 y=0
 }
 
 input {
