@@ -23,6 +23,14 @@ binds {
     focus-column-right
   }
 
+  Mod+Shift+L {
+    focus-monitor-right
+  }
+
+  Mod+Shift+H {
+    focus-monitor-left
+  }
+
   Mod+H {
     focus-column-left
   }
