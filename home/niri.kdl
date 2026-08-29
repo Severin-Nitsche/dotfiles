@@ -81,6 +81,15 @@ output "DP-5" {
   position x=1463 y=0
 }
 
+cursor {
+  hide-when-typing
+  hide-after-inactive-ms 1500
+}
+
+hotkey-overlay {
+  skip-at-startup
+}
+
 input {
   disable-power-key-handling
 
