@@ -6,6 +6,8 @@ environment {
   NIXOS_OZONE_WL "1"
 }
 
+spawn-at-startup "quickshell"
+
 binds {
   Mod+1 {
     maximize-column
@@ -29,6 +31,14 @@ binds {
 
   Mod+Shift+H {
     focus-monitor-left
+  }
+
+  Mod+Mod5+L {
+    move-column-to-monitor-right
+  }
+
+  Mod+Mod5+H {
+    move-column-to-monitor-left
   }
 
   Mod+H {
