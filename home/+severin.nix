@@ -10,6 +10,7 @@
 
   imports = [
     ./bash.nix
+    ./direnv.nix
     ./impermanence.nix
     ./git.nix
     ./eza.nix

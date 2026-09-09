@@ -17,10 +17,12 @@ in {config, lib, ...}: {
         "spotify"
         "libreoffice"
         "Bitwarden"
+        "direnv"
       ]
       ++ prefixAll config.xdg.dataHome [
         "PrismLauncher"
         "Steam"
+        "direnv"
       ]
     );
     allowOther = true; 
