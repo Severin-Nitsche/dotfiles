@@ -8,6 +8,14 @@ environment {
 
 spawn-at-startup "quickshell"
 
+window-rule {
+  match app-id="org.gnome.Calculator"
+  open-floating true
+  open-focused true
+  baba-is-float true
+  max-height 50
+}
+
 binds {
   Mod+1 {
     maximize-column
@@ -67,6 +75,10 @@ binds {
 
   Mod+Return hotkey-overlay-title="Terminal" {
     spawn "runapp" "alacritty"
+  }
+
+  XF86Calculator {
+    spawn "runapp" "gnome-calculator"
   }
 
   Mod+Mod5+BackSpace hotkey-overlay-title="Abmelden" {
