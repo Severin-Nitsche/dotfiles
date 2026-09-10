@@ -4,6 +4,7 @@ lib: {
     vpn-rbw = prev.callPackage ../derivs/vpn-rbw/vpn-rbw.nix {};
     hot-reset = prev.callPackage ../derivs/hot-reset/hot-reset.nix {};
     quit = prev.callPackage ../derivs/quit/quit.nix {};
+    wfetch = prev.callPackage ../derivs/wfetch/wfetch.nix {};
   };
 
   modifications = final: prev: { # Modified Packages

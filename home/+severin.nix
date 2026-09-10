@@ -9,6 +9,7 @@
   # Desktopwechseln
 
   imports = [
+    ./awww.nix
     ./bash.nix
     ./direnv.nix
     ./impermanence.nix
