@@ -81,6 +81,22 @@ binds {
     spawn "runapp" "gnome-calculator"
   }
 
+  XF86KbdBrightnessDown {
+    spawn "brightnessctl" "set" "-c" "leds" "-d" ":white:kbd_backlight" "-e" "20%-"
+  }
+
+  XF86KbdBrightnessUp {
+    spawn "brightnessctl" "set" "-c" "leds" "-d" ":white:kbd_backlight" "-e" "+20%"
+  }
+
+  XF86MonBrightnessDown {
+    spawn "brightnessctl" "set" "-c" "backlight" "-d" "intel_backlight" "-e" "4%-"
+  }
+
+  XF86MonBrightnessUp {
+    spawn "brightnessctl" "set" "-c" "backlight" "-d" "intel_backlight" "-e" "+4%"
+  }
+
   Mod+Mod5+BackSpace hotkey-overlay-title="Abmelden" {
     quit
   }
