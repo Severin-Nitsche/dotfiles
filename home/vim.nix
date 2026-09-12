@@ -12,6 +12,7 @@
     programs.vim.settings.shiftwidth = 2;
     programs.vim.extraConfig = ''
       set textwidth=80
+      set nojoinspaces
 
       "https://kitsugo.com/guide/netrw-improvements/
       let g:netrw_banner = 0
