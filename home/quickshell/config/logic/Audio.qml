@@ -8,6 +8,8 @@ import Quickshell.Services.Pipewire
 import Quickshell.Hyprland
 import Quickshell.Widgets
 
+import Quickshell.Io
+
 import qs.state
 
 Singleton {
@@ -130,6 +132,41 @@ Singleton {
       )
     }
   }
+
+  IpcHandler {
+    target: "audio"
+
+    function deafen(): void {
+      defaultAction()
+      toggleDeaf(
+        Pipewire.defaultAudioSource,
+        Pipewire.defaultAudioSink,
+      )
+    }
+
+    function mute(): void {
+      defaultAction()
+      toggleMute(Pipewire.defaultAudioSource)
+    }
+
+    function volumeUp(): void {
+      defaultAction()
+      changeVolume(
+        Pipewire.defaultAudioSink,
+        GlobalState.audioStep,
+      )
+    }
+
+    function volumeDown(): void {
+      defaultAction()
+      changeVolume(
+        Pipewire.defaultAudioSink,
+        -GlobalState.audioStep,
+      )
+    }
+
+  }
+
 
   GlobalShortcut {
     name: "mute"

@@ -97,6 +97,30 @@ binds {
     spawn "brightnessctl" "set" "-c" "backlight" "-d" "intel_backlight" "-e" "+4%"
   }
 
+  XF86AudioRaiseVolume {
+    spawn "qs" "ipc" "call" "audio" "volumeUp"
+  }
+
+  XF86AudioLowerVolume {
+    spawn "qs" "ipc" "call" "audio" "volumeDown"
+  }
+
+  XF86AudioMute {
+    spawn "qs" "ipc" "call" "audio" "deafen"
+  }
+
+  XF86AudioPrev {
+    spawn "playerctl" "previous"
+  }
+
+  XF86AudioPlay {
+    spawn "playerctl" "play-pause"
+  }
+
+  XF86AudioNext {
+    spawn "playerctl" "next"
+  }
+
   Mod+Mod5+BackSpace hotkey-overlay-title="Abmelden" {
     quit
   }
