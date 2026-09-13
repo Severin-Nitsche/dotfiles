@@ -1,9 +1,9 @@
 { pkgs, ... }: {
   services.awww.enable = true;
 
-  systemd.user.services.wallpaper_fetch = {
-    Unit.Description = "Fetch a new wallpaper from source splash";
-    Unit.Requires = "wallpaper_fetch.timer";
+  systemd.user.services.wallpaper_randomizer = {
+    Unit.Description = "Select a new wallpaper";
+    Unit.Requires = "wallpaper_randomizer.timer";
     Unit.After = "awww.service";
 
     Service = {
@@ -15,8 +15,8 @@
     Install.WantedBy = [ "awww.service" ];
   };
 
-  systemd.user.timers.wallpaper_fetch = {
-    Unit.Description = "Timer for the wallpaper fetch service";
+  systemd.user.timers.wallpaper_randomizer = {
+    Unit.Description = "Timer for the wallpaper service";
 
     Timer.OnUnitActiveSec = "30min";
   };

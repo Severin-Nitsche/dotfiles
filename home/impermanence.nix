@@ -9,6 +9,7 @@ in {config, lib, ...}: {
         ".ssh"
         ".thunderbird"
         "Documents"
+        "Pictures"
         "dotfiles"
       ]
       ++ prefixAll config.xdg.configHome [
