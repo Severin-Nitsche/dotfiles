@@ -3,6 +3,8 @@
   imports = [
     ./rofi.nix
     ./alacritty.nix
+    ./quickshell/quickshell.nix
+    ./quit.nix
   ];
 
   options = {};

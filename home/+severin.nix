@@ -20,7 +20,7 @@
     ./niri.nix
     ./rbw.nix
     ./tmux.nix
-    ./hyprland.nix
+    # ./hyprland.nix
     ./vim.nix
   ];
   
