@@ -14,6 +14,7 @@
       splashBackground = "rgb(252, 247, 236)";
       appBadge = false;
     };
+    programs.vesktop.vencord.useSystem = true;
     programs.vesktop.vencord.settings = {
       autoUpdate = false;
       autoUpdateNotification = false;
