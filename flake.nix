@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
     # NixOS
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixos-hardware.url = "github:soopyc/nixos-hardware/apple-t2-updates"; # "github:NixOS/nixos-hardware";
     nixos-hardware.inputs.nixpkgs.follows = "nixpkgs";
     impermanence.url = "github:nix-community/impermanence";
     impermanence.inputs.home-manager.follows = "";
