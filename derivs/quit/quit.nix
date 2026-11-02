@@ -1,6 +1,6 @@
-{ writeShellApplication, coreutils, tmux, hyprland }:
+{ writeShellApplication, coreutils, tmux, quickshell }:
 writeShellApplication {
   name = "quit";
-  runtimeInputs = [ coreutils tmux hyprland ];
+  runtimeInputs = [ coreutils tmux quickshell ];
   text = (builtins.readFile ./quit.sh);
 }

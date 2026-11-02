@@ -6,6 +6,7 @@
 
     # NixOS
     nixos-hardware.url = "github:soopyc/nixos-hardware/apple-t2-updates"; # "github:NixOS/nixos-hardware";
+    # nixos-hardware.url = "github:NixOS/nixos-hardware";
     nixos-hardware.inputs.nixpkgs.follows = "nixpkgs";
     impermanence.url = "github:nix-community/impermanence";
     impermanence.inputs.home-manager.follows = "";
@@ -24,8 +25,8 @@
 
     lucide.url = "path:./modules/lucide";
 
-    sleep.url = "path:./modules/sleep";
-    sleep.inputs.nixpkgs.follows = "nixpkgs";
+    # sleep.url = "path:./modules/sleep";
+    # sleep.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { 
@@ -41,7 +42,6 @@
     quickshell,
     jvim,
     lucide,
-    sleep,
     ... 
   }@inputs: {
     nixosConfigurations."sevs-kekbook-pro" = nixpkgs.lib.nixosSystem {
@@ -49,10 +49,9 @@
       modules = [
         nixos-hardware.nixosModules.apple-t2
         impermanence.nixosModules.impermanence
-        sleep.nixosModules.t2sleep
         ./hosts/+kekbook.configuration.nix
         ./modules/brcm/brcm.nix
-        ./modules/touchpad/touchpad.nix
+        # ./modules/touchpad/touchpad.nix
         ./modules/persistShadowHack/persistShadowHack.nix
         ./modules/bootstrap-user-systemd/bootstrap-user-systemd.nix
         ./modules/custom-acpi/custom-acpi.nix
@@ -62,7 +61,6 @@
     homeConfigurations."severin" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
       modules = [
-        ./modules/hyprconf/hyprconf.nix
         ./modules/bootstrap-home-manager/bootstrap-home-manager.nix
         ./modules/colors/colors.nix
         "${home-impermanence}/home-manager.nix"
