@@ -1,6 +1,6 @@
 {config, ... }: with config.colors; {
   programs.rofi.enable = true;
-  programs.rofi.font = "Route 159 13";
+  programs.rofi.settings.font = "Route 159 13";
   programs.rofi.theme = with config.lib.formats.rasi; {
     "*" = {
       border-color = mkLiteral white;

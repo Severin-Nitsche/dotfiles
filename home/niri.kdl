@@ -16,6 +16,15 @@ window-rule {
   max-height 50
 }
 
+layer-rule {
+  match namespace="rofi";
+
+  background-effect {
+    xray false
+    blur true
+  }
+}
+
 binds {
   Mod+1 {
     maximize-column
