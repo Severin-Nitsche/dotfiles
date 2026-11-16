@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "dotfiles": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1778154635,
-        "narHash": "sha256-RWOUSu2XDwD+dVV8WBXnccbJaUZBOr3t6IEkty+AGBc=",
-        "ref": "refs/heads/master",
-        "rev": "a0846fef59ae72c4dcc3b872bd5c0cb3cff4e837",
-        "revCount": 38,
-        "type": "git",
-        "url": "ssh://git@github.com/TheodosiusVelco/Dotfiles.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/TheodosiusVelco/Dotfiles.git"
-      }
-    },
     "home-impermanence": {
       "locked": {
         "lastModified": 1737831083,
@@ -39,11 +23,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793193205,
-        "narHash": "sha256-X6xa6sGA7RnJQuZGbFMC+K+KToWAlBDCCjJXfTwEPsw=",
+        "lastModified": 1794715309,
+        "narHash": "sha256-awkBBs5ctFKgEYjpNGpi3t/VqF589n5EWfdinRb2gNI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "095fef2f265c3c0da4fe315efba8f8a04495ab34",
+        "rev": "a1293da7dd8e497e08d26173f97e2976b36a31ea",
         "type": "github"
       },
       "original": {
@@ -71,20 +55,6 @@
         "type": "github"
       }
     },
-    "jvim": {
-      "inputs": {
-        "dotfiles": "dotfiles"
-      },
-      "locked": {
-        "path": "./modules/jvim",
-        "type": "path"
-      },
-      "original": {
-        "path": "./modules/jvim",
-        "type": "path"
-      },
-      "parent": []
-    },
     "lucide": {
       "inputs": {
         "lucide": "lucide_2"
@@ -102,11 +72,11 @@
     "lucide_2": {
       "flake": false,
       "locked": {
-        "lastModified": 1793373608,
-        "narHash": "sha256-Oj8zduuT2IMMpzpdrlz8ti6G4DhceW8XlgFVRmuMAZk=",
+        "lastModified": 1794833260,
+        "narHash": "sha256-NcIzg0/PGUWFxr0LrJebfot5D4LJXKKcLHX+u+fetKw=",
         "owner": "lucide-icons",
         "repo": "lucide",
-        "rev": "a630cec77eac6568b989e87e4947a8bfe45caacd",
+        "rev": "dbd4b9e5d3c6a1e24927949cf5e0eef06b08fe67",
         "type": "github"
       },
       "original": {
@@ -138,11 +108,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1793341285,
-        "narHash": "sha256-Y1CiZ4SoBUjLQyQM/pY+rS2dXD3CHLPstF0lmOc73D4=",
+        "lastModified": 1794537146,
+        "narHash": "sha256-Wpz/7x/YWnDIBu7yj6ixe8j6fIMsidd9Y+o1PqPF3iM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "1c89083e451e891152365b799595cf7790a43325",
+        "rev": "d5cc6833999746cffdfe0598f7bc801a57b887a9",
         "type": "github"
       },
       "original": {
@@ -177,7 +147,6 @@
         "home-impermanence": "home-impermanence",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
-        "jvim": "jvim",
         "lucide": "lucide",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",

@@ -21,8 +21,6 @@
     quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
     quickshell.inputs.nixpkgs.follows = "nixpkgs";
 
-    jvim.url = "path:./modules/jvim";
-
     lucide.url = "path:./modules/lucide";
 
     # sleep.url = "path:./modules/sleep";
@@ -40,7 +38,6 @@
     home-impermanence,
     # Miscellaneos
     quickshell,
-    jvim,
     lucide,
     ... 
   }@inputs: {
