@@ -168,19 +168,19 @@ input {
     xkb {
       layout "de,math"
       variant "mac,lvl5"
-      options "power:caps,power:alt3"
-      rules "evdev"
-    }
-  }
-
-  keyboard "ERGO K860 Keyboard" {
-    xkb {
-      layout "de,math"
-      variant "mac,lvl5"
       options "power:caps,power:alt3,mac:k860"
       rules "evdev"
     }
   }
+
+  // keyboard "ERGO K860 Keyboard" {
+  //   xkb {
+  //     layout "de,math"
+  //     variant "mac,lvl5"
+  //     options "power:caps,power:alt3,mac:k860"
+  //     rules "evdev"
+  //   }
+  // }
 
   touchpad {
     tap
