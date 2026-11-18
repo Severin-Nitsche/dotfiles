@@ -47,9 +47,10 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
-  # Enable sddm as display/login manager
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+  # Enable gdm as display/login manager
+  # services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.gdm.enable = true;
 
   # Enable sound.
   services.pipewire = {
@@ -73,6 +74,9 @@
       home-manager
     ];
   };
+
+  # Enable systemd-homed
+  services.homed.enable = true;
 
   # Packages installed in system profile.
   environment.systemPackages = with pkgs; [
