@@ -20,6 +20,7 @@
       experimental-features = [
         "nix-command"
         "flakes"
+        "auto-allocate-uids"
       ];
       substituters = [
         "https://nix-community.cachix.org"
